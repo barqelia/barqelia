@@ -2,494 +2,84 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>BARQÉLIA — La Liga 2026/27</title>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>BARQÉLIA — La Liga</title>
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-:root{
---red:#d90429;
---dark:#a0001c;
---light:#fff1f3;
---bg:#f5f6f8;
---card:#fff;
---text:#111318;
---muted:#737780;
---border:#e4e6ea;
-}
-html{scroll-behavior:smooth}
-body{
-font-family:Inter,Arial,Helvetica,sans-serif;
-background:var(--bg);
-color:var(--text);
-}
-header{
-position:sticky;
-top:0;
-z-index:100;
-background:rgba(255,255,255,.94);
-backdrop-filter:blur(14px);
-border-bottom:1px solid var(--border);
-}
-.header{
-max-width:1200px;
-margin:auto;
-padding:14px 18px;
-display:flex;
-align-items:center;
-justify-content:space-between;
-gap:20px;
-}
-.logo{
-font-size:25px;
-font-weight:950;
-letter-spacing:-2px;
-white-space:nowrap;
-}
-.logo span{color:var(--red)}
-.logo small{
-display:block;
-font-size:7px;
-letter-spacing:2px;
-color:var(--muted);
-margin-top:2px;
-}
-nav{
-display:flex;
-gap:5px;
-overflow-x:auto;
-}
-nav button{
-border:0;
-background:none;
-padding:9px 11px;
-border-radius:9px;
-font-size:11px;
-font-weight:800;
-color:#666;
-white-space:nowrap;
-cursor:pointer;
-}
-nav button:hover{
-background:var(--light);
-color:var(--red);
-}
-main{
-max-width:1200px;
-margin:auto;
-padding:20px 18px 70px;
-}
-section{
-scroll-margin-top:90px;
-}
-.hero{
-min-height:440px;
-border-radius:28px;
-padding:45px;
-display:flex;
-align-items:flex-end;
-position:relative;
-overflow:hidden;
-color:white;
-background:linear-gradient(125deg,#870018,#d90429 60%,#ef233c);
-}
-.hero:after{
-content:"LA LIGA";
-position:absolute;
-right:-15px;
-top:25px;
-font-size:90px;
-font-weight:950;
-letter-spacing:-7px;
-color:rgba(255,255,255,.07);
-}
-.hero:before{
-content:"";
-position:absolute;
-width:400px;
-height:400px;
-border:70px solid rgba(255,255,255,.06);
-border-radius:50%;
-right:-160px;
-bottom:-180px;
-}
-.hero-content{
-position:relative;
-z-index:2;
-max-width:700px;
-}
-.eyebrow{
-font-size:11px;
-font-weight:900;
-letter-spacing:2px;
-}
-.hero h1{
-font-size:clamp(45px,7vw,78px);
-line-height:.93;
-letter-spacing:-4px;
-margin:15px 0;
-}
-.hero p{
-font-size:14px;
-line-height:1.7;
-color:#ffecef;
-max-width:600px;
-}
-.buttons{
-display:flex;
-gap:10px;
-margin-top:25px;
-}
-.btn{
-border:0;
-border-radius:10px;
-padding:12px 18px;
-font-size:12px;
-font-weight:900;
-cursor:pointer;
-}
-.primary{
-background:white;
-color:var(--red);
-}
-.secondary{
-background:#95001c;
-color:white;
-}
-.title{
-margin:50px 0 18px;
-}
-.title h2{
-font-size:30px;
-letter-spacing:-1.5px;
-}
-.title p{
-font-size:12px;
-color:var(--muted);
-margin-top:5px;
-}
-.stats{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:12px;
-}
-.stat{
-background:white;
-border:1px solid var(--border);
-border-radius:17px;
-padding:22px;
-}
-.stat b{
-display:block;
-font-size:31px;
-color:var(--red);
-}
-.stat span{
-font-size:11px;
-color:var(--muted);
-}
-.search{
-width:100%;
-border:1px solid var(--border);
-background:white;
-padding:14px 15px;
-border-radius:12px;
-outline:none;
-margin-bottom:15px;
-font-size:13px;
-}
-.search:focus{
-border-color:var(--red);
-box-shadow:0 0 0 3px rgba(217,4,41,.08);
-}
-.filters{
-display:flex;
-gap:8px;
-overflow:auto;
-margin-bottom:15px;
-}
-.filter{
-border:1px solid var(--border);
-background:white;
-color:#777;
-border-radius:50px;
-padding:9px 14px;
-font-size:10px;
-font-weight:900;
-white-space:nowrap;
-cursor:pointer;
-}
-.filter.active{
-background:var(--red);
-border-color:var(--red);
-color:white;
-}
-.grid{
-display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:10px;
-}
-.card{
-background:white;
-border:1px solid var(--border);
-border-radius:16px;
-}
-.club{
-padding:17px;
-cursor:pointer;
-transition:.2s;
-}
-.club:hover{
-transform:translateY(-3px);
-border-color:#ffb8c2;
-}
-.club-top{
-display:flex;
-align-items:center;
-gap:12px;
-}
-.crest{
-width:52px;
-height:52px;
-border-radius:14px;
-display:flex;
-align-items:center;
-justify-content:center;
-background:var(--light);
-color:var(--red);
-font-size:14px;
-font-weight:950;
-}
-.club h3{
-font-size:12px;
-line-height:1.3;
-}
-.club p{
-font-size:10px;
-color:var(--muted);
-margin-top:5px;
-}
-.players{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:10px;
-}
-.player{
-padding:15px;
-display:flex;
-gap:13px;
-align-items:center;
-transition:.2s;
-}
-.player:hover{
-transform:translateY(-2px);
-box-shadow:0 7px 25px rgba(0,0,0,.06);
-}
-.player-photo{
-width:65px;
-height:65px;
-border-radius:16px;
-object-fit:cover;
-background:var(--light);
-flex:none;
-}
-.avatar{
-width:65px;
-height:65px;
-border-radius:16px;
-background:linear-gradient(135deg,#d90429,#a0001c);
-display:flex;
-align-items:center;
-justify-content:center;
-color:white;
-font-size:18px;
-font-weight:950;
-flex:none;
-}
-.player-name{
-font-size:13px;
-font-weight:900;
-}
-.player-club{
-font-size:10px;
-color:var(--muted);
-margin-top:4px;
-}
-.position{
-display:inline-block;
-margin-top:7px;
-padding:4px 7px;
-border-radius:6px;
-background:var(--light);
-color:var(--red);
-font-size:9px;
-font-weight:900;
-}
-.info{
-font-size:10px;
-color:#888;
-margin-top:5px;
-line-height:1.5;
-}
-.matches{
-display:grid;
-grid-template-columns:repeat(2,1fr);
-gap:10px;
-}
-.match{
-padding:18px;
-}
-.match-date{
-font-size:10px;
-color:var(--muted);
-font-weight:800;
-display:flex;
-justify-content:space-between;
-}
-.match-teams{
-display:grid;
-grid-template-columns:1fr auto 1fr;
-align-items:center;
-gap:10px;
-margin-top:18px;
-text-align:center;
-}
-.team{
-font-size:11px;
-font-weight:900;
-}
-.team-badge{
-width:45px;
-height:45px;
-border-radius:12px;
-background:var(--light);
-color:var(--red);
-display:flex;
-align-items:center;
-justify-content:center;
-margin:0 auto 7px;
-font-size:11px;
-font-weight:950;
-}
-.score{
-font-size:21px;
-font-weight:950;
-}
-.table-wrap{
-overflow:auto;
-background:white;
-border:1px solid var(--border);
-border-radius:17px;
-}
-table{
-width:100%;
-border-collapse:collapse;
-min-width:650px;
-}
-th{
-padding:14px;
-font-size:10px;
-color:#888;
-text-transform:uppercase;
-}
-td{
-padding:13px 14px;
-font-size:12px;
-border-top:1px solid var(--border);
-text-align:center;
-}
-td:nth-child(2),
-th:nth-child(2){
-text-align:left;
-}
-.table-team{
-display:flex;
-align-items:center;
-gap:9px;
-font-weight:900;
-}
-.table-badge{
-width:28px;
-height:28px;
-border-radius:7px;
-background:var(--light);
-display:flex;
-align-items:center;
-justify-content:center;
-color:var(--red);
-font-size:8px;
-font-weight:900;
-}
-.points{
-color:var(--red);
-font-weight:950;
-}
-.loading{
-padding:30px;
-background:white;
-border:1px solid var(--border);
-border-radius:16px;
-text-align:center;
-color:var(--muted);
-grid-column:1/-1;
-}
-.empty{
-padding:30px;
-background:white;
-border-radius:16px;
-text-align:center;
-color:var(--muted);
-grid-column:1/-1;
-}
-footer{
-background:white;
-border-top:1px solid var(--border);
-padding:35px 18px;
-text-align:center;
-font-size:10px;
-color:#888;
-}
-footer strong{
-color:var(--red);
-}
-@media(max-width:900px){
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#f7f7f7;color:#151515}
+header{background:#c8102e;color:white;padding:18px 5%;position:sticky;top:0;z-index:10}
+.nav{max-width:1200px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.logo{font-size:25px;font-weight:900;letter-spacing:-1px}
+.logo span{color:#ffd9df}
+nav{display:flex;gap:7px;overflow:auto}
+nav button{border:0;background:transparent;color:white;padding:9px 12px;border-radius:8px;font-weight:bold;cursor:pointer;white-space:nowrap}
+nav button:hover{background:rgba(255,255,255,.18)}
+main{max-width:1200px;margin:auto;padding:20px}
+.hero{background:linear-gradient(135deg,#8d001d,#e51b3e);color:white;border-radius:25px;padding:50px 35px;margin-bottom:25px}
+.hero small{font-weight:bold;letter-spacing:2px}
+.hero h1{font-size:clamp(42px,7vw,75px);line-height:.9;margin:15px 0}
+.hero p{max-width:650px;line-height:1.6;color:#ffe8ec}
+.btn{border:0;padding:12px 17px;border-radius:9px;background:white;color:#c8102e;font-weight:bold;cursor:pointer}
+section{margin-top:45px;scroll-margin-top:100px}
+h2{font-size:30px;margin-bottom:5px}
+.sub{color:#777;font-size:13px;margin-bottom:18px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.stat,.card{background:white;border:1px solid #e5e5e5;border-radius:15px;padding:20px}
+.stat b{font-size:30px;color:#c8102e;display:block}
+.search{width:100%;padding:14px;border:1px solid #ddd;border-radius:10px;font-size:14px;margin-bottom:12px;outline:none}
+.search:focus{border-color:#c8102e}
+.filters{display:flex;gap:7px;overflow:auto;margin-bottom:15px}
+.filter{border:1px solid #ddd;background:white;border-radius:30px;padding:9px 14px;font-weight:bold;cursor:pointer;white-space:nowrap}
+.filter.active{background:#c8102e;color:white;border-color:#c8102e}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.club{cursor:pointer;transition:.15s}
+.club:hover{transform:translateY(-3px);border-color:#e51b3e}
+.crest{width:52px;height:52px;border-radius:12px;background:#fff0f2;color:#c8102e;display:flex;align-items:center;justify-content:center;font-weight:900;margin-bottom:12px}
+.club h3{margin:0;font-size:14px}
+.club p{font-size:11px;color:#777}
+.players{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.player{display:flex;gap:13px;align-items:flex-start}
+.avatar{width:62px;height:62px;border-radius:14px;background:#c8102e;color:white;display:flex;align-items:center;justify-content:center;font-weight:900;flex:none}
+.player h3{font-size:14px;margin:0}
+.player .clubname{font-size:11px;color:#777;margin-top:4px}
+.badge{display:inline-block;background:#fff0f2;color:#c8102e;padding:5px 7px;border-radius:6px;font-size:9px;font-weight:bold;margin-top:7px}
+.bio{font-size:10px;color:#777;line-height:1.45;margin-top:7px}
+.matches{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.match{padding:18px}
+.matchtop{display:flex;justify-content:space-between;color:#888;font-size:10px}
+.teams{display:grid;grid-template-columns:1fr auto 1fr;text-align:center;align-items:center;margin-top:18px;gap:10px}
+.team{font-weight:bold;font-size:11px}
+.teamlogo{width:42px;height:42px;border-radius:10px;background:#fff0f2;color:#c8102e;display:flex;align-items:center;justify-content:center;margin:auto auto 7px;font-size:9px;font-weight:900}
+.score{font-size:20px;font-weight:900}
+.tablebox{background:white;border:1px solid #ddd;border-radius:15px;overflow:auto}
+table{width:100%;border-collapse:collapse;min-width:650px}
+th,td{padding:13px;text-align:center;border-bottom:1px solid #eee;font-size:12px}
+th{color:#777;font-size:10px}
+td:nth-child(2),th:nth-child(2){text-align:left}
+.teamcell{font-weight:bold}
+.points{color:#c8102e;font-weight:900}
+.empty{background:white;border:1px solid #ddd;border-radius:15px;padding:30px;text-align:center;color:#777;grid-column:1/-1}
+footer{text-align:center;padding:40px 20px;color:#888;font-size:11px;margin-top:50px;border-top:1px solid #ddd}
+footer b{color:#c8102e}
+@media(max-width:850px){
 .grid{grid-template-columns:repeat(2,1fr)}
 .players{grid-template-columns:repeat(2,1fr)}
 }
 @media(max-width:600px){
-.header{
-padding:12px;
-}
-nav{
-max-width:65%;
-}
-main{
-padding:14px 12px 50px;
-}
-.hero{
-min-height:450px;
-padding:28px;
-}
-.hero h1{
-letter-spacing:-2.5px;
-}
-.stats{
-grid-template-columns:1fr;
-}
-.grid,
-.players,
-.matches{
-grid-template-columns:1fr;
-}
+header{padding:13px}
+.nav{display:block}
+nav{margin-top:10px}
+main{padding:12px}
+.hero{padding:35px 25px}
+.stats{grid-template-columns:1fr}
+.grid,.players,.matches{grid-template-columns:1fr}
 }
 </style>
 </head>
 <body>
 <header>
-<div class="header">
-<div class="logo">
-BARQÉ<span>LIA</span>
-<small>LA LIGA FOOTBALL</small>
-</div>
+<div class="nav">
+<div class="logo">BARQÉ<span>LIA</span></div>
 <nav>
 <button onclick="go('home')">Home</button>
 <button onclick="go('matches')">Matches</button>
@@ -502,71 +92,40 @@ BARQÉ<span>LIA</span>
 <main>
 <section id="home">
 <div class="hero">
-<div class="hero-content">
-<div class="eyebrow">
-LALIGA EA SPORTS • 2026/27
-</div>
-<h1>
-All of La Liga.<br>
-One place.
-</h1>
+<small>LALIGA • FOOTBALL</small>
+<h1>BARQÉLIA</h1>
 <p>
-BARQÉLIA is an independent football project bringing La Liga clubs, players, matches and standings together in one clean experience.
+Your independent La Liga football hub. Explore clubs, players, matches and the league table in one place.
 </p>
-<div class="buttons">
-<button class="btn primary" onclick="go('players')">
-Search Players
-</button>
-<button class="btn secondary" onclick="go('clubs')">
-Explore Clubs
-</button>
-</div>
-</div>
-</div>
-<div class="title">
-<h2>La Liga 2026/27</h2>
-<p>The Spanish top flight in one place.</p>
+<button class="btn" onclick="go('players')">Search Players</button>
 </div>
 <div class="stats">
-<div class="stat">
-<b>20</b>
-<span>Clubs</span>
-</div>
-<div class="stat">
-<b>380</b>
-<span>League Matches</span>
-</div>
-<div class="stat">
-<b>38</b>
-<span>Matchdays</span>
-</div>
+<div class="stat"><b>20</b>La Liga clubs</div>
+<div class="stat"><b>380</b>League matches</div>
+<div class="stat"><b>1</b>Football hub</div>
 </div>
 </section>
 <section id="matches">
-<div class="title">
 <h2>Matches</h2>
-<p>Opening La Liga fixtures.</p>
-</div>
-<div id="matchesBox" class="matches"></div>
+<div class="sub">La Liga fixtures</div>
+<div class="matches" id="matches"></div>
 </section>
 <section id="table">
-<div class="title">
 <h2>League Table</h2>
-<p>2026/27 starting table.</p>
-</div>
-<div class="table-wrap">
+<div class="sub">Current standings</div>
+<div class="tablebox">
 <table>
 <thead>
 <tr>
-<th>Pos</th>
-<th>Team</th>
+<th>#</th>
+<th>Club</th>
 <th>P</th>
 <th>W</th>
 <th>D</th>
 <th>L</th>
 <th>GF</th>
 <th>GA</th>
-<th>Pts</th>
+<th>PTS</th>
 </tr>
 </thead>
 <tbody id="tableBody"></tbody>
@@ -574,514 +133,250 @@ Explore Clubs
 </div>
 </section>
 <section id="clubs">
-<div class="title">
 <h2>Clubs</h2>
-<p>All 20 La Liga teams.</p>
-</div>
-
-<input
-id=“clubSearch”
-class=“search”
-placeholder=“Search club…”
-oninput=“renderClubs()”
-
-<div id="clubsBox" class="grid"></div>
+<div class="sub">All 20 La Liga clubs</div>
+<input class="search" id="clubSearch" placeholder="Search clubs..." oninput="renderClubs()">
+<div class="grid" id="clubsBox"></div>
 </section>
 <section id="players">
-<div class="title">
 <h2>Player Search</h2>
-<p>Search by player name or club.</p>
-</div>
-
-<input
-id=“playerSearch”
-class=“search”
-placeholder=“Try: Lamine Yamal, Barcelona, Mbappé…”
-oninput=“renderPlayers()”
-
+<div class="sub">Search by player, club or country</div>
+<input class="search" id="playerSearch" placeholder="Example: Yamal, Barcelona, Spain..." oninput="renderPlayers()">
 <div class="filters">
-<button class="filter active" onclick="setPosition('ALL',this)">
-All
-</button>
-<button class="filter" onclick="setPosition('Goalkeeper',this)">
-Goalkeepers
-</button>
-<button class="filter" onclick="setPosition('Defender',this)">
-Defenders
-</button>
-<button class="filter" onclick="setPosition('Midfielder',this)">
-Midfielders
-</button>
-<button class="filter" onclick="setPosition('Forward',this)">
-Forwards
-</button>
+<button class="filter active" onclick="setPosition('All',this)">All</button>
+<button class="filter" onclick="setPosition('Goalkeeper',this)">Goalkeepers</button>
+<button class="filter" onclick="setPosition('Defender',this)">Defenders</button>
+<button class="filter" onclick="setPosition('Midfielder',this)">Midfielders</button>
+<button class="filter" onclick="setPosition('Forward',this)">Forwards</button>
 </div>
-<div id="playersBox" class="players"></div>
+<div class="players" id="playersBox"></div>
 </section>
 </main>
 <footer>
-
-BARQÉLIA © 2026
-
-Created by musa23
-
+BARQÉLIA © 2026<br><br>
+Created by <b>musa23</b>
 </footer>
 <script>
-/* =========================
-   CLUB DATABASE
-========================= */
 const clubs=[
-["Athletic Club","ATH"],
-["Atlético de Madrid","ATM"],
-["CA Osasuna","OSA"],
-["Celta","CEL"],
-["Deportivo Alavés","ALA"],
-["Elche CF","ELC"],
-["FC Barcelona","BAR"],
-["Getafe CF","GET"],
-["Levante UD","LEV"],
-["Málaga CF","MGA"],
-["R. Racing Club","RAC"],
-["Rayo Vallecano","RAY"],
-["RC Deportivo","RCD"],
-["RCD Espanyol","ESP"],
-["Real Betis","BET"],
-["Real Madrid","RMA"],
-["Real Sociedad","RSO"],
-["Sevilla FC","SEV"],
-["Valencia CF","VAL"],
-["Villarreal CF","VIL"]
-].map((c,i)=>({
-id:i+1,
-name:c[0],
-short:c[1]
-}));
-/* =========================
-   PLAYER DATABASE
-========================= */
+"Athletic Club",
+"Atlético de Madrid",
+"CA Osasuna",
+"Celta",
+"Deportivo Alavés",
+"Elche CF",
+"FC Barcelona",
+"Getafe CF",
+"Levante UD",
+"Málaga CF",
+"R. Racing Club",
+"Rayo Vallecano",
+"RC Deportivo",
+"RCD Espanyol",
+"Real Betis",
+"Real Madrid",
+"Real Sociedad",
+"Sevilla FC",
+"Valencia CF",
+"Villarreal CF"
+];
+const codes={
+"Athletic Club":"ATH",
+"Atlético de Madrid":"ATM",
+"CA Osasuna":"OSA",
+"Celta":"CEL",
+"Deportivo Alavés":"ALA",
+"Elche CF":"ELC",
+"FC Barcelona":"BAR",
+"Getafe CF":"GET",
+"Levante UD":"LEV",
+"Málaga CF":"MGA",
+"R. Racing Club":"RAC",
+"Rayo Vallecano":"RAY",
+"RC Deportivo":"RCD",
+"RCD Espanyol":"ESP",
+"Real Betis":"BET",
+"Real Madrid":"RMA",
+"Real Sociedad":"RSO",
+"Sevilla FC":"SEV",
+"Valencia CF":"VAL",
+"Villarreal CF":"VIL"
+};
 const players=[
-/* BARCELONA */
-["Lamine Yamal","FC Barcelona","Forward","Spain","#10","Young attacking winger known for creativity, dribbling and chance creation."],
-["Robert Lewandowski","FC Barcelona","Forward","Poland","#9","Experienced striker and prolific goalscorer."],
-["Raphinha","FC Barcelona","Forward","Brazil","#11","Dynamic attacker with pace, pressing and finishing ability."],
-["Ferran Torres","FC Barcelona","Forward","Spain","#7","Versatile forward capable of playing across the attack."],
-["Pedri","FC Barcelona","Midfielder","Spain","#8","Creative midfielder known for passing, control and vision."],
-["Frenkie de Jong","FC Barcelona","Midfielder","Netherlands","#21","Technical midfielder with excellent ball progression."],
-["Dani Olmo","FC Barcelona","Midfielder","Spain","#20","Attacking midfielder with creativity and movement."],
-["Gavi","FC Barcelona","Midfielder","Spain","#6","Energetic midfielder known for intensity and pressing."],
-["Marc Casadó","FC Barcelona","Midfielder","Spain","#17","Defensive-minded midfielder with strong positioning."],
-["Pau Cubarsí","FC Barcelona","Defender","Spain","#5","Young centre-back with composure and excellent passing."],
-["Ronald Araújo","FC Barcelona","Defender","Uruguay","#4","Powerful centre-back and strong one-on-one defender."],
-["Jules Koundé","FC Barcelona","Defender","France","#23","Fast and versatile defender."],
-["Alejandro Balde","FC Barcelona","Defender","Spain","#3","Explosive left-back with attacking pace."],
-["Eric García","FC Barcelona","Defender","Spain","#24","Technically gifted defender."],
-["Joan García","FC Barcelona","Goalkeeper","Spain","#13","Goalkeeper with strong reflexes and distribution."],
-/* REAL MADRID */
-["Kylian Mbappé","Real Madrid","Forward","France","#9","Elite forward renowned for speed, movement and finishing."],
-["Vinícius Júnior","Real Madrid","Forward","Brazil","#7","Explosive winger with exceptional dribbling and pace."],
-["Rodrygo","Real Madrid","Forward","Brazil","#11","Technical attacker comfortable on either wing."],
-["Jude Bellingham","Real Madrid","Midfielder","England","#5","Complete midfielder with physicality, creativity and goals."],
-["Federico Valverde","Real Madrid","Midfielder","Uruguay","#8","Powerful box-to-box midfielder."],
-["Aurélien Tchouaméni","Real Madrid","Midfielder","France","#14","Defensive midfielder with strong tackling and positioning."],
-["Eduardo Camavinga","Real Madrid","Midfielder","France","#6","Dynamic midfielder with excellent ball carrying."],
-["Arda Güler","Real Madrid","Midfielder","Türkiye","#15","Creative young midfielder with excellent technique."],
-["Antonio Rüdiger","Real Madrid","Defender","Germany","#22","Aggressive and powerful centre-back."],
-["Éder Militão","Real Madrid","Defender","Brazil","#3","Fast and athletic central defender."],
-["Dani Carvajal","Real Madrid","Defender","Spain","#2","Experienced right-back."],
-["Thibaut Courtois","Real Madrid","Goalkeeper","Belgium","#1","World-class goalkeeper with outstanding reach."],
-/* ATLETICO */
-["Julián Alvarez","Atlético de Madrid","Forward","Argentina","#19","Mobile striker known for pressing, movement and finishing."],
-["Antoine Griezmann","Atlético de Madrid","Forward","France","#7","Experienced forward with elite technique and intelligence."],
-["Alexander Sørloth","Atlético de Madrid","Forward","Norway","#9","Tall striker with strong finishing and aerial ability."],
-["Giuliano Simeone","Atlético de Madrid","Forward","Argentina","#20","Energetic young forward."],
-["Rodrigo De Paul","Atlético de Madrid","Midfielder","Argentina","#5","Competitive midfielder with excellent passing."],
-["Koke","Atlético de Madrid","Midfielder","Spain","#6","Experienced playmaker and club captain."],
-["Marcos Llorente","Atlético de Madrid","Midfielder","Spain","#14","Versatile and powerful midfielder."],
-["Pablo Barrios","Atlético de Madrid","Midfielder","Spain","#8","Technical young midfielder."],
-["José María Giménez","Atlético de Madrid","Defender","Uruguay","#2","Strong central defender."],
-["Robin Le Normand","Atlético de Madrid","Defender","Spain","#24","Reliable centre-back."],
-["Nahuel Molina","Atlético de Madrid","Defender","Argentina","#16","Attacking right-back."],
-["Jan Oblak","Atlético de Madrid","Goalkeeper","Slovenia","#13","One of Europe's elite goalkeepers."],
-/* ATHLETIC */
-["Nico Williams","Athletic Club","Forward","Spain","#10","Explosive winger with pace and dribbling."],
-["Iñaki Williams","Athletic Club","Forward","Ghana","#9","Powerful forward with exceptional speed."],
-["Oihan Sancet","Athletic Club","Midfielder","Spain","#8","Attacking midfielder with strong finishing."],
-["Iñigo Ruiz de Galarreta","Athletic Club","Midfielder","Spain","#16","Experienced technical midfielder."],
-["Dani Vivian","Athletic Club","Defender","Spain","#3","Strong central defender."],
-["Yeray Álvarez","Athletic Club","Defender","Spain","#5","Experienced Athletic centre-back."],
-["Yuri Berchiche","Athletic Club","Defender","Spain","#12","Experienced left-back."],
-["Unai Simón","Athletic Club","Goalkeeper","Spain","#1","Spanish international goalkeeper."],
-/* BETIS */
-["Isco","Real Betis","Midfielder","Spain","#22","Creative midfielder with exceptional technique."],
-["Antony","Real Betis","Forward","Brazil","#7","Technical winger with left-footed creativity."],
-["Cédric Bakambu","Real Betis","Forward","DR Congo","#11","Experienced striker."],
-["Giovani Lo Celso","Real Betis","Midfielder","Argentina","#20","Creative attacking midfielder."],
-["Marc Bartra","Real Betis","Defender","Spain","#5","Experienced centre-back."],
-["Pau López","Real Betis","Goalkeeper","Spain","#13","Experienced goalkeeper."],
-/* SEVILLA */
-["Alexis Sánchez","Sevilla FC","Forward","Chile","#7","Experienced attacking player."],
-["Dodi Lukébakio","Sevilla FC","Forward","Belgium","#11","Fast attacking winger."],
-["Saúl Ñíguez","Sevilla FC","Midfielder","Spain","#17","Experienced box-to-box midfielder."],
-["Nemanja Gudelj","Sevilla FC","Midfielder","Serbia","#6","Versatile midfielder."],
-["Loïc Badé","Sevilla FC","Defender","France","#22","Powerful centre-back."],
-["Orjan Nyland","Sevilla FC","Goalkeeper","Norway","#13","Experienced goalkeeper."],
-/* VILLARREAL */
-["Gerard Moreno","Villarreal CF","Forward","Spain","#7","Experienced striker and club leader."],
-["Ayoze Pérez","Villarreal CF","Forward","Spain","#22","Technical forward with intelligent movement."],
-["Nicolas Pépé","Villarreal CF","Forward","Ivory Coast","#19","Quick and creative attacker."],
-["Dani Parejo","Villarreal CF","Midfielder","Spain","#10","Experienced playmaker."],
-["Santi Comesaña","Villarreal CF","Midfielder","Spain","#14","Hard-working midfielder."],
-["Rafa Marín","Villarreal CF","Defender","Spain","#5","Young Spanish centre-back."],
-["Pau Navarro","Villarreal CF","Defender","Spain","#26","Versatile defender."],
-["Júnior R.","Villarreal CF","Goalkeeper","Spain","#1","Goalkeeper."],
-/* VALENCIA */
-["Hugo Duro","Valencia CF","Forward","Spain","#9","Striker with strong movement and finishing."],
-["Diego López","Valencia CF","Forward","Spain","#16","Young attacking player."],
-["Javi Guerra","Valencia CF","Midfielder","Spain","#8","Promising technical midfielder."],
-["Pepelu","Valencia CF","Midfielder","Spain","#18","Midfielder with strong passing and set pieces."],
-["Mouctar Diakhaby","Valencia CF","Defender","Guinea","#4","Powerful central defender."],
-["Dimitri Foulquier","Valencia CF","Defender","Guadeloupe","#20","Experienced full-back."],
-["Giorgi Mamardashvili","Valencia CF","Goalkeeper","Georgia","#1","Tall goalkeeper with excellent reflexes."],
-/* REAL SOCIEDAD */
-["Mikel Oyarzabal","Real Sociedad","Forward","Spain","#10","Technical attacker and Spain international."],
-["Takefusa Kubo","Real Sociedad","Forward","Japan","#14","Creative winger with excellent dribbling."],
-["Ander Barrenetxea","Real Sociedad","Forward","Spain","#7","Quick and technical winger."],
-["Mikel Merino","Real Sociedad","Midfielder","Spain","#8","Strong all-round midfielder."],
-["Martín Zubimendi","Real Sociedad","Midfielder","Spain","#4","Intelligent defensive midfielder."],
-["Brais Méndez","Real Sociedad","Midfielder","Spain","#23","Creative midfielder."],
-["Álex Remiro","Real Sociedad","Goalkeeper","Spain","#1","Reliable goalkeeper."],
-/* OSASUNA */
-["Ante Budimir","CA Osasuna","Forward","Croatia","#17","Experienced target striker."],
-["Aimar Oroz","CA Osasuna","Midfielder","Spain","#10","Creative young midfielder."],
-["Jon Moncayola","CA Osasuna","Midfielder","Spain","#7","Hard-working midfielder."],
-["Sergio Herrera","CA Osasuna","Goalkeeper","Spain","#1","Experienced goalkeeper."],
-/* CELTA */
-["Iago Aspas","Celta","Forward","Spain","#10","Club legend and creative forward."],
-["Borja Iglesias","Celta","Forward","Spain","#7","Experienced striker."],
-["Óscar Mingueza","Celta","Defender","Spain","#3","Versatile defender."],
-["Fran Beltrán","Celta","Midfielder","Spain","#8","Technical midfielder."],
-["Iván Villar","Celta","Goalkeeper","Spain","#1","Goalkeeper."],
-/* ALAVES */
-["Kike García","Deportivo Alavés","Forward","Spain","#17","Experienced striker."],
-["Carlos Vicente","Deportivo Alavés","Forward","Spain","#7","Energetic attacker."],
-["Antonio Blanco","Deportivo Alavés","Midfielder","Spain","#8","Technical midfielder."],
-["Abdelkabir Abqar","Deportivo Alavés","Defender","Morocco","#5","Central defender."],
-["Jesús Owono","Deportivo Alavés","Goalkeeper","Equatorial Guinea","#1","Young goalkeeper."],
-/* GETAFE */
-["Borja Mayoral","Getafe CF","Forward","Spain","#9","Spanish striker."],
-["Mauro Arambarri","Getafe CF","Midfielder","Uruguay","#8","Competitive midfielder."],
-["Luis Milla","Getafe CF","Midfielder","Spain","#5","Technical midfielder."],
-["Djené","Getafe CF","Defender","Togo","#2","Experienced defender."],
-["David Soria","Getafe CF","Goalkeeper","Spain","#13","Experienced goalkeeper."],
-/* RAYO */
-["Álvaro García","Rayo Vallecano","Forward","Spain","#18","Fast winger."],
-["Isi Palazón","Rayo Vallecano","Forward","Spain","#7","Creative attacker."],
-["Unai López","Rayo Vallecano","Midfielder","Spain","#17","Technical midfielder."],
-["Florian Lejeune","Rayo Vallecano","Defender","France","#16","Experienced centre-back."],
-["Augusto Batalla","Rayo Vallecano","Goalkeeper","Argentina","#13","Goalkeeper."],
-/* ESPANYOL */
-["Javi Puado","RCD Espanyol","Forward","Spain","#7","Versatile attacking player."],
-["Roberto Fernández","RCD Espanyol","Forward","Spain","#9","Striker."],
-["Pol Lozano","RCD Espanyol","Midfielder","Spain","#10","Technical midfielder."],
-["Leandro Cabrera","RCD Espanyol","Defender","Uruguay","#6","Experienced centre-back."],
-["Joan García","RCD Espanyol","Goalkeeper","Spain","#1","Young goalkeeper."],
-/* LEVANTE */
-["José Luis Morales","Levante UD","Forward","Spain","#11","Experienced Levante attacker."],
-["Carlos Espí","Levante UD","Forward","Spain","#19","Young striker."],
-["Pablo Martínez","Levante UD","Midfielder","Spain","#10","Creative midfielder."],
-["Unai Elgezabal","Levante UD","Defender","Spain","#4","Defender."],
-["Andrés Fernández","Levante UD","Goalkeeper","Spain","#1","Experienced goalkeeper."],
-/* ELCHE */
-["Nico Fernández","Elche CF","Forward","Argentina","#10","Attacking player."],
-["Álvaro Núñez","Elche CF","Defender","Spain","#2","Defender."],
-["Nicolás Castro","Elche CF","Midfielder","Argentina","#21","Midfielder."],
-["Matías Dituro","Elche CF","Goalkeeper","Argentina","#1","Goalkeeper."],
-/* MALAGA */
-["Dioni","Málaga CF","Forward","Spain","#9","Experienced striker."],
-["David Larrubia","Málaga CF","Midfielder","Spain","#10","Creative young player."],
-["Nelson Monte","Málaga CF","Defender","Portugal","#20","Central defender."],
-["Alfonso Herrero","Málaga CF","Goalkeeper","Spain","#1","Goalkeeper."],
-/* RACING */
-["Andrés Martín","R. Racing Club","Forward","Spain","#11","Attacking player."],
-["Arana","R. Racing Club","Forward","Spain","#9","Striker."],
-["Aritz Aldasoro","R. Racing Club","Midfielder","Spain","#6","Midfielder."],
-["Juan Carlos Arana","R. Racing Club","Forward","Spain","#10","Forward."],
-["Jokin Ezkieta","R. Racing Club","Goalkeeper","Spain","#1","Goalkeeper."],
-/* DEPORTIVO */
-["Lucas Pérez","RC Deportivo","Forward","Spain","#7","Experienced forward."],
-["Yeremay Hernández","RC Deportivo","Forward","Spain","#10","Creative young winger."],
-["David Mella","RC Deportivo","Forward","Spain","#17","Young attacking player."],
-["Diego Villares","RC Deportivo","Midfielder","Spain","#8","Midfielder."],
-["Pablo Martínez","RC Deportivo","Defender","Spain","#5","Defender."],
-/* REAL MADRID EXTRA */
-["Brahim Díaz","Real Madrid","Forward","Morocco","#21","Technical attacking midfielder."],
-["Fran García","Real Madrid","Defender","Spain","#20","Fast left-back."],
-["Ferland Mendy","Real Madrid","Defender","France","#23","Powerful left-back."],
-["Lucas Vázquez","Real Madrid","Defender","Spain","#17","Experienced full-back."]
-].map((p,i)=>({
-id:i+1,
-name:p[0],
-club:p[1],
-position:p[2],
-country:p[3],
-number:p[4],
-bio:p[5]
-}));
-/* =========================
-   HELPERS
-========================= */
+["Lamine Yamal","FC Barcelona","Forward","Spain","10","Young Barcelona attacker known for creativity, dribbling and chance creation."],
+["Robert Lewandowski","FC Barcelona","Forward","Poland","9","Experienced striker and prolific goalscorer."],
+["Raphinha","FC Barcelona","Forward","Brazil","11","Dynamic winger with pace and finishing."],
+["Ferran Torres","FC Barcelona","Forward","Spain","7","Versatile attacking player."],
+["Pedri","FC Barcelona","Midfielder","Spain","8","Creative midfielder known for vision and passing."],
+["Frenkie de Jong","FC Barcelona","Midfielder","Netherlands","21","Technical midfielder and ball progresser."],
+["Dani Olmo","FC Barcelona","Midfielder","Spain","20","Creative attacking midfielder."],
+["Gavi","FC Barcelona","Midfielder","Spain","6","Energetic midfielder."],
+["Pau Cubarsí","FC Barcelona","Defender","Spain","5","Young centre-back with excellent passing."],
+["Ronald Araújo","FC Barcelona","Defender","Uruguay","4","Powerful central defender."],
+["Jules Koundé","FC Barcelona","Defender","France","23","Fast and versatile defender."],
+["Alejandro Balde","FC Barcelona","Defender","Spain","3","Explosive left-back."],
+["Joan García","FC Barcelona","Goalkeeper","Spain","13","Goalkeeper with strong reflexes and distribution."],
+["Kylian Mbappé","Real Madrid","Forward","France","9","Elite forward known for speed and finishing."],
+["Vinícius Júnior","Real Madrid","Forward","Brazil","7","Explosive winger and dribbler."],
+["Rodrygo","Real Madrid","Forward","Brazil","11","Technical attacker."],
+["Jude Bellingham","Real Madrid","Midfielder","England","5","Complete box-to-box midfielder."],
+["Federico Valverde","Real Madrid","Midfielder","Uruguay","8","Powerful all-round midfielder."],
+["Eduardo Camavinga","Real Madrid","Midfielder","France","6","Dynamic midfielder."],
+["Aurélien Tchouaméni","Real Madrid","Midfielder","France","14","Defensive midfielder."],
+["Arda Güler","Real Madrid","Midfielder","Türkiye","15","Creative young midfielder."],
+["Antonio Rüdiger","Real Madrid","Defender","Germany","22","Powerful centre-back."],
+["Éder Militão","Real Madrid","Defender","Brazil","3","Fast central defender."],
+["Thibaut Courtois","Real Madrid","Goalkeeper","Belgium","1","World-class goalkeeper."],
+["Julián Alvarez","Atlético de Madrid","Forward","Argentina","19","Mobile striker known for pressing and finishing."],
+["Antoine Griezmann","Atlético de Madrid","Forward","France","7","Experienced creative forward."],
+["Alexander Sørloth","Atlético de Madrid","Forward","Norway","9","Tall striker with strong aerial ability."],
+["Rodrigo De Paul","Atlético de Madrid","Midfielder","Argentina","5","Competitive midfielder and passer."],
+["Koke","Atlético de Madrid","Midfielder","Spain","6","Experienced playmaker."],
+["Marcos Llorente","Atlético de Madrid","Midfielder","Spain","14","Versatile powerful midfielder."],
+["José María Giménez","Atlético de Madrid","Defender","Uruguay","2","Strong central defender."],
+["Robin Le Normand","Atlético de Madrid","Defender","Spain","24","Reliable centre-back."],
+["Jan Oblak","Atlético de Madrid","Goalkeeper","Slovenia","13","Elite goalkeeper."],
+["Nico Williams","Athletic Club","Forward","Spain","10","Explosive winger."],
+["Iñaki Williams","Athletic Club","Forward","Ghana","9","Powerful and extremely fast forward."],
+["Oihan Sancet","Athletic Club","Midfielder","Spain","8","Attacking midfielder."],
+["Dani Vivian","Athletic Club","Defender","Spain","3","Strong centre-back."],
+["Unai Simón","Athletic Club","Goalkeeper","Spain","1","Spanish international goalkeeper."],
+["Isco","Real Betis","Midfielder","Spain","22","Highly technical creative midfielder."],
+["Antony","Real Betis","Forward","Brazil","7","Technical left-footed winger."],
+["Giovani Lo Celso","Real Betis","Midfielder","Argentina","20","Creative attacking midfielder."],
+["Iago Aspas","Celta","Forward","Spain","10","Experienced creative forward."],
+["Borja Iglesias","Celta","Forward","Spain","7","Experienced striker."],
+["Mikel Oyarzabal","Real Sociedad","Forward","Spain","10","Technical attacker."],
+["Takefusa Kubo","Real Sociedad","Forward","Japan","14","Creative winger."],
+["Martín Zubimendi","Real Sociedad","Midfielder","Spain","4","Intelligent defensive midfielder."],
+["Hugo Duro","Valencia CF","Forward","Spain","9","Spanish striker."],
+["Javi Guerra","Valencia CF","Midfielder","Spain","8","Promising technical midfielder."],
+["Giorgi Mamardashvili","Valencia CF","Goalkeeper","Georgia","1","Tall goalkeeper with excellent reflexes."],
+["Gerard Moreno","Villarreal CF","Forward","Spain","7","Experienced striker."],
+["Ayoze Pérez","Villarreal CF","Forward","Spain","22","Technical forward."],
+["Dani Parejo","Villarreal CF","Midfielder","Spain","10","Experienced playmaker."],
+["Ante Budimir","CA Osasuna","Forward","Croatia","17","Experienced target striker."],
+["Aimar Oroz","CA Osasuna","Midfielder","Spain","10","Creative midfielder."],
+["Álvaro García","Rayo Vallecano","Forward","Spain","18","Fast winger."],
+["Isi Palazón","Rayo Vallecano","Forward","Spain","7","Creative attacker."],
+["Borja Mayoral","Getafe CF","Forward","Spain","9","Spanish striker."],
+["Mauro Arambarri","Getafe CF","Midfielder","Uruguay","8","Competitive midfielder."],
+["Javi Puado","RCD Espanyol","Forward","Spain","7","Versatile attacker."],
+["Pol Lozano","RCD Espanyol","Midfielder","Spain","10","Technical midfielder."],
+["Kike García","Deportivo Alavés","Forward","Spain","17","Experienced striker."],
+["Antonio Blanco","Deportivo Alavés","Midfielder","Spain","8","Technical midfielder."],
+["José Luis Morales","Levante UD","Forward","Spain","11","Experienced attacking player."],
+["Pablo Martínez","Levante UD","Midfielder","Spain","10","Creative midfielder."],
+["Lucas Pérez","RC Deportivo","Forward","Spain","7","Experienced forward."],
+["Yeremay Hernández","RC Deportivo","Forward","Spain","10","Creative young winger."],
+["Dioni","Málaga CF","Forward","Spain","9","Experienced striker."],
+["David Larrubia","Málaga CF","Midfielder","Spain","10","Creative young midfielder."],
+["Andrés Martín","R. Racing Club","Forward","Spain","11","Attacking player."],
+["Aritz Aldasoro","R. Racing Club","Midfielder","Spain","6","Midfielder."],
+["Alexis Sánchez","Sevilla FC","Forward","Chile","7","Experienced attacking player."],
+["Dodi Lukébakio","Sevilla FC","Forward","Belgium","11","Fast attacking winger."],
+["Saúl Ñíguez","Sevilla FC","Midfielder","Spain","17","Experienced midfielder."]
+];
+let position="All";
 function go(id){
-document
-.getElementById(id)
-.scrollIntoView({
-behavior:"smooth"
-});
+document.getElementById(id).scrollIntoView({behavior:"smooth"});
 }
 function initials(name){
-return name
-.split(" ")
-.map(x=>x[0])
-.join("")
-.slice(0,2)
-.toUpperCase();
+return name.split(" ").map(x=>x[0]).join("").slice(0,2).toUpperCase();
 }
-function clubCode(name){
-const c=clubs.find(
-x=>x.name===name
-);
-return c?c.short:"";
-}
-function clubBadge(name){
-return `
-<div class="crest">
-${clubCode(name)}
-</div>
-`;
-}
-/* =========================
-   CLUBS
-========================= */
 function renderClubs(){
-const query=
-document
-.getElementById("clubSearch")
-.value
-.toLowerCase()
-.trim();
-const list=clubs.filter(
-club =>
-club.name
-.toLowerCase()
-.includes(query)
-);
-const box=
-document.getElementById("clubsBox");
-if(!list.length){
-box.innerHTML=
-`<div class="empty">
-No clubs found.
-</div>`;
-return;
-}
-box.innerHTML=list.map(club=>`
+const q=document.getElementById("clubSearch").value.toLowerCase();
+const result=clubs.filter(x=>x.toLowerCase().includes(q));
+document.getElementById("clubsBox").innerHTML=
+result.length
+?result.map(c=>`
 <div class="card club">
-<div class="club-top">
-<div class="crest">
-${club.short}
+<div class="crest">${codes[c]}</div>
+<h3>${c}</h3>
+<p>La Liga • 2026/27</p>
 </div>
-<div>
-<h3>
-${club.name}
-</h3>
-<p>
-LALIGA EA SPORTS • 2026/27
-</p>
-</div>
-</div>
-</div>
-`).join("");
+`).join("")
+:`<div class="empty">No clubs found.</div>`;
 }
-/* =========================
-   PLAYER SEARCH
-========================= */
-let activePosition="ALL";
-function setPosition(position,button){
-activePosition=position;
-document
-.querySelectorAll(".filter")
-.forEach(
-b=>b.classList.remove("active")
-);
+function setPosition(p,button){
+position=p;
+document.querySelectorAll(".filter")
+.forEach(x=>x.classList.remove("active"));
 button.classList.add("active");
 renderPlayers();
 }
 function renderPlayers(){
-const query=
-document
-.getElementById("playerSearch")
-.value
-.toLowerCase()
-.trim();
-const result=
-players.filter(player=>{
-const search=
-(
-player.name+
-" "+
-player.club+
-" "+
-player.country
-)
-.toLowerCase();
-const position=
-activePosition==="ALL"||
-player.position===activePosition;
-return search.includes(query)&&position;
+const q=document.getElementById("playerSearch").value.toLowerCase();
+const result=players.filter(p=>{
+const text=p.join(" ").toLowerCase();
+return text.includes(q)&&(position==="All"||p[2]===position);
 });
-const box=
-document.getElementById("playersBox");
-if(!result.length){
-box.innerHTML=
-`<div class="empty">
-No players found.<br>
-Try another name or club.
-</div>`;
-return;
-}
-box.innerHTML=
-result.map(player=>`
+document.getElementById("playersBox").innerHTML=
+result.length
+?result.map(p=>`
 <div class="card player">
-<div class="avatar">
-${initials(player.name)}
-</div>
-<div style="min-width:0">
-<div class="player-name">
-${player.name}
-</div>
-<div class="player-club">
-${clubBadge(player.club)}
-${player.club}
-</div>
-<span class="position">
-${player.position}
-</span>
-<div class="info">
-${player.country} · ${player.number}
-<br>
-${player.bio}
+<div class="avatar">${initials(p[0])}</div>
+<div>
+<h3>${p[0]}</h3>
+<div class="clubname">${p[1]}</div>
+<span class="badge">${p[2]}</span>
+<div class="bio">
+${p[3]} • #${p[4]}<br>
+${p[5]}
 </div>
 </div>
 </div>
-`).join("");
+`).join("")
+:`<div class="empty">No players found.</div>`;
 }
-/* =========================
-   MATCHES
-========================= */
 const matches=[
-["15 Aug 2026","Sevilla FC","Rayo Vallecano","— : —"],
-["15 Aug 2026","Athletic Club","Real Madrid","— : —"],
-["15 Aug 2026","Elche CF","FC Barcelona","— : —"],
-["16 Aug 2026","Real Betis","Deportivo Alavés","— : —"],
-["16 Aug 2026","Valencia CF","Getafe CF","— : —"],
-["16 Aug 2026","Celta","R. Racing Club","— : —"],
-["16 Aug 2026","RCD Espanyol","Atlético de Madrid","— : —"],
-["16 Aug 2026","Real Sociedad","CA Osasuna","— : —"],
-["16 Aug 2026","Villarreal CF","Levante UD","— : —"],
-["19 Aug 2026","Atlético de Madrid","Málaga CF","— : —"],
-["23 Aug 2026","Atlético de Madrid","Villarreal CF","— : —"],
-["29 Aug 2026","Sevilla FC","Atlético de Madrid","— : —"]
+["15 Aug 2026","Sevilla FC","Rayo Vallecano"],
+["15 Aug 2026","Athletic Club","Real Madrid"],
+["15 Aug 2026","Elche CF","FC Barcelona"],
+["16 Aug 2026","Real Betis","Deportivo Alavés"],
+["16 Aug 2026","Valencia CF","Getafe CF"],
+["16 Aug 2026","Celta","R. Racing Club"],
+["16 Aug 2026","RCD Espanyol","Atlético de Madrid"],
+["16 Aug 2026","Real Sociedad","CA Osasuna"],
+["16 Aug 2026","Villarreal CF","Levante UD"]
 ];
 function renderMatches(){
-document
-.getElementById("matchesBox")
-.innerHTML=
-matches.map(match=>`
+document.getElementById("matches").innerHTML=
+matches.map(m=>`
 <div class="card match">
-<div class="match-date">
-<span>
-${match[0]}
-</span>
-<span>
-LALIGA
-</span>
+<div class="matchtop">
+<span>${m[0]}</span>
+<span>LALIGA</span>
 </div>
-<div class="match-teams">
+<div class="teams">
 <div class="team">
-<div class="team-badge">
-${clubCode(match[1])}
+<div class="teamlogo">${codes[m[1]]||"FC"}</div>
+${m[1]}
 </div>
-${match[1]}
-</div>
-<div class="score">
-${match[3]}
-</div>
+<div class="score">— : —</div>
 <div class="team">
-<div class="team-badge">
-${clubCode(match[2])}
-</div>
-${match[2]}
+<div class="teamlogo">${codes[m[2]]||"FC"}</div>
+${m[2]}
 </div>
 </div>
 </div>
 `).join("");
 }
-/* =========================
-   TABLE
-========================= */
-const tableOrder=[
-"Sevilla FC",
-"Athletic Club",
-"FC Barcelona",
-"RCD Espanyol",
-"Real Madrid",
-"Atlético de Madrid",
-"RC Deportivo",
-"Real Betis",
-"Levante UD",
-"Real Sociedad",
-"R. Racing Club",
-"Valencia CF",
-"CA Osasuna",
-"Deportivo Alavés",
-"Elche CF",
-"Villarreal CF",
-"Celta",
-"Rayo Vallecano",
-"Getafe CF",
-"Málaga CF"
-];
 function renderTable(){
-document
-.getElementById("tableBody")
-.innerHTML=
-tableOrder.map((name,index)=>`
+document.getElementById("tableBody").innerHTML=
+clubs.map((c,i)=>`
 <tr>
-<td>
-${index+1}
-</td>
-<td>
-<div class="table-team">
-<div class="table-badge">
-${clubCode(name)}
-</div>
-${name}
-</div>
-</td>
+<td>${i+1}</td>
+<td class="teamcell">${codes[c]} &nbsp; ${c}</td>
 <td>0</td>
 <td>0</td>
 <td>0</td>
 <td>0</td>
 <td>0</td>
 <td>0</td>
-<td class="points">
-0
-</td>
+<td class="points">0</td>
 </tr>
 `).join("");
 }
-/* =========================
-   START
-========================= */
 renderClubs();
 renderPlayers();
 renderMatches();
