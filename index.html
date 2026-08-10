@@ -14,20 +14,17 @@
 <style>
 
 :root{
-    --bg:#05070d;
-    --surface:#0c111c;
-    --surface2:#111827;
-    --surface3:#172033;
+    --red:#d90429;
+    --red-dark:#a80020;
+    --red-light:#fff0f2;
 
-    --text:#f7f9fc;
-    --muted:#8994a7;
+    --white:#ffffff;
+    --black:#111111;
+    --gray:#f4f5f7;
+    --gray2:#e5e7eb;
+    --muted:#737780;
 
-    --blue:#0757c9;
-    --red:#a50044;
-    --green:#36d98b;
-    --yellow:#f4c542;
-
-    --border:rgba(255,255,255,.08);
+    --shadow:0 12px 35px rgba(0,0,0,.08);
 }
 
 *{
@@ -41,31 +38,14 @@ html{
 }
 
 body{
-    background:
-        radial-gradient(
-            circle at 90% 0%,
-            rgba(0,87,201,.18),
-            transparent 30%
-        ),
-        radial-gradient(
-            circle at 0% 30%,
-            rgba(165,0,68,.14),
-            transparent 30%
-        ),
-        var(--bg);
-
-    color:var(--text);
     font-family:Inter,Arial,sans-serif;
-    min-height:100vh;
+    background:var(--gray);
+    color:var(--black);
 }
 
-button,
-input{
-    font-family:inherit;
-}
 
 /* =========================
-   HEADER
+HEADER
 ========================= */
 
 header{
@@ -73,17 +53,19 @@ header{
     top:0;
     z-index:1000;
 
-    background:rgba(5,7,13,.88);
-    backdrop-filter:blur(18px);
+    background:rgba(255,255,255,.94);
+    backdrop-filter:blur(15px);
 
-    border-bottom:1px solid var(--border);
+    border-bottom:1px solid var(--gray2);
 }
 
 .header{
     max-width:1200px;
     margin:auto;
 
-    padding:15px 20px;
+    min-height:70px;
+
+    padding:0 20px;
 
     display:flex;
     align-items:center;
@@ -96,39 +78,43 @@ header{
     font-size:25px;
     font-weight:900;
     letter-spacing:-1.7px;
+
+    white-space:nowrap;
 }
 
 .logo span{
-    color:#d90429;
+    color:var(--red);
 }
 
 .logo small{
     display:block;
 
-    margin-top:2px;
+    color:var(--muted);
 
-    font-size:8px;
+    font-size:7px;
     letter-spacing:2px;
 
-    color:var(--muted);
+    margin-top:2px;
 }
+
 
 nav{
     display:flex;
-    gap:5px;
+    gap:4px;
 
     overflow-x:auto;
 }
 
 nav button{
     border:0;
+
     background:transparent;
 
-    color:#8994a7;
+    color:#666;
 
     padding:9px 12px;
 
-    border-radius:10px;
+    border-radius:9px;
 
     cursor:pointer;
 
@@ -140,12 +126,13 @@ nav button{
 
 nav button:hover,
 nav button.active{
-    color:white;
-    background:rgba(255,255,255,.08);
+    background:var(--red-light);
+    color:var(--red);
 }
 
+
 /* =========================
-   MAIN
+MAIN
 ========================= */
 
 main{
@@ -178,14 +165,15 @@ section{
     margin-top:5px;
 }
 
+
 /* =========================
-   HERO
+HERO
 ========================= */
 
 .hero{
-    min-height:440px;
+    min-height:450px;
 
-    padding:45px;
+    padding:50px;
 
     border-radius:28px;
 
@@ -195,16 +183,18 @@ section{
     display:flex;
     align-items:end;
 
+    color:white;
+
     background:
         linear-gradient(
-            125deg,
-            #031638,
-            #0757c9 48%,
-            #a50044
+            120deg,
+            #9d001d,
+            #d90429 50%,
+            #ef233c
         );
 
     box-shadow:
-        0 30px 90px rgba(0,0,0,.45);
+        0 25px 70px rgba(217,4,41,.22);
 }
 
 .hero:before{
@@ -215,28 +205,28 @@ section{
     width:500px;
     height:500px;
 
-    right:-180px;
-    top:-170px;
+    right:-190px;
+    top:-190px;
 
     border-radius:50%;
 
-    border:70px solid rgba(255,255,255,.035);
+    border:80px solid rgba(255,255,255,.08);
 }
 
 .hero:after{
-    content:"LALIGA";
+    content:"LA LIGA";
 
     position:absolute;
 
-    right:-20px;
-    top:25px;
+    right:-15px;
+    top:30px;
 
-    font-size:100px;
+    font-size:90px;
     font-weight:900;
 
-    letter-spacing:-8px;
+    letter-spacing:-7px;
 
-    color:rgba(255,255,255,.05);
+    color:rgba(255,255,255,.07);
 }
 
 .hero-content{
@@ -247,16 +237,16 @@ section{
 }
 
 .eyebrow{
-    color:#d9e7ff;
-
     font-size:11px;
-    font-weight:800;
+    font-weight:900;
 
     letter-spacing:2px;
+
+    color:#ffe4e8;
 }
 
 .hero h1{
-    margin:13px 0 17px;
+    margin:13px 0 18px;
 
     font-size:clamp(45px,7vw,78px);
 
@@ -266,9 +256,9 @@ section{
 }
 
 .hero p{
-    max-width:600px;
+    max-width:610px;
 
-    color:#dce5f3;
+    color:#ffeef0;
 
     line-height:1.7;
 
@@ -279,37 +269,38 @@ section{
     display:flex;
     gap:10px;
 
-    margin-top:27px;
+    margin-top:28px;
 }
 
 .hero-btn{
+    border:0;
+
     padding:12px 18px;
 
-    border-radius:11px;
-
-    border:0;
+    border-radius:10px;
 
     cursor:pointer;
 
     font-size:12px;
-    font-weight:800;
+    font-weight:900;
 }
 
 .primary{
     background:white;
-    color:#06101f;
+    color:var(--red);
 }
 
 .secondary{
-    background:rgba(0,0,0,.2);
-
     color:white;
 
-    border:1px solid rgba(255,255,255,.15);
+    background:rgba(0,0,0,.16);
+
+    border:1px solid rgba(255,255,255,.25);
 }
 
+
 /* =========================
-   STATS
+STATS
 ========================= */
 
 .grid3{
@@ -320,16 +311,20 @@ section{
 }
 
 .stat{
-    background:var(--surface);
+    background:white;
 
-    border:1px solid var(--border);
+    border:1px solid var(--gray2);
 
-    border-radius:18px;
+    border-radius:17px;
 
     padding:22px;
+
+    box-shadow:var(--shadow);
 }
 
 .stat-number{
+    color:var(--red);
+
     font-size:31px;
     font-weight:900;
 }
@@ -342,8 +337,9 @@ section{
     font-size:11px;
 }
 
+
 /* =========================
-   MATCHES
+MATCHES
 ========================= */
 
 .filters{
@@ -362,54 +358,46 @@ section{
 
     border-radius:999px;
 
-    border:1px solid var(--border);
+    border:1px solid var(--gray2);
 
-    background:var(--surface);
+    background:white;
 
     color:var(--muted);
 
     cursor:pointer;
 
     font-size:11px;
-    font-weight:800;
+    font-weight:900;
 }
 
 .filter.active{
-    background:linear-gradient(
-        135deg,
-        var(--blue),
-        var(--red)
-    );
+    background:var(--red);
 
     color:white;
 
-    border-color:transparent;
+    border-color:var(--red);
 }
 
 .matches{
     display:grid;
 
-    grid-template-columns:
-        repeat(2,1fr);
+    grid-template-columns:repeat(2,1fr);
 
-    gap:11px;
+    gap:12px;
 
     margin-top:15px;
 }
 
 .match{
-    padding:19px;
+    background:white;
 
-    background:
-        linear-gradient(
-            145deg,
-            var(--surface),
-            var(--surface2)
-        );
-
-    border:1px solid var(--border);
+    border:1px solid var(--gray2);
 
     border-radius:18px;
+
+    padding:19px;
+
+    box-shadow:var(--shadow);
 }
 
 .match-top{
@@ -420,19 +408,19 @@ section{
     color:var(--muted);
 
     font-size:10px;
-    font-weight:700;
+    font-weight:800;
 }
 
 .live{
-    color:#ff4d67;
+    color:var(--red);
 }
 
 .finished{
-    color:var(--green);
+    color:#159447;
 }
 
 .upcoming{
-    color:#69a9ff;
+    color:#777;
 }
 
 .match-main{
@@ -440,8 +428,7 @@ section{
 
     display:grid;
 
-    grid-template-columns:
-        1fr auto 1fr;
+    grid-template-columns:1fr auto 1fr;
 
     align-items:center;
 
@@ -461,7 +448,7 @@ section{
     display:grid;
     place-items:center;
 
-    background:var(--surface3);
+    background:var(--red-light);
 
     border-radius:13px;
 
@@ -470,11 +457,11 @@ section{
 
 .club-name{
     font-size:12px;
-    font-weight:800;
+    font-weight:900;
 }
 
 .score{
-    font-size:21px;
+    font-size:22px;
     font-weight:900;
 }
 
@@ -483,7 +470,7 @@ section{
 
     padding-top:12px;
 
-    border-top:1px solid var(--border);
+    border-top:1px solid var(--gray2);
 
     color:var(--muted);
 
@@ -493,25 +480,28 @@ section{
 .goals{
     margin-top:7px;
 
-    color:#e1e7f0;
+    color:#333;
 
     line-height:1.7;
 
     font-size:11px;
 }
 
+
 /* =========================
-   TABLE
+TABLE
 ========================= */
 
 .table-container{
     overflow-x:auto;
 
-    border:1px solid var(--border);
+    background:white;
+
+    border:1px solid var(--gray2);
 
     border-radius:18px;
 
-    background:var(--surface);
+    box-shadow:var(--shadow);
 }
 
 table{
@@ -525,7 +515,7 @@ table{
 th{
     padding:14px;
 
-    color:#69758a;
+    color:#888;
 
     font-size:10px;
 
@@ -539,7 +529,7 @@ td{
 
     text-align:center;
 
-    border-top:1px solid var(--border);
+    border-top:1px solid var(--gray2);
 
     font-size:12px;
 }
@@ -556,7 +546,7 @@ td:nth-child(2){
 
     gap:10px;
 
-    font-weight:800;
+    font-weight:900;
 }
 
 .team-logo{
@@ -566,26 +556,24 @@ td:nth-child(2){
     display:grid;
     place-items:center;
 
-    background:var(--surface3);
+    background:var(--red-light);
 
     border-radius:9px;
 }
 
 .points{
+    color:var(--red);
+
     font-weight:900;
 }
 
 .barca-row{
-    background:
-        linear-gradient(
-            90deg,
-            rgba(0,87,201,.14),
-            rgba(165,0,68,.08)
-        );
+    background:#fff4f5;
 }
 
+
 /* =========================
-   TEAMS
+TEAMS
 ========================= */
 
 .search{
@@ -595,26 +583,31 @@ td:nth-child(2){
 
     padding:13px 15px;
 
-    background:var(--surface);
+    background:white;
 
-    color:white;
+    color:var(--black);
 
-    border:1px solid var(--border);
+    border:1px solid var(--gray2);
 
     border-radius:12px;
 
     outline:none;
+
+    box-shadow:var(--shadow);
+}
+
+.search:focus{
+    border-color:var(--red);
 }
 
 .search::placeholder{
-    color:#667287;
+    color:#9a9da4;
 }
 
 .team-grid{
     display:grid;
 
-    grid-template-columns:
-        repeat(4,1fr);
+    grid-template-columns:repeat(4,1fr);
 
     gap:10px;
 }
@@ -622,19 +615,21 @@ td:nth-child(2){
 .team-card{
     padding:17px;
 
-    background:var(--surface);
+    background:white;
 
-    border:1px solid var(--border);
+    border:1px solid var(--gray2);
 
     border-radius:16px;
 
     transition:.2s;
+
+    box-shadow:var(--shadow);
 }
 
 .team-card:hover{
     transform:translateY(-3px);
 
-    background:var(--surface2);
+    border-color:#ffb7c0;
 }
 
 .team-card-icon{
@@ -644,7 +639,7 @@ td:nth-child(2){
     display:grid;
     place-items:center;
 
-    background:var(--surface3);
+    background:var(--red-light);
 
     border-radius:12px;
 
@@ -665,8 +660,9 @@ td:nth-child(2){
     font-size:10px;
 }
 
+
 /* =========================
-   PLAYERS
+PLAYERS
 ========================= */
 
 .player-controls{
@@ -681,9 +677,9 @@ td:nth-child(2){
 .player-filter{
     padding:9px 13px;
 
-    border:1px solid var(--border);
+    border:1px solid var(--gray2);
 
-    background:var(--surface);
+    background:white;
 
     color:var(--muted);
 
@@ -692,26 +688,21 @@ td:nth-child(2){
     cursor:pointer;
 
     font-size:10px;
-    font-weight:800;
+    font-weight:900;
 }
 
 .player-filter.active{
     color:white;
 
-    background:linear-gradient(
-        135deg,
-        var(--blue),
-        var(--red)
-    );
+    background:var(--red);
 
-    border-color:transparent;
+    border-color:var(--red);
 }
 
 .players-grid{
     display:grid;
 
-    grid-template-columns:
-        repeat(4,1fr);
+    grid-template-columns:repeat(4,1fr);
 
     gap:10px;
 }
@@ -719,11 +710,13 @@ td:nth-child(2){
 .player-card{
     padding:17px;
 
-    background:var(--surface);
+    background:white;
 
-    border:1px solid var(--border);
+    border:1px solid var(--gray2);
 
     border-radius:16px;
+
+    box-shadow:var(--shadow);
 }
 
 .player-avatar{
@@ -733,12 +726,9 @@ td:nth-child(2){
     display:grid;
     place-items:center;
 
-    background:
-        linear-gradient(
-            135deg,
-            var(--blue),
-            var(--red)
-        );
+    background:var(--red);
+
+    color:white;
 
     border-radius:13px;
 
@@ -749,11 +739,11 @@ td:nth-child(2){
 
 .player-name{
     font-size:12px;
-    font-weight:800;
+    font-weight:900;
 }
 
 .player-team{
-    color:#aab4c4;
+    color:#666;
 
     margin-top:5px;
 
@@ -769,15 +759,17 @@ td:nth-child(2){
 
     border-radius:6px;
 
-    background:rgba(255,255,255,.06);
+    background:var(--red-light);
 
-    color:var(--muted);
+    color:var(--red);
 
     font-size:9px;
+    font-weight:800;
 }
 
+
 /* =========================
-   ABOUT
+ABOUT
 ========================= */
 
 .about{
@@ -785,14 +777,11 @@ td:nth-child(2){
 
     border-radius:22px;
 
-    border:1px solid var(--border);
+    background:white;
 
-    background:
-        linear-gradient(
-            135deg,
-            rgba(0,87,201,.14),
-            rgba(165,0,68,.12)
-        );
+    border:1px solid var(--gray2);
+
+    box-shadow:var(--shadow);
 }
 
 .about h2{
@@ -802,7 +791,7 @@ td:nth-child(2){
 .about p{
     max-width:720px;
 
-    color:#aeb8c8;
+    color:#666;
 
     font-size:13px;
 
@@ -814,19 +803,20 @@ td:nth-child(2){
 
     padding-top:17px;
 
-    border-top:1px solid var(--border);
+    border-top:1px solid var(--gray2);
 
-    color:var(--muted);
+    color:#777;
 
     font-size:11px;
 }
 
 .author strong{
-    color:white;
+    color:var(--red);
 }
 
+
 /* =========================
-   FOOTER
+FOOTER
 ========================= */
 
 footer{
@@ -834,15 +824,17 @@ footer{
 
     text-align:center;
 
-    color:#5d687b;
+    color:#888;
 
-    border-top:1px solid var(--border);
+    border-top:1px solid var(--gray2);
+
+    background:white;
 
     font-size:10px;
 }
 
 footer strong{
-    color:#8c97aa;
+    color:var(--red);
 }
 
 footer a{
@@ -850,13 +842,14 @@ footer a{
 
     margin-top:10px;
 
-    color:#9ebeff;
+    color:var(--red);
 
     text-decoration:none;
 }
 
+
 /* =========================
-   MOBILE
+MOBILE
 ========================= */
 
 @media(max-width:760px){
@@ -866,7 +859,7 @@ footer a{
     }
 
     nav{
-        max-width:64%;
+        max-width:63%;
     }
 
     main{
@@ -895,8 +888,7 @@ footer a{
 
     .team-grid,
     .players-grid{
-        grid-template-columns:
-            repeat(2,1fr);
+        grid-template-columns:repeat(2,1fr);
     }
 
 }
@@ -904,20 +896,24 @@ footer a{
 </style>
 </head>
 
+
 <body>
+
 
 <header>
 
 <div class="header">
 
 <div class="logo">
+
 BARQÉ<span>LIA</span>
 
 <small>
-LA LIGA FOOTBALL PORTAL
+LA LIGA FOOTBALL
 </small>
 
 </div>
+
 
 <nav>
 
@@ -952,7 +948,9 @@ About
 </header>
 
 
+
 <main>
+
 
 <!-- =========================
 HOME
@@ -969,14 +967,14 @@ LALIGA EA SPORTS • 2026/27
 </div>
 
 <h1>
-The home of
-Spanish football.
+All of La Liga.
+One place.
 </h1>
 
 <p>
-BARQÉLIA is a modern football portal
-for La Liga — fixtures, results,
-standings, teams and players in one place.
+BARQÉLIA brings the Spanish top flight
+together in one clean football experience:
+matches, results, standings, teams and players.
 </p>
 
 <div class="hero-buttons">
@@ -985,14 +983,14 @@ standings, teams and players in one place.
 class="hero-btn primary"
 onclick="go('matches')"
 >
-View matches
+View Matches
 </button>
 
 <button
 class="hero-btn secondary"
 onclick="go('table')"
 >
-League table
+View Table
 </button>
 
 </div>
@@ -1011,7 +1009,7 @@ La Liga 2026/27
 </h2>
 
 <p>
-Follow the Spanish top flight.
+Everything about Spain's top division.
 </p>
 
 </div>
@@ -1064,6 +1062,7 @@ League matches
 </section>
 
 
+
 <!-- =========================
 MATCHES
 ========================= -->
@@ -1075,11 +1074,11 @@ MATCHES
 <div>
 
 <h2>
-Matches
+La Liga Matches
 </h2>
 
 <p>
-Live scores, results and upcoming fixtures
+Only matches from La Liga.
 </p>
 
 </div>
@@ -1123,11 +1122,11 @@ id="matchesContainer"
 <div class="match-top">
 
 <span>
-Loading...
+La Liga
 </span>
 
 <span class="upcoming">
-UPCOMING
+LOADING
 </span>
 
 </div>
@@ -1169,7 +1168,7 @@ Loading
 
 
 <div class="match-footer">
-Loading football data...
+Loading La Liga fixtures...
 </div>
 
 </div>
@@ -1177,6 +1176,7 @@ Loading football data...
 </div>
 
 </section>
+
 
 
 <!-- =========================
@@ -1190,11 +1190,11 @@ TABLE
 <div>
 
 <h2>
-League Table
+La Liga Table
 </h2>
 
 <p>
-Live La Liga standings
+Standings for the Spanish top flight.
 </p>
 
 </div>
@@ -1252,7 +1252,7 @@ Pts
 <tr>
 
 <td colspan="8">
-Loading standings...
+Loading La Liga standings...
 </td>
 
 </tr>
@@ -1266,6 +1266,7 @@ Loading standings...
 </section>
 
 
+
 <!-- =========================
 TEAMS
 ========================= -->
@@ -1277,11 +1278,11 @@ TEAMS
 <div>
 
 <h2>
-Teams
+La Liga Teams
 </h2>
 
 <p>
-The clubs of La Liga
+The clubs competing in the league.
 </p>
 
 </div>
@@ -1306,6 +1307,7 @@ id="teamsContainer"
 </section>
 
 
+
 <!-- =========================
 PLAYERS
 ========================= -->
@@ -1321,7 +1323,7 @@ Players
 </h2>
 
 <p>
-Players from La Liga clubs
+Players from La Liga clubs.
 </p>
 
 </div>
@@ -1332,7 +1334,7 @@ Players from La Liga clubs
 <input
 class="search"
 id="playerSearch"
-placeholder="Search a player..."
+placeholder="Search a player or club..."
 oninput="searchPlayers()"
 >
 
@@ -1386,6 +1388,7 @@ id="playersContainer"
 </section>
 
 
+
 <!-- =========================
 ABOUT
 ========================= -->
@@ -1408,15 +1411,14 @@ About BARQÉLIA
 <div class="about">
 
 <h2>
-A new way to follow La Liga.
+All of La Liga. One place.
 </h2>
 
 <p>
-BARQÉLIA is an independent fan-made
-football portal created to bring La Liga
-fixtures, results, standings, clubs and
-players together in a clean and modern
-experience.
+BARQÉLIA is an independent fan-made football
+portal focused entirely on La Liga. The project
+brings matches, results, standings, clubs and
+players together in one simple experience.
 </p>
 
 
@@ -1431,7 +1433,9 @@ Created and designed by
 
 </section>
 
+
 </main>
+
 
 
 <footer>
@@ -1449,53 +1453,55 @@ href="https://sportscore.com/"
 target="_blank"
 rel="noopener"
 >
-Powered by SportScore
+Football data by SportScore
 </a>
 
 </footer>
 
 
+
 <script>
 
-/* =====================================================
-   NAVIGATION
-===================================================== */
+
+/* =========================
+NAVIGATION
+========================= */
 
 function go(id){
 
     document
-        .getElementById(id)
-        .scrollIntoView({
-            behavior:"smooth"
-        });
+    .getElementById(id)
+    .scrollIntoView({
+        behavior:"smooth"
+    });
 
 }
 
 
-/* =====================================================
-   TEAMS
-===================================================== */
+/* =========================
+LA LIGA TEAMS
+========================= */
 
 const teams = [
 
 ["Athletic Club","🦁"],
-["Atlético de Madrid","🔴⚪"],
+["Atlético de Madrid","🔴"],
 ["CA Osasuna","🔴"],
 ["Celta","🔵"],
-["Deportivo Alavés","🔵⚪"],
+["Deportivo Alavés","🔵"],
 ["Elche CF","🟢"],
 ["FC Barcelona","🔵🔴"],
 ["Getafe CF","🔵"],
-["Girona FC","🔴⚪"],
-["Levante UD","🔵🔴"],
-["Málaga CF","🔵⚪"],
+["Girona FC","🔴"],
+["Levante UD","🔴🔵"],
+["Málaga CF","🔵"],
 ["Rayo Vallecano","⚡"],
-["RC Deportivo","🔵⚪"],
+["RC Deportivo","🔵"],
 ["RCD Espanyol","🔵⚪"],
-["Real Betis","🟢⚪"],
+["Real Betis","🟢"],
 ["Real Madrid","⚪"],
-["Real Sociedad","🔵⚪"],
-["Sevilla FC","🔴⚪"],
+["Real Sociedad","🔵"],
+["Sevilla FC","🔴"],
 ["Valencia CF","🦇"],
 ["Villarreal CF","🟡"]
 
@@ -1511,12 +1517,14 @@ function renderTeams(list=teams){
 
     container.innerHTML="";
 
+
     list.forEach(team=>{
 
         const card =
             document.createElement("div");
 
         card.className="team-card";
+
 
         card.innerHTML=`
 
@@ -1534,6 +1542,7 @@ function renderTeams(list=teams){
 
         `;
 
+
         container.appendChild(card);
 
     });
@@ -1549,33 +1558,31 @@ function searchTeams(){
         .value
         .toLowerCase();
 
+
     renderTeams(
-        teams.filter(team =>
-            team[0]
-            .toLowerCase()
-            .includes(query)
+
+        teams.filter(
+            team =>
+                team[0]
+                .toLowerCase()
+                .includes(query)
         )
+
     );
 
 }
 
 
-/* =====================================================
-   PLAYERS
-
-   Local player database.
-   More players can be added easily later.
-===================================================== */
+/* =========================
+PLAYERS
+========================= */
 
 const players = [
-
-/* Barcelona */
 
 ["Lamine Yamal","FC Barcelona","Forward"],
 ["Robert Lewandowski","FC Barcelona","Forward"],
 ["Raphinha","FC Barcelona","Forward"],
 ["Ferran Torres","FC Barcelona","Forward"],
-["Marcus Rashford","FC Barcelona","Forward"],
 
 ["Pedri","FC Barcelona","Midfielder"],
 ["Frenkie de Jong","FC Barcelona","Midfielder"],
@@ -1587,36 +1594,28 @@ const players = [
 ["Pau Cubarsí","FC Barcelona","Defender"],
 ["Jules Koundé","FC Barcelona","Defender"],
 ["Alejandro Balde","FC Barcelona","Defender"],
-["Andreas Christensen","FC Barcelona","Defender"],
 ["Eric García","FC Barcelona","Defender"],
 
 ["Joan García","FC Barcelona","Goalkeeper"],
 ["Wojciech Szczęsny","FC Barcelona","Goalkeeper"],
 
 
-/* Real Madrid */
-
 ["Kylian Mbappé","Real Madrid","Forward"],
 ["Vinícius Júnior","Real Madrid","Forward"],
 ["Rodrygo","Real Madrid","Forward"],
-["Endrick","Real Madrid","Forward"],
 
 ["Jude Bellingham","Real Madrid","Midfielder"],
 ["Federico Valverde","Real Madrid","Midfielder"],
 ["Eduardo Camavinga","Real Madrid","Midfielder"],
-["Aurélien Tchouaméni","Real Madrid","Midfielder"],
 ["Arda Güler","Real Madrid","Midfielder"],
 
 ["Antonio Rüdiger","Real Madrid","Defender"],
 ["Éder Militão","Real Madrid","Defender"],
-["David Alaba","Real Madrid","Defender"],
 ["Ferland Mendy","Real Madrid","Defender"],
 ["Trent Alexander-Arnold","Real Madrid","Defender"],
 
 ["Thibaut Courtois","Real Madrid","Goalkeeper"],
 
-
-/* Atlético */
 
 ["Julián Alvarez","Atlético de Madrid","Forward"],
 ["Antoine Griezmann","Atlético de Madrid","Forward"],
@@ -1628,53 +1627,33 @@ const players = [
 
 ["José María Giménez","Atlético de Madrid","Defender"],
 ["Robin Le Normand","Atlético de Madrid","Defender"],
-["Nahuel Molina","Atlético de Madrid","Defender"],
 
 ["Jan Oblak","Atlético de Madrid","Goalkeeper"],
 
-
-/* Athletic */
 
 ["Nico Williams","Athletic Club","Forward"],
 ["Iñaki Williams","Athletic Club","Forward"],
 ["Gorka Guruzeta","Athletic Club","Forward"],
 
 ["Oihan Sancet","Athletic Club","Midfielder"],
-["Iñigo Ruiz de Galarreta","Athletic Club","Midfielder"],
-
 ["Dani Vivian","Athletic Club","Defender"],
-["Yuri Berchiche","Athletic Club","Defender"],
 
 ["Unai Simón","Athletic Club","Goalkeeper"],
 
 
-/* Villarreal */
-
 ["Gerard Moreno","Villarreal CF","Forward"],
 ["Ayoze Pérez","Villarreal CF","Forward"],
-["Thierno Barry","Villarreal CF","Forward"],
-
 ["Dani Parejo","Villarreal CF","Midfielder"],
-["Santi Comesaña","Villarreal CF","Midfielder"],
 
-["Raúl Albiol","Villarreal CF","Defender"],
 ["Juan Foyth","Villarreal CF","Defender"],
 
 ["Luiz Júnior","Villarreal CF","Goalkeeper"],
 
 
-/* Real Betis */
-
-["Cédric Bakambu","Real Betis","Forward"],
-["Cucho Hernández","Real Betis","Forward"],
-
 ["Isco","Real Betis","Midfielder"],
 ["Giovani Lo Celso","Real Betis","Midfielder"],
-
-["Marc Bartra","Real Betis","Defender"],
-["Diego Llorente","Real Betis","Defender"],
-
-["Álvaro Valles","Real Betis","Goalkeeper"]
+["Cédric Bakambu","Real Betis","Forward"],
+["Marc Bartra","Real Betis","Defender"]
 
 ];
 
@@ -1691,22 +1670,6 @@ function renderPlayers(list=players){
 
     container.innerHTML="";
 
-    if(list.length===0){
-
-        container.innerHTML=`
-            <div style="
-                grid-column:1/-1;
-                padding:30px;
-                text-align:center;
-                color:#8994a7;
-            ">
-                No players found.
-            </div>
-        `;
-
-        return;
-    }
-
 
     list.forEach(player=>{
 
@@ -1722,6 +1685,7 @@ function renderPlayers(list=players){
             document.createElement("div");
 
         card.className="player-card";
+
 
         card.innerHTML=`
 
@@ -1743,6 +1707,7 @@ function renderPlayers(list=players){
 
         `;
 
+
         container.appendChild(card);
 
     });
@@ -1754,13 +1719,17 @@ function filterPlayers(position,button){
 
     currentPlayerFilter=position;
 
+
     document
-        .querySelectorAll(".player-filter")
-        .forEach(btn =>
+    .querySelectorAll(".player-filter")
+    .forEach(
+        btn =>
             btn.classList.remove("active")
-        );
+    );
+
 
     button.classList.add("active");
+
 
     updatePlayers();
 
@@ -1783,10 +1752,10 @@ function updatePlayers(){
         .toLowerCase();
 
 
-    let result =
-        players.filter(player => {
+    const result =
+        players.filter(player=>{
 
-            const matchesSearch =
+            const searchMatch =
                 player[0]
                 .toLowerCase()
                 .includes(query)
@@ -1795,13 +1764,15 @@ function updatePlayers(){
                 .toLowerCase()
                 .includes(query);
 
-            const matchesPosition =
+
+            const positionMatch =
                 currentPlayerFilter==="All"
                 ||
                 player[2]===currentPlayerFilter;
 
-            return matchesSearch &&
-                   matchesPosition;
+
+            return searchMatch &&
+                   positionMatch;
 
         });
 
@@ -1811,29 +1782,31 @@ function updatePlayers(){
 }
 
 
-/* =====================================================
-   SPORT SCORE
-===================================================== */
+/* =========================
+SPORTSCORE
+LA LIGA ONLY
+========================= */
 
 const SPORT_SCORE =
-    "https://sportscore.com/api/widget";
+"https://sportscore.com/api/widget";
 
 
 /*
-    The API is public and CORS-enabled.
+ IMPORTANT:
 
-    Matches:
-    /matches/?sport=football
+ We request the La Liga competition,
+ NOT all football matches.
 
-    Single match:
-    /match/?sport=football&slug=...
-
-    Standings:
-    /standings/?sport=football&slug=...
+ The competition slug is used here
+ instead of the generic football feed.
 */
 
 
-async function loadMatches(){
+const LA_LIGA_SLUG =
+"la-liga";
+
+
+async function loadLaLigaMatches(){
 
     const container =
         document.getElementById(
@@ -1846,17 +1819,14 @@ async function loadMatches(){
         const response =
             await fetch(
                 SPORT_SCORE +
-                "/matches/?sport=football&limit=50"
+                "/matches/?sport=football&competition=" +
+                LA_LIGA_SLUG +
+                "&limit=50"
             );
 
 
-        if(!response.ok){
-
-            throw new Error(
-                "Could not load matches"
-            );
-
-        }
+        if(!response.ok)
+            throw new Error("API error");
 
 
         const data =
@@ -1864,19 +1834,10 @@ async function loadMatches(){
 
 
         console.log(
-            "BARQÉLIA matches:",
+            "BARQÉLIA La Liga data:",
             data
         );
 
-
-        /*
-           SportScore may return different
-           wrapper structures as the service
-           evolves.
-
-           This function searches the response
-           for an array of matches.
-        */
 
         const matches =
             findArray(data);
@@ -1885,7 +1846,7 @@ async function loadMatches(){
         if(!matches.length){
 
             showMatchMessage(
-                "No football matches available right now."
+                "No La Liga matches available."
             );
 
             return;
@@ -1893,17 +1854,16 @@ async function loadMatches(){
         }
 
 
-        renderMatches(
-            matches.slice(0,30)
-        );
+        renderMatches(matches);
 
+    }
 
-    }catch(error){
+    catch(error){
 
         console.error(error);
 
         showMatchMessage(
-            "Football data is temporarily unavailable."
+            "La Liga match data is temporarily unavailable."
         );
 
     }
@@ -1916,58 +1876,74 @@ function findArray(data){
     if(Array.isArray(data))
         return data;
 
-    if(!data || typeof data!=="object")
+
+    if(!data ||
+       typeof data!=="object")
         return [];
 
-    const possible=[
+
+    const candidates=[
+
         data.data,
         data.results,
         data.matches,
         data.events
+
     ];
 
-    for(const item of possible){
 
-        if(Array.isArray(item))
-            return item;
+    for(
+        const candidate
+        of candidates
+    ){
+
+        if(Array.isArray(candidate))
+            return candidate;
 
     }
+
 
     return [];
 
 }
 
 
-function getValue(object,keys){
+function value(obj,keys){
 
-    for(const key of keys){
+    for(
+        const key
+        of keys
+    ){
 
         if(
-            object &&
-            object[key] !== undefined &&
-            object[key] !== null
+            obj &&
+            obj[key] !== undefined &&
+            obj[key] !== null
         ){
 
-            return object[key];
+            return obj[key];
 
         }
 
     }
+
 
     return null;
 
 }
 
 
-function teamName(team){
+function getTeam(team){
 
     if(!team)
         return "Unknown";
 
+
     if(typeof team==="string")
         return team;
 
-    return getValue(
+
+    return value(
         team,
         [
             "name",
@@ -1979,38 +1955,6 @@ function teamName(team){
 }
 
 
-function scoreValue(score){
-
-    if(score===null ||
-       score===undefined)
-        return "—";
-
-    if(typeof score==="number")
-        return score;
-
-    if(typeof score==="string")
-        return score;
-
-    if(typeof score==="object"){
-
-        return getValue(
-            score,
-            [
-                "current",
-                "display",
-                "goals",
-                "home",
-                "away"
-            ]
-        ) ?? "—";
-
-    }
-
-    return "—";
-
-}
-
-
 function renderMatches(matches){
 
     const container =
@@ -2018,14 +1962,15 @@ function renderMatches(matches){
             "matchesContainer"
         );
 
+
     container.innerHTML="";
 
 
     matches.forEach(match=>{
 
         const home =
-            teamName(
-                getValue(
+            getTeam(
+                value(
                     match,
                     [
                         "homeTeam",
@@ -2037,8 +1982,8 @@ function renderMatches(matches){
 
 
         const away =
-            teamName(
-                getValue(
+            getTeam(
+                value(
                     match,
                     [
                         "awayTeam",
@@ -2050,7 +1995,7 @@ function renderMatches(matches){
 
 
         const score =
-            getValue(
+            value(
                 match,
                 [
                     "score",
@@ -2063,38 +2008,35 @@ function renderMatches(matches){
         let awayScore="—";
 
 
-        if(score){
+        if(score &&
+           typeof score==="object"){
 
-            if(typeof score==="object"){
-
-                homeScore =
-                    getValue(
-                        score,
-                        [
-                            "home",
-                            "homeScore",
-                            "home_score"
-                        ]
-                    ) ?? "—";
+            homeScore =
+                value(
+                    score,
+                    [
+                        "home",
+                        "homeScore",
+                        "home_score"
+                    ]
+                ) ?? "—";
 
 
-                awayScore =
-                    getValue(
-                        score,
-                        [
-                            "away",
-                            "awayScore",
-                            "away_score"
-                        ]
-                    ) ?? "—";
-
-            }
+            awayScore =
+                value(
+                    score,
+                    [
+                        "away",
+                        "awayScore",
+                        "away_score"
+                    ]
+                ) ?? "—";
 
         }
 
 
         const status =
-            getValue(
+            value(
                 match,
                 [
                     "status",
@@ -2105,7 +2047,7 @@ function renderMatches(matches){
 
         const statusText =
             typeof status==="object"
-            ? getValue(
+            ? value(
                 status,
                 [
                     "name",
@@ -2117,7 +2059,7 @@ function renderMatches(matches){
 
 
         const date =
-            getValue(
+            value(
                 match,
                 [
                     "startTime",
@@ -2128,43 +2070,57 @@ function renderMatches(matches){
             );
 
 
-        const dateText =
-            date
-            ? new Date(date)
-                .toLocaleString(
-                    "en-GB",
-                    {
-                        day:"2-digit",
-                        month:"short",
-                        year:"numeric",
-                        hour:"2-digit",
-                        minute:"2-digit"
-                    }
-                )
-            : "Date unavailable";
+        let dateText="La Liga";
+
+
+        if(date){
+
+            const parsed =
+                new Date(date);
+
+
+            if(!isNaN(parsed)){
+
+                dateText =
+                    parsed.toLocaleString(
+                        "en-GB",
+                        {
+                            day:"2-digit",
+                            month:"short",
+                            year:"numeric",
+                            hour:"2-digit",
+                            minute:"2-digit"
+                        }
+                    );
+
+            }
+
+        }
 
 
         let css="upcoming";
 
-        const s =
+
+        const statusLower =
             String(
                 statusText || ""
             ).toLowerCase();
 
 
         if(
-            s.includes("finished") ||
-            s.includes("ended") ||
-            s.includes("ft")
+            statusLower.includes("finished") ||
+            statusLower.includes("ended") ||
+            statusLower.includes("ft")
         ){
 
             css="finished";
 
         }
 
+
         if(
-            s.includes("live") ||
-            s.includes("playing")
+            statusLower.includes("live") ||
+            statusLower.includes("playing")
         ){
 
             css="live";
@@ -2175,7 +2131,9 @@ function renderMatches(matches){
         const card =
             document.createElement("div");
 
+
         card.className="match";
+
 
         card.dataset.status=css;
 
@@ -2236,11 +2194,12 @@ function renderMatches(matches){
 
             <div class="match-footer">
 
-                La Liga / Football
+                🇪🇸 La Liga
 
                 <div class="goals">
-                    Match events load when a match
-                    is available.
+                    Match events available after
+                    the match when provided by
+                    the football data source.
                 </div>
 
             </div>
@@ -2261,15 +2220,19 @@ function showMatchMessage(message){
         "matchesContainer"
     ).innerHTML=`
 
-        <div class="match"
-             style="grid-column:1/-1">
+        <div
+            class="match"
+            style="grid-column:1/-1"
+        >
 
             <div style="
                 text-align:center;
-                color:#8994a7;
-                padding:25px;
+                padding:30px;
+                color:#777;
             ">
+
                 ${message}
+
             </div>
 
         </div>
@@ -2279,11 +2242,11 @@ function showMatchMessage(message){
 }
 
 
-/* =====================================================
-   STANDINGS
-===================================================== */
+/* =========================
+STANDINGS
+========================= */
 
-async function loadStandings(){
+async function loadLaLigaTable(){
 
     const body =
         document.getElementById(
@@ -2293,72 +2256,184 @@ async function loadStandings(){
 
     try{
 
-        /*
-           SportScore's standings endpoint
-           uses the competition slug.
-
-           La Liga is commonly represented
-           by the competition slug "la-liga".
-        */
-
         const response =
             await fetch(
                 SPORT_SCORE +
-                "/standings/?sport=football&slug=la-liga"
+                "/standings/?sport=football&competition=" +
+                LA_LIGA_SLUG
             );
 
 
-        if(!response.ok){
-
-            throw new Error(
-                "Standings unavailable"
-            );
-
-        }
+        if(!response.ok)
+            throw new Error("Table error");
 
 
         const data =
             await response.json();
 
 
-        console.log(
-            "BARQÉLIA standings:",
-            data
-        );
-
-
         const rows =
             findArray(data);
 
 
-        if(!rows.length){
+        if(!rows.length)
+            throw new Error(
+                "No table data"
+            );
 
-            body.innerHTML=`
 
-                <tr>
+        body.innerHTML="";
 
-                    <td colspan="8">
 
-                        Standings are temporarily
-                        unavailable.
+        rows.forEach(
+            (row,index)=>{
+
+                const team =
+                    value(
+                        row,
+                        [
+                            "team",
+                            "club"
+                        ]
+                    );
+
+
+                const name =
+                    getTeam(team);
+
+
+                const pos =
+                    value(
+                        row,
+                        [
+                            "position",
+                            "rank",
+                            "pos"
+                        ]
+                    ) ??
+                    index+1;
+
+
+                const p =
+                    value(
+                        row,
+                        [
+                            "played",
+                            "p"
+                        ]
+                    ) ?? 0;
+
+
+                const w =
+                    value(
+                        row,
+                        [
+                            "wins",
+                            "w"
+                        ]
+                    ) ?? 0;
+
+
+                const d =
+                    value(
+                        row,
+                        [
+                            "draws",
+                            "d"
+                        ]
+                    ) ?? 0;
+
+
+                const l =
+                    value(
+                        row,
+                        [
+                            "losses",
+                            "l"
+                        ]
+                    ) ?? 0;
+
+
+                const gd =
+                    value(
+                        row,
+                        [
+                            "goalDifference",
+                            "gd"
+                        ]
+                    ) ?? 0;
+
+
+                const pts =
+                    value(
+                        row,
+                        [
+                            "points",
+                            "pts"
+                        ]
+                    ) ?? 0;
+
+
+                const tr =
+                    document.createElement("tr");
+
+
+                if(
+                    name
+                    .toLowerCase()
+                    .includes("barcelona")
+                ){
+
+                    tr.className="barca-row";
+
+                }
+
+
+                tr.innerHTML=`
+
+                    <td>
+                        ${pos}
+                    </td>
+
+                    <td>
+
+                        <div class="team-name">
+
+                            <div class="team-logo">
+                                ⚽
+                            </div>
+
+                            ${name}
+
+                        </div>
 
                     </td>
 
-                </tr>
+                    <td>${p}</td>
+                    <td>${w}</td>
+                    <td>${d}</td>
+                    <td>${l}</td>
+                    <td>${gd}</td>
 
-            `;
+                    <td class="points">
+                        ${pts}
+                    </td>
 
-            return;
-
-        }
-
-
-        renderStandings(rows);
+                `;
 
 
-    }catch(error){
+                body.appendChild(tr);
+
+            }
+        );
+
+
+    }
+
+    catch(error){
 
         console.error(error);
+
 
         body.innerHTML=`
 
@@ -2366,8 +2441,8 @@ async function loadStandings(){
 
                 <td colspan="8">
 
-                    Standings are temporarily
-                    unavailable.
+                    La Liga standings are
+                    temporarily unavailable.
 
                 </td>
 
@@ -2380,251 +2455,81 @@ async function loadStandings(){
 }
 
 
-function renderStandings(rows){
-
-    const body =
-        document.getElementById(
-            "tableBody"
-        );
-
-    body.innerHTML="";
-
-
-    rows.forEach(
-        (row,index)=>{
-
-            const team =
-                getValue(
-                    row,
-                    [
-                        "team",
-                        "club"
-                    ]
-                );
-
-
-            const name =
-                teamName(team);
-
-
-            const position =
-                getValue(
-                    row,
-                    [
-                        "position",
-                        "rank",
-                        "pos"
-                    ]
-                ) ??
-                index+1;
-
-
-            const played =
-                getValue(
-                    row,
-                    [
-                        "played",
-                        "p",
-                        "matches"
-                    ]
-                ) ?? 0;
-
-
-            const wins =
-                getValue(
-                    row,
-                    [
-                        "wins",
-                        "w"
-                    ]
-                ) ?? 0;
-
-
-            const draws =
-                getValue(
-                    row,
-                    [
-                        "draws",
-                        "d"
-                    ]
-                ) ?? 0;
-
-
-            const losses =
-                getValue(
-                    row,
-                    [
-                        "losses",
-                        "l"
-                    ]
-                ) ?? 0;
-
-
-            const gd =
-                getValue(
-                    row,
-                    [
-                        "goalDifference",
-                        "gd"
-                    ]
-                ) ?? 0;
-
-
-            const points =
-                getValue(
-                    row,
-                    [
-                        "points",
-                        "pts"
-                    ]
-                ) ?? 0;
-
-
-            const isBarca =
-                name
-                .toLowerCase()
-                .includes("barcelona");
-
-
-            const tr =
-                document.createElement("tr");
-
-
-            if(isBarca){
-
-                tr.className="barca-row";
-
-            }
-
-
-            tr.innerHTML=`
-
-                <td>
-                    ${position}
-                </td>
-
-                <td>
-
-                    <div class="team-name">
-
-                        <div class="team-logo">
-                            ⚽
-                        </div>
-
-                        ${name}
-
-                    </div>
-
-                </td>
-
-                <td>${played}</td>
-
-                <td>${wins}</td>
-
-                <td>${draws}</td>
-
-                <td>${losses}</td>
-
-                <td>${gd}</td>
-
-                <td class="points">
-                    ${points}
-                </td>
-
-            `;
-
-
-            body.appendChild(tr);
-
-        }
-    );
-
-}
-
-
-/* =====================================================
-   MATCH FILTER
-===================================================== */
+/* =========================
+FILTERS
+========================= */
 
 function filterMatches(type,button){
 
     document
-        .querySelectorAll(".filter")
-        .forEach(
-            btn =>
-                btn.classList.remove(
-                    "active"
-                )
-        );
+    .querySelectorAll(".filter")
+    .forEach(
+        btn =>
+            btn.classList.remove("active")
+    );
 
 
     button.classList.add("active");
 
 
     document
-        .querySelectorAll(".match")
-        .forEach(card=>{
+    .querySelectorAll(".match")
+    .forEach(card=>{
 
-            const status =
-                card.dataset.status;
+        const status =
+            card.dataset.status;
 
 
-            if(type==="all"){
+        if(type==="all"){
 
-                card.style.display="";
+            card.style.display="";
 
-            }
+        }
 
-            else if(
-                type===status
-            ){
+        else{
 
-                card.style.display="";
+            card.style.display =
+                status===type
+                ? ""
+                : "none";
 
-            }
+        }
 
-            else{
-
-                card.style.display="none";
-
-            }
-
-        });
+    });
 
 }
 
 
-/* =====================================================
-   INITIALIZE
-===================================================== */
+/* =========================
+START
+========================= */
 
 renderTeams();
 
 renderPlayers();
 
-loadMatches();
+loadLaLigaMatches();
 
-loadStandings();
+loadLaLigaTable();
 
 
 /*
-   Refresh data periodically.
-
-   SportScore itself refreshes its data;
-   this simply asks again periodically.
+ Refresh every 5 minutes.
 */
 
 setInterval(
-    loadMatches,
+    loadLaLigaMatches,
     5 * 60 * 1000
 );
 
+
 setInterval(
-    loadStandings,
+    loadLaLigaTable,
     5 * 60 * 1000
 );
 
 </script>
+
 
 </body>
 </html>
