@@ -1,204 +1,1168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BARQÉLIA — FC Barcelona</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
-<!-- SQUAD -->
-
-<section id="squad">
-
-    <div class="section-head">
-
-        <div>
-            <h2>Squad</h2>
-            <p>FC Barcelona 2026/27</p>
-        </div>
-
-    </div>
-
-
-    <!-- GOALKEEPERS -->
-
-    <h3 class="position-title">
-        Goalkeepers
-    </h3>
-
-    <div class="squad">
-
-        <div class="player">
-            <span class="number">1</span>
-            <h3>Marc-André ter Stegen</h3>
-            <p>Goalkeeper</p>
-        </div>
-
-        <div class="player">
-            <span class="number">13</span>
-            <h3>Joan García</h3>
-            <p>Goalkeeper</p>
-        </div>
-
-        <div class="player">
-            <span class="number">25</span>
-            <h3>Wojciech Szczęsny</h3>
-            <p>Goalkeeper</p>
-        </div>
-
-    </div>
-
-
-    <!-- DEFENDERS -->
-
-    <h3 class="position-title">
-        Defenders
-    </h3>
-
-    <div class="squad">
-
-        <div class="player">
-            <span class="number">3</span>
-            <h3>Alejandro Balde</h3>
-            <p>Defender</p>
-        </div>
-
-        <div class="player">
-            <span class="number">4</span>
-            <h3>Ronald Araújo</h3>
-            <p>Defender</p>
-        </div>
-
-        <div class="player">
-            <span class="number">5</span>
-            <h3>Pau Cubarsí</h3>
-            <p>Defender</p>
-        </div>
-
-        <div class="player">
-            <span class="number">15</span>
-            <h3>Andreas Christensen</h3>
-            <p>Defender</p>
-        </div>
-
-        <div class="player">
-            <span class="number">18</span>
-            <h3>Gerard Martín</h3>
-            <p>Defender</p>
-        </div>
-
-        <div class="player">
-            <span class="number">23</span>
-            <h3>Jules Koundé</h3>
-            <p>Defender</p>
-        </div>
-
-        <div class="player">
-            <span class="number">24</span>
-            <h3>Eric García</h3>
-            <p>Defender</p>
-        </div>
-
-        <div class="player">
-            <span class="number">39</span>
-            <h3>Héctor Fort</h3>
-            <p>Defender</p>
-        </div>
-
-    </div>
-
-
-    <!-- MIDFIELDERS -->
-
-    <h3 class="position-title">
-        Midfielders
-    </h3>
-
-    <div class="squad">
-
-        <div class="player">
-            <span class="number">6</span>
-            <h3>Gavi</h3>
-            <p>Midfielder</p>
-        </div>
-
-        <div class="player">
-            <span class="number">8</span>
-            <h3>Pedri</h3>
-            <p>Midfielder</p>
-        </div>
-
-        <div class="player">
-            <span class="number">16</span>
-            <h3>Fermín López</h3>
-            <p>Midfielder</p>
-        </div>
-
-        <div class="player">
-            <span class="number">17</span>
-            <h3>Marc Casadó</h3>
-            <p>Midfielder</p>
-        </div>
-
-        <div class="player">
-            <span class="number">20</span>
-            <h3>Dani Olmo</h3>
-            <p>Midfielder</p>
-        </div>
-
-        <div class="player">
-            <span class="number">21</span>
-            <h3>Frenkie de Jong</h3>
-            <p>Midfielder</p>
-        </div>
-
-        <div class="player">
-            <span class="number">22</span>
-            <h3>Marc Bernal</h3>
-            <p>Midfielder</p>
-        </div>
-
-    </div>
-
-
-    <!-- FORWARDS -->
-
-    <h3 class="position-title">
-        Forwards
-    </h3>
-
-    <div class="squad">
-
-        <div class="player">
-            <span class="number">7</span>
-            <h3>Ferran Torres</h3>
-            <p>Forward</p>
-        </div>
-
-        <div class="player">
-            <span class="number">10</span>
-            <h3>Lamine Yamal</h3>
-            <p>Forward</p>
-        </div>
-
-        <div class="player">
-            <span class="number">11</span>
-            <h3>Raphinha</h3>
-            <p>Forward</p>
-        </div>
-
-        <div class="player">
-            <span class="number">19</span>
-            <h3>Roony Bardghji</h3>
-            <p>Forward</p>
-        </div>
-
-        <div class="player">
-            <span class="number">—</span>
-            <h3>Anthony Gordon</h3>
-            <p>Forward</p>
-        </div>
-
-        <div class="player">
-            <span class="number">—</span>
-            <h3>Karim Adeyemi</h3>
-            <p>Forward</p>
-        </div>
-
-    </div>
-
+:root {
+    --blue: #004d98;
+    --dark-blue: #06152d;
+    --red: #a50044;
+    --bright-red: #e30613;
+    --bg: #060a13;
+    --card: #0d1422;
+    --card-light: #121b2d;
+    --text: #f5f7fb;
+    --muted: #8993a8;
+    --line: rgba(255,255,255,.08);
+    --green: #35d58a;
+}
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+html {
+    scroll-behavior: smooth;
+}
+body {
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+    background:
+        radial-gradient(circle at 80% 0%, rgba(0,77,152,.25), transparent 35%),
+        radial-gradient(circle at 0% 30%, rgba(165,0,68,.16), transparent 30%),
+        var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+}
+/* HEADER */
+header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(18px);
+    background: rgba(6,10,19,.86);
+    border-bottom: 1px solid var(--line);
+}
+.header-inner {
+    max-width: 1150px;
+    margin: auto;
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.logo {
+    font-size: 25px;
+    font-weight: 900;
+    letter-spacing: -1px;
+}
+.logo span {
+    color: var(--bright-red);
+}
+.logo small {
+    display: block;
+    color: var(--muted);
+    font-size: 8px;
+    letter-spacing: 2px;
+    margin-top: -2px;
+}
+.menu {
+    display: flex;
+    gap: 5px;
+}
+.menu button {
+    border: 0;
+    background: transparent;
+    color: #aeb6c7;
+    padding: 9px 12px;
+    border-radius: 10px;
+    cursor: pointer;
+    font: inherit;
+    font-size: 13px;
+    font-weight: 600;
+}
+.menu button:hover,
+.menu button.active {
+    background: rgba(255,255,255,.08);
+    color: white;
+}
+/* MAIN */
+main {
+    max-width: 1150px;
+    margin: auto;
+    padding: 28px 20px 60px;
+}
+section {
+    scroll-margin-top: 90px;
+}
+/* HERO */
+.hero {
+    position: relative;
+    overflow: hidden;
+    min-height: 430px;
+    border-radius: 28px;
+    padding: 45px;
+    display: flex;
+    align-items: flex-end;
+    background:
+        linear-gradient(
+            120deg,
+            rgba(0,25,65,.97),
+            rgba(0,77,152,.78) 45%,
+            rgba(165,0,68,.88)
+        );
+    box-shadow: 0 25px 70px rgba(0,0,0,.35);
+}
+.hero::before {
+    content: "FCB";
+    position: absolute;
+    right: -25px;
+    top: -70px;
+    font-size: 240px;
+    font-weight: 900;
+    color: rgba(255,255,255,.05);
+}
+.hero-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 700px;
+}
+.eyebrow {
+    color: #c8d9ff;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 11px;
+    font-weight: 800;
+}
+.hero h1 {
+    font-size: clamp(40px, 7vw, 76px);
+    line-height: .95;
+    letter-spacing: -4px;
+    margin: 12px 0 18px;
+}
+.hero p {
+    color: #dce4f4;
+    line-height: 1.6;
+    max-width: 570px;
+}
+/* NEXT MATCH */
+.next-match {
+    margin-top: 25px;
+    padding: 20px;
+    border-radius: 20px;
+    background: rgba(0,0,0,.25);
+    border: 1px solid rgba(255,255,255,.1);
+    backdrop-filter: blur(10px);
+}
+.next-label {
+    text-align: center;
+    color: #aeb8ca;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    margin-bottom: 15px;
+}
+.teams {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: 20px;
+}
+.team {
+    text-align: center;
+}
+.team-icon {
+    font-size: 35px;
+    margin-bottom: 7px;
+}
+.team-name {
+    font-size: 14px;
+    font-weight: 800;
+}
+.vs {
+    color: #aeb8ca;
+    font-size: 12px;
+    font-weight: 900;
+}
+/* SECTION */
+.section-head {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 15px;
+    margin: 55px 0 18px;
+}
+.section-head h2 {
+    font-size: 28px;
+    letter-spacing: -1px;
+}
+.section-head p {
+    color: var(--muted);
+    font-size: 13px;
+}
+/* INFO */
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 12px;
+}
+.info-card {
+    padding: 22px;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 20px;
+}
+.info-number {
+    font-size: 34px;
+    font-weight: 900;
+    letter-spacing: -2px;
+}
+.info-card p {
+    margin-top: 6px;
+    color: var(--muted);
+    font-size: 12px;
+}
+/* FILTERS */
+.filters {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    padding-bottom: 10px;
+}
+.filter {
+    flex: 0 0 auto;
+    padding: 9px 15px;
+    border-radius: 999px;
+    border: 1px solid var(--line);
+    background: var(--card);
+    color: #aeb6c7;
+    cursor: pointer;
+    font: inherit;
+    font-size: 12px;
+    font-weight: 700;
+}
+.filter.active,
+.filter:hover {
+    background: linear-gradient(135deg,var(--blue),var(--red));
+    color: white;
+    border-color: transparent;
+}
+.search {
+    width: 100%;
+    margin: 12px 0 18px;
+    padding: 14px 16px;
+    border-radius: 13px;
+    border: 1px solid var(--line);
+    outline: none;
+    background: var(--card);
+    color: white;
+    font: inherit;
+}
+.search::placeholder {
+    color: #687286;
+}
+/* MATCHES */
+.month-title {
+    margin: 28px 0 10px;
+    font-size: 14px;
+    color: #aeb8ca;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+.match {
+    display: grid;
+    grid-template-columns: 105px 1fr auto;
+    gap: 20px;
+    align-items: center;
+    padding: 18px;
+    margin-bottom: 8px;
+    border: 1px solid var(--line);
+    background: linear-gradient(
+        135deg,
+        rgba(13,20,34,.95),
+        rgba(18,27,45,.85)
+    );
+    border-radius: 17px;
+    transition: .2s;
+}
+.match:hover {
+    transform: translateY(-2px);
+    border-color: rgba(255,255,255,.17);
+}
+.date {
+    color: var(--muted);
+    font-size: 12px;
+    font-weight: 600;
+}
+.date strong {
+    display: block;
+    color: white;
+    font-size: 14px;
+    margin-bottom: 4px;
+}
+.opponent {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+}
+.opponent-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    display: grid;
+    place-items: center;
+    background: linear-gradient(135deg,#17233c,#0d1525);
+    font-size: 20px;
+}
+.opponent strong {
+    display: block;
+    font-size: 14px;
+}
+.opponent span {
+    display: block;
+    color: var(--muted);
+    font-size: 11px;
+    margin-top: 4px;
+}
+.match-time {
+    text-align: right;
+    color: #c7cfdd;
+    font-size: 12px;
+    font-weight: 700;
+}
+.confirmed {
+    color: var(--green);
+}
+/* SQUAD */
+.position-title {
+    margin: 32px 0 13px;
+    font-size: 15px;
+    font-weight: 900;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+.position-title:first-of-type {
+    margin-top: 5px;
+}
+.squad {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 10px;
+}
+.player {
+    padding: 19px;
+    border-radius: 17px;
+    background: linear-gradient(
+        145deg,
+        var(--card),
+        var(--card-light)
+    );
+    border: 1px solid var(--line);
+    transition: .2s;
+}
+.player:hover {
+    transform: translateY(-3px);
+    border-color: rgba(255,255,255,.17);
+}
+.number {
+    font-size: 11px;
+    color: var(--bright-red);
+    font-weight: 800;
+}
+.player h3 {
+    margin-top: 8px;
+    font-size: 15px;
+}
+.player p {
+    margin-top: 4px;
+    color: var(--muted);
+    font-size: 11px;
+}
+/* ABOUT */
+.about {
+    margin-top: 55px;
+    padding: 30px;
+    border-radius: 22px;
+    background:
+        linear-gradient(
+            135deg,
+            rgba(0,77,152,.18),
+            rgba(165,0,68,.18)
+        );
+    border: 1px solid var(--line);
+}
+.about h2 {
+    margin-bottom: 10px;
+}
+.about p {
+    color: #aeb7c8;
+    line-height: 1.7;
+    font-size: 13px;
+}
+.author {
+    margin-top: 22px;
+    padding-top: 18px;
+    border-top: 1px solid var(--line);
+    font-size: 12px;
+    color: var(--muted);
+}
+.author strong {
+    color: white;
+}
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 35px 20px;
+    color: #5f697c;
+    font-size: 11px;
+    border-top: 1px solid var(--line);
+}
+/* MOBILE */
+@media (max-width:700px) {
+    .header-inner {
+        padding: 13px 15px;
+    }
+    .menu {
+        max-width: 60%;
+        overflow-x: auto;
+    }
+    .menu button {
+        padding: 8px;
+        font-size: 11px;
+    }
+    main {
+        padding: 15px 14px 45px;
+    }
+    .hero {
+        min-height: 470px;
+        padding: 25px;
+        border-radius: 23px;
+    }
+    .hero h1 {
+        letter-spacing: -2px;
+    }
+    .hero::before {
+        font-size: 130px;
+        top: 20px;
+    }
+    .info-grid {
+        grid-template-columns: 1fr;
+    }
+    .squad {
+        grid-template-columns: repeat(2,1fr);
+    }
+    .match {
+        grid-template-columns: 75px 1fr;
+        gap: 12px;
+    }
+    .match-time {
+        grid-column: 2;
+        text-align: left;
+        margin-top: -5px;
+    }
+    .section-head {
+        margin-top: 40px;
+    }
+}
+</style>
+</head>
+<body>
+<header>
+<div class="header-inner">
+<div class="logo">
+BARQÉ<span>LIA</span>
+<small>FC BARCELONA FAN SITE</small>
+</div>
+<nav class="menu">
+<button class="active" onclick="goTo('home')">
+Home
+</button>
+<button onclick="goTo('matches')">
+Matches
+</button>
+<button onclick="goTo('squad')">
+Squad
+</button>
+<button onclick="goTo('about')">
+About
+</button>
+</nav>
+</div>
+</header>
+<main>
+<!-- HOME -->
+<section id="home">
+<div class="hero">
+<div class="hero-content">
+<div class="eyebrow">
+FC Barcelona • 2026/27
+</div>
+<h1>
+Més que un club.
+</h1>
+<p>
+BARQÉLIA is a fan-made FC Barcelona website
+featuring the season schedule, upcoming matches,
+squad information and everything Barça fans need.
+</p>
+<div class="next-match">
+<div class="next-label">
+NEXT MATCH
+</div>
+<div class="teams">
+<div class="team">
+<div class="team-icon">
+🔵🔴
+</div>
+<div class="team-name">
+Barcelona
+</div>
+</div>
+<div class="vs">
+VS
+</div>
+<div class="team">
+<div class="team-icon">
+⚽
+</div>
+<div class="team-name">
+Upcoming opponent
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section-head">
+<div>
+<h2>
+2026/27 Season
+</h2>
+<p>
+Everything about Barça in one place.
+</p>
+</div>
+</div>
+<div class="info-grid">
+<div class="info-card">
+<div class="info-number">
+38
+</div>
+<p>
+La Liga matches
+</p>
+</div>
+<div class="info-card">
+<div class="info-number">
+19
+</div>
+<p>
+Home league matches
+</p>
+</div>
+<div class="info-card">
+<div class="info-number">
+2026/27
+</div>
+<p>
+Current season
+</p>
+</div>
+</div>
 </section>
-    <style>
+<!-- MATCHES -->
+<section id="matches">
+<div class="section-head">
+<div>
+<h2>
+Matches
+</h2>
+<p>
+FC Barcelona 2026/27 schedule
+</p>
+</div>
+</div>
+<div class="filters">
+<button class="filter active"
+onclick="filterMatches('all',this)">
+All
+</button>
+<button class="filter"
+onclick="filterMatches('aug',this)">
+August
+</button>
+<button class="filter"
+onclick="filterMatches('sep',this)">
+September
+</button>
+<button class="filter"
+onclick="filterMatches('oct',this)">
+October
+</button>
+<button class="filter"
+onclick="filterMatches('nov',this)">
+November
+</button>
+<button class="filter"
+onclick="filterMatches('dec',this)">
+December
+</button>
+<button class="filter"
+onclick="filterMatches('2027',this)">
+2027
+</button>
+</div>
+<input
+id="search"
+class="search"
+type="text"
+placeholder="🔎 Search opponent..."
+oninput="searchMatches()"
+>
+<div id="match-list"></div>
+</section>
+<!-- SQUAD -->
+<section id="squad">
+<div class="section-head">
+<div>
+<h2>
+Squad
+</h2>
+<p>
+FC Barcelona 2026/27
+</p>
+</div>
+</div>
+<!-- GOALKEEPERS -->
+<h3 class="position-title">
+Goalkeepers
+</h3>
+<div class="squad">
+<div class="player">
+<span class="number">13</span>
+<h3>Joan García</h3>
+<p>Goalkeeper</p>
+</div>
+<div class="player">
+<span class="number">25</span>
+<h3>Wojciech Szczęsny</h3>
+<p>Goalkeeper</p>
+</div>
+</div>
+<!-- DEFENDERS -->
+<h3 class="position-title">
+Defenders
+</h3>
+<div class="squad">
+<div class="player">
+<span class="number">3</span>
+<h3>Alejandro Balde</h3>
+<p>Defender</p>
+</div>
+<div class="player">
+<span class="number">5</span>
+<h3>Pau Cubarsí</h3>
+<p>Defender</p>
+</div>
+<div class="player">
+<span class="number">15</span>
+<h3>Andreas Christensen</h3>
+<p>Defender</p>
+</div>
+<div class="player">
+<span class="number">18</span>
+<h3>Gerard Martín</h3>
+<p>Defender</p>
+</div>
+<div class="player">
+<span class="number">23</span>
+<h3>Jules Koundé</h3>
+<p>Defender</p>
+</div>
+<div class="player">
+<span class="number">24</span>
+<h3>Eric García</h3>
+<p>Defender</p>
+</div>
+<div class="player">
+<span class="number">39</span>
+<h3>Héctor Fort</h3>
+<p>Defender</p>
+</div>
+</div>
+<!-- MIDFIELDERS -->
+<h3 class="position-title">
+Midfielders
+</h3>
+<div class="squad">
+<div class="player">
+<span class="number">6</span>
+<h3>Gavi</h3>
+<p>Midfielder</p>
+</div>
+<div class="player">
+<span class="number">8</span>
+<h3>Pedri</h3>
+<p>Midfielder</p>
+</div>
+<div class="player">
+<span class="number">16</span>
+<h3>Fermín López</h3>
+<p>Midfielder</p>
+</div>
+<div class="player">
+<span class="number">17</span>
+<h3>Marc Casadó</h3>
+<p>Midfielder</p>
+</div>
+<div class="player">
+<span class="number">20</span>
+<h3>Dani Olmo</h3>
+<p>Midfielder</p>
+</div>
+<div class="player">
+<span class="number">21</span>
+<h3>Frenkie de Jong</h3>
+<p>Midfielder</p>
+</div>
+<div class="player">
+<span class="number">22</span>
+<h3>Marc Bernal</h3>
+<p>Midfielder</p>
+</div>
+</div>
+<!-- FORWARDS -->
+<h3 class="position-title">
+Forwards
+</h3>
+<div class="squad">
+<div class="player">
+<span class="number">7</span>
+<h3>Ferran Torres</h3>
+<p>Forward</p>
+</div>
+<div class="player">
+<span class="number">10</span>
+<h3>Lamine Yamal</h3>
+<p>Forward</p>
+</div>
+<div class="player">
+<span class="number">11</span>
+<h3>Raphinha</h3>
+<p>Forward</p>
+</div>
+<div class="player">
+<span class="number">19</span>
+<h3>Roony Bardghji</h3>
+<p>Forward</p>
+</div>
+<div class="player">
+<span class="number">—</span>
+<h3>Anthony Gordon</h3>
+<p>Forward</p>
+</div>
+<div class="player">
+<span class="number">—</span>
+<h3>Karim Adeyemi</h3>
+<p>Forward</p>
+</div>
+<div class="player">
+<span class="number">—</span>
+<h3>Jesse Bisiwu</h3>
+<p>Forward</p>
+</div>
+</div>
+</section>
+<!-- ABOUT -->
+<section id="about">
+<div class="about">
+<h2>
+About BARQÉLIA
+</h2>
+<p>
+BARQÉLIA is an independent fan-made project
+created for FC Barcelona supporters.
+The website brings together Barça's matches,
+squad information and the most important parts
+of the season in one clean interface.
+</p>
+<div class="author">
+Created and designed by
+<strong>musa23</strong>
+</div>
+</div>
+</section>
+</main>
+<footer>
+BARQÉLIA © 2026
+<br><br>
+Fan-made FC Barcelona project
+<br>
+Author: <strong>musa23</strong>
+</footer>
+<script>
+const matches = [
+{
+month:"aug",
+monthName:"August 2026",
+date:"19 August",
+opponent:"Al Ahly",
+competition:"Joan Gamper Trophy",
+time:"TBA",
+confirmed:false,
+home:true
+},
+{
+month:"aug",
+monthName:"August 2026",
+date:"23 August",
+opponent:"Elche",
+competition:"La Liga",
+time:"TBA",
+confirmed:false,
+home:false
+},
+{
+month:"aug",
+monthName:"August 2026",
+date:"27 August",
+opponent:"Athletic Club",
+competition:"La Liga",
+time:"TBA",
+confirmed:false,
+home:true
+},
+{
+month:"aug",
+monthName:"August 2026",
+date:"31 August",
+opponent:"Rayo Vallecano",
+competition:"La Liga",
+time:"TBA",
+confirmed:false,
+home:true
+},
+{
+month:"sep",
+monthName:"September 2026",
+date:"September",
+opponent:"Valencia",
+competition:"La Liga",
+time:"TBA",
+confirmed:false,
+home:false
+},
+{
+month:"sep",
+monthName:"September 2026",
+date:"September",
+opponent:"Levante",
+competition:"La Liga",
+time:"TBA",
+confirmed:false,
+home:false
+},
+{
+month:"sep",
+monthName:"September 2026",
+date:"September",
+opponent:"Sevilla",
+competition:"La Liga",
+time:"TBA",
+confirmed:false,
+home:false
+},
+{
+month:"oct",
+monthName:"October 2026",
+date:"October",
+opponent:"Getafe",
+competition:"La Liga",
+time:"TBA",
+confirmed:false,
+home:true
+},
+{
+month:"oct",
+monthName:"October 2026",
+date:"October",
+opponent:"Real Betis",
+competition:"La Liga",
+time:"TBA",
+confirmed:false,
+home:false
+},
+{
+month:"oct",
+monthName:"October 2026",
+date:"October",
+opponent:"Real Madrid",
+competition:"La Liga",
+time:"TBA",
+confirmed:false,
+home:true
+},
+{
+month:"nov",
+monthName:"November 2026",
+date:"November",
+opponent:"Alavés",
+competition:"La Liga",
+time:"TBA",
+confirmed:false,
+home:true
+},
+{
+month:"nov",
+monthName:"November 2026",
+date:"November",
+opponent:"Atlético Madrid",
+competition:"La Liga",
+time:"TBA",
+confirmed:false,
+home:false
+},
+{
+month:"nov",
+monthName:"November 2026",
+date:"November",
+opponent:"Villarreal",
+competition:"La Liga",
+time:"TBA",
+confirmed:false,
+home:true
+},
+{
+month:"dec",
+monthName:"December 2026",
+date:"December",
+opponent:"Celta Vigo",
+competition:"La Liga",
+time:"TBA",
+confirmed:false,
+home:true
+},
+{
+month:"dec",
+monthName:"December 2026",
+date:"December",
+opponent:"Real Sociedad",
+competition:"La Liga",
+time:"TBA",
+confirmed:false,
+home:true
+},
+{
+month:"2027",
+monthName:"January 2027",
+date:"January",
+opponent:"Espanyol",
+competition:"La Liga",
+time:"TBA",
+confirmed:false,
+home:false
+},
+{
+month:"2027",
+monthName:"January 2027",
+date:"January",
+opponent:"Osasuna",
+competition:"La Liga",
+time:"TBA",
+confirmed:false,
+home:false
+},
+{
+month:"2027",
+monthName:"February 2027",
+date:"February",
+opponent:"Atlético Madrid",
+competition:"La Liga",
+time:"TBA",
+confirmed:false,
+home:true
+},
+{
+month:"2027",
+monthName:"February 2027",
+date:"February",
+opponent:"Villarreal",
+competition:"La Liga",
+time:"TBA",
+confirmed:false,
+home:false
+},
+{
+month:"2027",
+monthName:"March 2027",
+date:"March",
+opponent:"Real Betis",
+competition:"La Liga",
+time:"TBA",
+confirmed:false,
+home:true
+},
+{
+month:"2027",
+monthName:"March 2027",
+date:"March",
+opponent:"Rayo Vallecano",
+competition:"La Liga",
+time:"TBA",
+confirmed:false,
+home:false
+},
+{
+month:"2027",
+monthName:"April 2027",
+date:"April",
+opponent:"Sevilla",
+competition:"La Liga",
+time:"TBA",
+confirmed:false,
+home:true
+},
+{
+month:"2027",
+monthName:"April 2027",
+date:"April",
+opponent:"Espanyol",
+competition:"La Liga",
+time:"TBA",
+confirmed:false,
+home:true
+},
+{
+month:"2027",
+monthName:"May 2027",
+date:"May",
+opponent:"Real Madrid",
+competition:"La Liga",
+time:"TBA",
+confirmed:false,
+home:false
+},
+{
+month:"2027",
+monthName:"May 2027",
+date:"May",
+opponent:"Real Sociedad",
+competition:"La Liga",
+time:"TBA",
+confirmed:false,
+home:false
+}
+];
+function renderMatches(list = matches) {
+const container =
+document.getElementById("match-list");
+container.innerHTML = "";
+let currentMonth = "";
+if (!list.length) {
+container.innerHTML = `
+<div class="info-card">
+<p>No matches found.</p>
+</div>
+`;
+return;
+}
+list.forEach(match => {
+if (match.monthName !== currentMonth) {
+currentMonth = match.monthName;
+const title =
+document.createElement("div");
+title.className = "month-title";
+title.textContent =
+currentMonth;
+container.appendChild(title);
+}
+const item =
+document.createElement("div");
+item.className = "match";
+item.innerHTML = `
+<div class="date">
+<strong>
+${match.date}
+</strong>
+${match.home ? "🏠 Home" : "✈️ Away"}
+</div>
+<div class="opponent">
+<div class="opponent-icon">
+⚽
+</div>
+<div>
+<strong>
+${
+match.home
+? "Barcelona — " + match.opponent
+: match.opponent + " — Barcelona"
+}
+</strong>
+<span>
+${match.competition}
+</span>
+</div>
+</div>
+<div class="match-time">
+<span class="${match.confirmed ? "confirmed" : ""}">
+${match.time}
+</span>
+</div>
+`;
+container.appendChild(item);
+});
+}
+function filterMatches(filter, button) {
+document
+.querySelectorAll(".filter")
+.forEach(btn =>
+btn.classList.remove("active")
+);
+button.classList.add("active");
+if (filter === "all") {
+renderMatches(matches);
+return;
+}
+renderMatches(
+matches.filter(
+match => match.month === filter
+)
+);
+}
+function searchMatches() {
+const value =
+document
+.getElementById("search")
+.value
+.toLowerCase()
+.trim();
+renderMatches(
+matches.filter(match =>
+match.opponent
+.toLowerCase()
+.includes(value)
+||
+match.competition
+.toLowerCase()
+.includes(value)
+)
+);
+}
+function goTo(id) {
+document
+.getElementById(id)
+.scrollIntoView({
+behavior:"smooth"
+});
+}
+renderMatches();
+</script>
+</body>
+</html>
