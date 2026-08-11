@@ -1,497 +1,1139 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Barça Players</title>
+<title>LALIGA HUB</title>
 <style>
-    * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+    --red:#e30613;
+    --red2:#b9000c;
+    --black:#111111;
+    --gray:#f4f4f4;
+    --line:#e7e7e7;
+    --text:#171717;
+    --muted:#777;
+    --white:#fff;
+}
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:#f7f7f7;
+    color:var(--text);
+}
+button,input{font:inherit}
+header{
+    background:#fff;
+    border-bottom:1px solid var(--line);
+    position:sticky;
+    top:0;
+    z-index:50;
+}
+.header{
+    max-width:1250px;
+    margin:auto;
+    min-height:76px;
+    padding:0 22px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+}
+.logo{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+.logo-mark{
+    width:45px;
+    height:45px;
+    border-radius:14px;
+    background:linear-gradient(135deg,#e30613,#ff4b55);
+    color:white;
+    display:grid;
+    place-items:center;
+    font-size:24px;
+    font-weight:900;
+    transform:rotate(-8deg);
+}
+.logo-text{
+    font-size:25px;
+    font-weight:900;
+    letter-spacing:-1px;
+}
+.logo-text span{
+    color:var(--red);
+}
+nav{
+    display:flex;
+    gap:5px;
+    flex-wrap:wrap;
+    justify-content:flex-end;
+}
+.nav-btn{
+    border:0;
+    background:transparent;
+    padding:11px 14px;
+    border-radius:9px;
+    cursor:pointer;
+    font-weight:700;
+    color:#444;
+}
+.nav-btn:hover,
+.nav-btn.active{
+    background:var(--red);
+    color:white;
+}
+.container{
+    max-width:1250px;
+    margin:auto;
+    padding:30px 22px 60px;
+}
+.page{display:none}
+.page.active{display:block}
+.hero{
+    background:
+        radial-gradient(circle at 85% 20%,rgba(255,255,255,.25),transparent 25%),
+        linear-gradient(120deg,#c9000c,#e30613 55%,#8e0008);
+    color:white;
+    border-radius:26px;
+    padding:45px;
+    min-height:300px;
+    display:flex;
+    align-items:flex-end;
+    margin-bottom:30px;
+    overflow:hidden;
+    position:relative;
+}
+.hero:after{
+    content:"LALIGA";
+    position:absolute;
+    right:-25px;
+    top:20px;
+    font-size:100px;
+    font-weight:900;
+    opacity:.08;
+    transform:rotate(-10deg);
+}
+.hero-content{
+    position:relative;
+    z-index:2;
+}
+.hero-kicker{
+    font-size:14px;
+    font-weight:800;
+    letter-spacing:2px;
+    margin-bottom:12px;
+    opacity:.85;
+}
+.hero h1{
+    font-size:54px;
+    line-height:1;
+    margin-bottom:15px;
+    letter-spacing:-3px;
+}
+.hero p{
+    max-width:650px;
+    line-height:1.6;
+    color:#ffe9ea;
+}
+.section-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:end;
+    gap:20px;
+    margin:30px 0 18px;
+}
+.section-head h2{
+    font-size:28px;
+}
+.section-head p{
+    color:var(--muted);
+    margin-top:5px;
+}
+.grid{
+    display:grid;
+    gap:18px;
+}
+.matches{
+    grid-template-columns:repeat(auto-fit,minmax(330px,1fr));
+}
+.match-card{
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:18px;
+    padding:20px;
+    transition:.2s;
+}
+.match-card:hover{
+    transform:translateY(-3px);
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+}
+.match-top{
+    display:flex;
+    justify-content:space-between;
+    color:#888;
+    font-size:12px;
+    margin-bottom:18px;
+}
+.match-teams{
+    display:grid;
+    grid-template-columns:1fr 70px 1fr;
+    align-items:center;
+    gap:8px;
+}
+.team{
+    display:flex;
+    align-items:center;
+    gap:9px;
+    font-weight:800;
+}
+.team.away{
+    justify-content:flex-end;
+    text-align:right;
+}
+.team img{
+    width:38px;
+    height:38px;
+    object-fit:contain;
+}
+.score{
+    text-align:center;
+    font-size:20px;
+    font-weight:900;
+}
+.match-status{
+    text-align:center;
+    color:var(--red);
+    font-size:11px;
+    font-weight:800;
+    margin-top:5px;
+}
+.loading{
+    background:#fff;
+    border:1px solid var(--line);
+    padding:35px;
+    border-radius:18px;
+    text-align:center;
+    color:#777;
+}
+.error{
+    background:#fff1f1;
+    color:#9c0008;
+    border:1px solid #ffc4c7;
+    padding:20px;
+    border-radius:14px;
+}
+.table-box{
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:18px;
+    overflow:auto;
+}
+table{
+    width:100%;
+    border-collapse:collapse;
+    min-width:700px;
+}
+th{
+    background:#151515;
+    color:white;
+    padding:14px 10px;
+    font-size:12px;
+}
+td{
+    padding:14px 10px;
+    border-bottom:1px solid var(--line);
+    text-align:center;
+    font-size:14px;
+}
+tr:hover td{
+    background:#fafafa;
+}
+.club-name{
+    display:flex;
+    align-items:center;
+    gap:11px;
+    text-align:left;
+    font-weight:800;
+}
+.club-name img{
+    width:32px;
+    height:32px;
+    object-fit:contain;
+}
+.position{
+    font-weight:900;
+}
+.top4{
+    border-left:4px solid #159447;
+}
+.relegation{
+    border-left:4px solid var(--red);
+}
+.search{
+    margin-bottom:25px;
+}
+.search input{
+    width:100%;
+    padding:17px 20px;
+    background:#fff;
+    border:1px solid #ddd;
+    border-radius:14px;
+    outline:0;
+    font-size:17px;
+}
+.search input:focus{
+    border:2px solid var(--red);
+}
+.players{
+    grid-template-columns:repeat(auto-fill,minmax(210px,1fr));
+}
+.player-card{
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:18px;
+    overflow:hidden;
+    cursor:pointer;
+    transition:.22s;
+}
+.player-card:hover{
+    transform:translateY(-5px);
+    box-shadow:0 12px 30px rgba(0,0,0,.1);
+    border-color:#ffb7bb;
+}
+.player-card img{
+    width:100%;
+    height:250px;
+    object-fit:cover;
+    background:#eee;
+}
+.player-info{
+    padding:17px;
+}
+.player-name{
+    font-weight:900;
+    font-size:18px;
+}
+.player-meta{
+    color:#777;
+    font-size:13px;
+    margin-top:6px;
+}
+.club-tag{
+    margin-top:12px;
+    display:flex;
+    align-items:center;
+    gap:7px;
+    color:#444;
+    font-size:13px;
+    font-weight:700;
+}
+.club-tag img{
+    width:25px;
+    height:25px;
+    object-fit:contain;
+    background:none;
+}
+.clubs{
+    grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
+}
+.club-card{
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:18px;
+    padding:25px;
+    cursor:pointer;
+    transition:.2s;
+}
+.club-card:hover{
+    transform:translateY(-4px);
+    border-color:#ffb4b8;
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+}
+.club-card img{
+    width:80px;
+    height:80px;
+    object-fit:contain;
+    display:block;
+    margin:auto;
+}
+.club-card h3{
+    text-align:center;
+    margin-top:15px;
+}
+.profile{
+    background:#fff;
+    border-radius:22px;
+    border:1px solid var(--line);
+    padding:30px;
+    display:grid;
+    grid-template-columns:360px 1fr;
+    gap:40px;
+}
+.profile-photo{
+    width:100%;
+    height:460px;
+    object-fit:cover;
+    border-radius:17px;
+    background:#eee;
+}
+.profile h2{
+    font-size:42px;
+    margin-bottom:25px;
+}
+.detail{
+    padding:15px 0;
+    border-bottom:1px solid var(--line);
+}
+.label{
+    display:block;
+    color:#888;
+    font-size:12px;
+    margin-bottom:5px;
+}
+.value{
+    font-size:18px;
+    font-weight:800;
+}
+.club-profile{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+.club-profile img{
+    width:40px;
+    height:40px;
+    object-fit:contain;
+}
+.description{
+    margin-top:25px;
+    color:#666;
+    line-height:1.7;
+}
+.back{
+    border:0;
+    background:#151515;
+    color:white;
+    padding:12px 18px;
+    border-radius:10px;
+    cursor:pointer;
+    font-weight:800;
+    margin-bottom:20px;
+}
+.back:hover{
+    background:var(--red);
+}
+.notice{
+    padding:14px 18px;
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:12px;
+    color:#666;
+    margin-bottom:20px;
+}
+footer{
+    background:#111;
+    color:#aaa;
+    text-align:center;
+    padding:35px 20px;
+}
+@media(max-width:800px){
+    .header{
+        flex-direction:column;
+        align-items:flex-start;
+        padding:15px 18px;
     }
-    body {
-        font-family: Arial, Helvetica, sans-serif;
-        background: #071a36;
-        color: white;
-        min-height: 100vh;
+    nav{
+        width:100%;
+        justify-content:flex-start;
+        overflow-x:auto;
+        flex-wrap:nowrap;
     }
-    header {
-        background: linear-gradient(135deg, #071a36, #142b55);
-        padding: 25px 20px;
-        text-align: center;
-        border-bottom: 3px solid #ed1c24;
+    .nav-btn{
+        white-space:nowrap;
     }
-    .logo {
-        font-size: 42px;
-        margin-bottom: 5px;
+    .hero{
+        padding:30px 25px;
+        min-height:260px;
     }
-    h1 {
-        font-size: 30px;
-        color: #fff;
+    .hero h1{
+        font-size:40px;
     }
-    .subtitle {
-        color: #b8c7df;
-        margin-top: 7px;
+    .profile{
+        grid-template-columns:1fr;
+        padding:20px;
     }
-    .container {
-        max-width: 1100px;
-        margin: auto;
-        padding: 30px 20px;
+    .profile-photo{
+        height:380px;
     }
-    /* SEARCH */
-    .search-box {
-        position: relative;
-        margin-bottom: 30px;
+    .profile h2{
+        font-size:32px;
     }
-    #searchInput {
-        width: 100%;
-        padding: 17px 20px;
-        border-radius: 14px;
-        border: 2px solid #29466f;
-        background: #10294d;
-        color: white;
-        font-size: 17px;
-        outline: none;
-        transition: 0.2s;
-    }
-    #searchInput:focus {
-        border-color: #ed1c24;
-        box-shadow: 0 0 15px rgba(237, 28, 36, 0.25);
-    }
-    #searchInput::placeholder {
-        color: #9eacc2;
-    }
-    /* PLAYERS */
-    #playersGrid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-        gap: 20px;
-    }
-    .player-card {
-        background: #10294d;
-        border: 1px solid #29466f;
-        border-radius: 18px;
-        overflow: hidden;
-        cursor: pointer;
-        transition: 0.25s;
-    }
-    .player-card:hover {
-        transform: translateY(-6px);
-        border-color: #ed1c24;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-    }
-    .player-photo {
-        width: 100%;
-        height: 240px;
-        object-fit: cover;
-        background: #172f55;
-    }
-    .player-info {
-        padding: 17px;
-    }
-    .player-name {
-        font-size: 20px;
-        font-weight: bold;
-        margin-bottom: 7px;
-    }
-    .player-position {
-        color: #b9c8df;
-        font-size: 14px;
-    }
-    .club-small {
-        margin-top: 12px;
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        color: #dce5f3;
-        font-size: 14px;
-    }
-    .club-logo {
-        width: 28px;
-        height: 28px;
-        object-fit: contain;
-    }
-    /* PLAYER PAGE */
-    #playerPage {
-        display: none;
-    }
-    .back-button {
-        border: none;
-        background: #ed1c24;
-        color: white;
-        padding: 12px 20px;
-        border-radius: 10px;
-        font-size: 15px;
-        font-weight: bold;
-        cursor: pointer;
-        margin-bottom: 25px;
-        transition: 0.2s;
-    }
-    .back-button:hover {
-        background: #c9141b;
-        transform: translateX(-3px);
-    }
-    .player-profile {
-        background: #10294d;
-        border: 1px solid #29466f;
-        border-radius: 22px;
-        padding: 30px;
-        display: grid;
-        grid-template-columns: 380px 1fr;
-        gap: 40px;
-        align-items: center;
-    }
-    .profile-photo {
-        width: 100%;
-        height: 450px;
-        object-fit: cover;
-        border-radius: 18px;
-        background: #172f55;
-    }
-    .profile-name {
-        font-size: 42px;
-        margin-bottom: 25px;
-    }
-    .detail {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        padding: 15px 0;
-        border-bottom: 1px solid #29466f;
-        font-size: 17px;
-    }
-    .detail-icon {
-        font-size: 24px;
-        width: 35px;
-    }
-    .detail-label {
-        color: #9eacc2;
-        display: block;
-        font-size: 13px;
-        margin-bottom: 3px;
-    }
-    .detail-value {
-        font-weight: bold;
-    }
-    .club-profile {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-    }
-    .club-profile img {
-        width: 42px;
-        height: 42px;
-        object-fit: contain;
-    }
-    .description {
-        margin-top: 25px;
-        line-height: 1.7;
-        color: #c9d5e8;
-    }
-    /* NO RESULTS */
-    #noResults {
-        display: none;
-        text-align: center;
-        color: #9eacc2;
-        padding: 50px 10px;
-        font-size: 18px;
-    }
-    footer {
-        text-align: center;
-        padding: 35px 20px;
-        color: #7185a5;
-    }
-    @media (max-width: 750px) {
-        .player-profile {
-            grid-template-columns: 1fr;
-        }
-        .profile-photo {
-            height: 380px;
-        }
-        .profile-name {
-            font-size: 32px;
-        }
-    }
+}
 </style>
 </head>
 <body>
 <header>
-    <div class="logo">🔵🔴</div>
-    <h1>Barça Players</h1>
-    <p class="subtitle">Players Database</p>
+<div class="header">
+<div class="logo">
+<div class="logo-mark">L</div>
+<div class="logo-text">LA<span>LIGA</span></div>
+</div>
+<nav>
+<button class="nav-btn active" data-page="home">Home</button>
+<button class="nav-btn" data-page="matches">Matches</button>
+<button class="nav-btn" data-page="table">Table</button>
+<button class="nav-btn" data-page="clubs">Clubs</button>
+<button class="nav-btn" data-page="players">Players</button>
+</nav>
+</div>
 </header>
 <main class="container">
-    <!-- PLAYERS SCREEN -->
-    <section id="playersPage">
-        <div class="search-box">
-            <input
-                type="text"
-                id="searchInput"
-                placeholder="🔎 Search player..."
-                autocomplete="off"
-            >
-        </div>
-        <div id="playersGrid"></div>
-        <div id="noResults">
-            No players found 😕
-        </div>
-    </section>
-    <!-- PLAYER PROFILE SCREEN -->
-    <section id="playerPage">
-        <button class="back-button" onclick="showPlayers()">
-            ← Back to Players
-        </button>
-        <div class="player-profile">
-            <img
-                id="profilePhoto"
-                class="profile-photo"
-                src=""
-                alt="Player"
-            >
-            <div>
-                <h2 id="profileName" class="profile-name"></h2>
-                <div class="detail">
-                    <div class="detail-icon">🇪🇸</div>
-                    <div>
-                        <span class="detail-label">Nationality</span>
-                        <span id="profileNationality" class="detail-value"></span>
-                    </div>
-                </div>
-                <div class="detail">
-                    <div class="detail-icon">⚽</div>
-                    <div>
-                        <span class="detail-label">Position</span>
-                        <span id="profilePosition" class="detail-value"></span>
-                    </div>
-                </div>
-                <div class="detail">
-                    <div class="detail-icon">🏟️</div>
-                    <div>
-                        <span class="detail-label">Club</span>
-                        <div class="club-profile">
-                            <img id="profileClubLogo" src="" alt="Club logo">
-                            <span id="profileClub" class="detail-value"></span>
-                        </div>
-                    </div>
-                </div>
-                <p id="profileDescription" class="description"></p>
-            </div>
-        </div>
-    </section>
+<!-- HOME -->
+<section id="home" class="page active">
+<div class="hero">
+<div class="hero-content">
+<div class="hero-kicker">2026/27 • LALIGA EA SPORTS</div>
+<h1>THE HOME OF<br>SPANISH FOOTBALL</h1>
+<p>
+Матчи, результаты, турнирная таблица, клубы
+и игроки LaLiga в одном месте.
+</p>
+</div>
+</div>
+<div class="section-head">
+<div>
+<h2>Next matches</h2>
+<p>Ближайшие матчи чемпионата</p>
+</div>
+</div>
+<div id="homeMatches" class="grid matches">
+<div class="loading">Загрузка...</div>
+</div>
+</section>
+<!-- MATCHES -->
+<section id="matches" class="page">
+<div class="section-head">
+<div>
+<h2>Matches</h2>
+<p>Календарь и результаты LALIGA EA SPORTS 2026/27</p>
+</div>
+</div>
+<div id="allMatches" class="grid matches">
+<div class="loading">Загрузка матчей...</div>
+</div>
+</section>
+<!-- TABLE -->
+<section id="table" class="page">
+<div class="section-head">
+<div>
+<h2>Standings</h2>
+<p>Турнирная таблица LaLiga</p>
+</div>
+</div>
+<div id="standings" class="table-box">
+<div class="loading">Загрузка таблицы...</div>
+</div>
+</section>
+<!-- CLUBS -->
+<section id="clubs" class="page">
+<div class="section-head">
+<div>
+<h2>Clubs</h2>
+<p>Все команды LALIGA EA SPORTS</p>
+</div>
+</div>
+<div id="clubsGrid" class="grid clubs"></div>
+</section>
+<!-- PLAYERS -->
+<section id="players" class="page">
+<div class="section-head">
+<div>
+<h2>Players</h2>
+<p>Игроки клубов LaLiga</p>
+</div>
+</div>
+<div class="search">
+<input
+id="playerSearch"
+type="text"
+placeholder="🔎 Search player..."
+>
+</div>
+<div id="playersGrid" class="grid players"></div>
+</section>
+<!-- PLAYER PROFILE -->
+<section id="playerProfile" class="page">
+<button class="back" onclick="goTo('players')">
+← Back to Players
+</button>
+<div class="profile">
+<img id="profilePhoto" class="profile-photo">
+<div>
+<h2 id="profileName"></h2>
+<div class="detail">
+<span class="label">Nationality</span>
+<span id="profileNationality" class="value"></span>
+</div>
+<div class="detail">
+<span class="label">Position</span>
+<span id="profilePosition" class="value"></span>
+</div>
+<div class="detail">
+<span class="label">Club</span>
+<div class="club-profile">
+<img id="profileClubLogo">
+<span id="profileClub" class="value"></span>
+</div>
+</div>
+<p id="profileDescription" class="description"></p>
+</div>
+</div>
+</section>
 </main>
 <footer>
-    FC Barcelona Players Database © 2026
+LALIGA HUB • Fan-made project • 2026
 </footer>
 <script>
-/* =========================================
-   PLAYERS DATABASE
-   ========================================= */
-const players = [
-    {
-        name: "Lamine Yamal",
-        nationality: "Spain",
-        position: "Right Winger",
-        club: "FC Barcelona",
-        clubLogo: "https://upload.wikimedia.org/wikipedia/en/4/47/FC_Barcelona_%28crest%29.svg",
-        photo: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Lamine_Yamal_2024.jpg/640px-Lamine_Yamal_2024.jpg",
-        description: "Young Barcelona winger known for his creativity, dribbling, technique and ability to create chances."
-    },
-    {
-        name: "Pedri",
-        nationality: "Spain",
-        position: "Central Midfielder",
-        club: "FC Barcelona",
-        clubLogo: "https://upload.wikimedia.org/wikipedia/en/4/47/FC_Barcelona_%28crest%29.svg",
-        photo: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Pedri_2022.jpg/640px-Pedri_2022.jpg",
-        description: "Technical midfielder famous for his vision, passing and ability to control the tempo of a match."
-    },
-    {
-        name: "Raphinha",
-        nationality: "Brazil",
-        position: "Left Winger",
-        club: "FC Barcelona",
-        clubLogo: "https://upload.wikimedia.org/wikipedia/en/4/47/FC_Barcelona_%28crest%29.svg",
-        photo: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Raphinha_2022.jpg/640px-Raphinha_2022.jpg",
-        description: "Brazilian winger with excellent pace, work rate, dribbling and goal-scoring ability."
-    },
-    {
-        name: "Ferran Torres",
-        nationality: "Spain",
-        position: "Forward",
-        club: "FC Barcelona",
-        clubLogo: "https://upload.wikimedia.org/wikipedia/en/4/47/FC_Barcelona_%28crest%29.svg",
-        photo: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Ferran_Torres_2022.jpg/640px-Ferran_Torres_2022.jpg",
-        description: "Spanish forward capable of playing across the front three and contributing with goals and movement."
-    },
-    {
-        name: "João Cancelo",
-        nationality: "Portugal",
-        position: "Full-back",
-        club: "FC Barcelona",
-        clubLogo: "https://upload.wikimedia.org/wikipedia/en/4/47/FC_Barcelona_%28crest%29.svg",
-        photo: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Joao_Cancelo_2022.jpg/640px-Joao_Cancelo_2022.jpg",
-        description: "Portuguese full-back known for his attacking contribution, technical ability and versatility."
-    },
-    {
-        name: "Julian Alvarez",
-        nationality: "Argentina",
-        position: "Forward",
-        club: "Atlético Madrid",
-        clubLogo: "https://upload.wikimedia.org/wikipedia/en/f/f4/Atletico_Madrid_2017_logo.svg",
-        photo: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Juli%C3%A1n_%C3%81lvarez_2022.jpg/640px-Juli%C3%A1n_%C3%81lvarez_2022.jpg",
-        description: "Argentine forward known for his movement, finishing, pressing and ability to play multiple attacking roles."
-    },
-    {
-        name: "Anthony Gordon",
-        nationality: "England",
-        position: "Left Winger",
-        club: "Newcastle United",
-        clubLogo: "https://upload.wikimedia.org/wikipedia/en/5/56/Newcastle_United_Logo.svg",
-        photo: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Anthony_Gordon_2022.jpg/640px-Anthony_Gordon_2022.jpg",
-        description: "English winger who combines speed, direct running and aggressive attacking play."
-    },
-    {
-        name: "João Pedro",
-        nationality: "Brazil",
-        position: "Forward",
-        club: "Chelsea",
-        clubLogo: "https://upload.wikimedia.org/wikipedia/en/c/cc/Chelsea_FC.svg",
-        photo: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Joao_Pedro_2024.jpg/640px-Joao_Pedro_2024.jpg",
-        description: "Brazilian attacker capable of playing as a striker or in wider attacking positions."
-    },
-    {
-        name: "Pedri",
-        nationality: "Spain",
-        position: "Central Midfielder",
-        club: "FC Barcelona",
-        clubLogo: "https://upload.wikimedia.org/wikipedia/en/4/47/FC_Barcelona_%28crest%29.svg",
-        photo: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Pedri_2022.jpg/640px-Pedri_2022.jpg",
-        description: "One of Barcelona's most technically gifted midfielders."
-    },
-    {
-        name: "Hamza Abdelkarim",
-        nationality: "Morocco",
-        position: "Forward",
-        club: "FC Barcelona",
-        clubLogo: "https://upload.wikimedia.org/wikipedia/en/4/47/FC_Barcelona_%28crest%29.svg",
-        photo: "https://via.placeholder.com/640x800/172f55/ffffff?text=Hamza+Abdelkarim",
-        description: "Young attacking player who has attracted attention with his performances and potential."
-    }
-];
-/* =========================================
-   CLUB LOGOS
-   ========================================= */
-const clubLogos = {
-    "Racing Santander":
-        "https://upload.wikimedia.org/wikipedia/en/2/2a/Racing_de_Santander_crest.svg",
-    "Rayo Vallecano":
-        "https://upload.wikimedia.org/wikipedia/en/1/1f/Rayo_Vallecano_logo.svg",
-    "Málaga":
-        "https://upload.wikimedia.org/wikipedia/en/5/5c/Malaga_CF.svg",
-    "Levante":
-        "https://upload.wikimedia.org/wikipedia/en/6/6e/Levante_UD_logo.svg",
-    "FC Barcelona":
-        "https://upload.wikimedia.org/wikipedia/en/4/47/FC_Barcelona_%28crest%29.svg",
-    "Atlético Madrid":
-        "https://upload.wikimedia.org/wikipedia/en/f/f4/Atletico_Madrid_2017_logo.svg",
-    "Newcastle United":
-        "https://upload.wikimedia.org/wikipedia/en/5/56/Newcastle_United_Logo.svg",
-    "Chelsea":
-        "https://upload.wikimedia.org/wikipedia/en/c/cc/Chelsea_FC.svg"
+/* =========================================================
+   DATA API
+   ========================================================= */
+const API =
+"https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1";
+/* =========================================================
+   CLUBS
+   Logos are loaded from ESPN team data when possible.
+   Fallback logos are included for important clubs.
+   ========================================================= */
+const clubFallbacks = {
+"Barcelona":
+"https://a.espncdn.com/i/teamlogos/soccer/500/83.png",
+"Real Madrid":
+"https://a.espncdn.com/i/teamlogos/soccer/500/86.png",
+"Atletico Madrid":
+"https://a.espncdn.com/i/teamlogos/soccer/500/1068.png",
+"Sevilla":
+"https://a.espncdn.com/i/teamlogos/soccer/500/243.png",
+"Real Betis":
+"https://a.espncdn.com/i/teamlogos/soccer/500/244.png",
+"Valencia":
+"https://a.espncdn.com/i/teamlogos/soccer/500/103.png",
+"Villarreal":
+"https://a.espncdn.com/i/teamlogos/soccer/500/102.png",
+"Rayo Vallecano":
+"https://a.espncdn.com/i/teamlogos/soccer/500/2688.png",
+"Levante":
+"https://a.espncdn.com/i/teamlogos/soccer/500/1538.png"
 };
-/* =========================================
-   DISPLAY PLAYERS
-   ========================================= */
-const playersGrid = document.getElementById("playersGrid");
-const searchInput = document.getElementById("searchInput");
-const noResults = document.getElementById("noResults");
-function displayPlayers(list) {
-    playersGrid.innerHTML = "";
-    if (list.length === 0) {
-        noResults.style.display = "block";
-        return;
-    }
-    noResults.style.display = "none";
-    list.forEach((player, index) => {
-        const card = document.createElement("div");
-        card.className = "player-card";
-        card.innerHTML = `
-            <img
-                class="player-photo"
-                src="${player.photo}"
-                alt="${player.name}"
-                onerror="this.src='https://via.placeholder.com/640x800/172f55/ffffff?text=Player'"
-            >
-            <div class="player-info">
-                <div class="player-name">
-                    ${player.name}
-                </div>
-                <div class="player-position">
-                    ${player.position}
-                </div>
-                <div class="club-small">
-                    <img
-                        class="club-logo"
-                        src="${player.clubLogo}"
-                        alt="${player.club}"
-                        onerror="this.style.display='none'"
-                    >
-                    ${player.club}
-                </div>
-            </div>
-        `;
-        card.addEventListener("click", () => {
-            openPlayer(player);
-        });
-        playersGrid.appendChild(card);
-    });
+/* =========================================================
+   LOCAL PLAYER DATA
+   This is a starter database.
+   The site architecture is ready for the complete squads.
+   ========================================================= */
+const players = [
+{
+name:"Lamine Yamal",
+nationality:"Spain 🇪🇸",
+position:"Right Winger",
+club:"Barcelona",
+photo:"https://a.espncdn.com/i/headshots/soccer/players/full/362663.png",
+description:"Barcelona winger known for creativity, dribbling and chance creation."
+},
+{
+name:"Pedri",
+nationality:"Spain 🇪🇸",
+position:"Midfielder",
+club:"Barcelona",
+photo:"https://a.espncdn.com/i/headshots/soccer/players/full/250456.png",
+description:"Technical midfielder known for passing, vision and controlling the game."
+},
+{
+name:"Raphinha",
+nationality:"Brazil 🇧🇷",
+position:"Left Winger",
+club:"Barcelona",
+photo:"https://a.espncdn.com/i/headshots/soccer/players/full/231793.png",
+description:"Brazilian winger with pace, dribbling and attacking ability."
+},
+{
+name:"Vinícius Júnior",
+nationality:"Brazil 🇧🇷",
+position:"Left Winger",
+club:"Real Madrid",
+photo:"https://a.espncdn.com/i/headshots/soccer/players/full/231177.png",
+description:"Brazilian forward known for speed, dribbling and direct attacking play."
+},
+{
+name:"Kylian Mbappé",
+nationality:"France 🇫🇷",
+position:"Forward",
+club:"Real Madrid",
+photo:"https://a.espncdn.com/i/headshots/soccer/players/full/231388.png",
+description:"French forward known for explosive pace and finishing."
+},
+{
+name:"Antoine Griezmann",
+nationality:"France 🇫🇷",
+position:"Forward",
+club:"Atletico Madrid",
+photo:"https://a.espncdn.com/i/headshots/soccer/players/full/154108.png",
+description:"Experienced French attacker known for technique, movement and finishing."
+},
+{
+name:"Ferran Torres",
+nationality:"Spain 🇪🇸",
+position:"Forward",
+club:"Barcelona",
+photo:"https://a.espncdn.com/i/headshots/soccer/players/full/233959.png",
+description:"Spanish forward capable of playing across the attacking line."
 }
-/* =========================================
-   SEARCH
-   ========================================= */
-searchInput.addEventListener("input", function () {
-    const search = this.value.toLowerCase().trim();
-    const filteredPlayers = players.filter(player =>
-        player.name.toLowerCase().includes(search)
-    );
-    displayPlayers(filteredPlayers);
+];
+/* =========================================================
+   NAVIGATION
+   ========================================================= */
+const navButtons =
+document.querySelectorAll(".nav-btn");
+navButtons.forEach(btn=>{
+btn.addEventListener("click",()=>{
+goTo(btn.dataset.page);
 });
-/* =========================================
-   OPEN PLAYER
-   ========================================= */
-function openPlayer(player) {
-    document.getElementById("playersPage").style.display = "none";
-    document.getElementById("playerPage").style.display = "block";
-    document.getElementById("profilePhoto").src = player.photo;
-    document.getElementById("profilePhoto").alt = player.name;
-    document.getElementById("profileName").textContent = player.name;
-    document.getElementById("profileNationality").textContent = player.nationality;
-    document.getElementById("profilePosition").textContent = player.position;
-    document.getElementById("profileClub").textContent = player.club;
-    document.getElementById("profileDescription").textContent = player.description;
-    document.getElementById("profileClubLogo").src =
-        clubLogos[player.club] || player.clubLogo;
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-    });
+});
+function goTo(page){
+document.querySelectorAll(".page")
+.forEach(p=>p.classList.remove("active"));
+const target =
+document.getElementById(page);
+if(target){
+target.classList.add("active");
 }
-/* =========================================
-   BACK TO PLAYERS
-   ========================================= */
-function showPlayers() {
-    document.getElementById("playerPage").style.display = "none";
-    document.getElementById("playersPage").style.display = "block";
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-    });
+navButtons.forEach(btn=>{
+btn.classList.toggle(
+"active",
+btn.dataset.page===page
+);
+});
+window.scrollTo({
+top:0,
+behavior:"smooth"
+});
 }
-/* =========================================
-   START
-   ========================================= */
+/* =========================================================
+   FORMAT DATE
+   ========================================================= */
+function formatDate(date){
+if(!date) return "";
+const d = new Date(date);
+return d.toLocaleDateString("ru-RU",{
+day:"2-digit",
+month:"2-digit",
+year:"numeric"
+});
+}
+function formatTime(date){
+if(!date) return "";
+const d = new Date(date);
+return d.toLocaleTimeString("ru-RU",{
+hour:"2-digit",
+minute:"2-digit"
+});
+}
+/* =========================================================
+   TEAM LOGO
+   ========================================================= */
+function teamLogo(team){
+if(!team) return "";
+if(team.logo){
+return team.logo;
+}
+if(clubFallbacks[team.displayName]){
+return clubFallbacks[team.displayName];
+}
+return "https://via.placeholder.com/100?text=FC";
+}
+/* =========================================================
+   MATCH CARD
+   ========================================================= */
+function createMatch(event){
+const comp =
+event.competitions?.[0];
+if(!comp) return "";
+const home =
+comp.competitors?.find(
+x=>x.homeAway==="home"
+);
+const away =
+comp.competitors?.find(
+x=>x.homeAway==="away"
+);
+if(!home || !away) return "";
+const homeName =
+home.team?.displayName || "Home";
+const awayName =
+away.team?.displayName || "Away";
+const homeLogo =
+teamLogo(home.team);
+const awayLogo =
+teamLogo(away.team);
+const date =
+event.date;
+let score = "-";
+if(
+home.score !== undefined &&
+away.score !== undefined
+){
+score =
+`${home.score} : ${away.score}`;
+}
+let status =
+event.status?.type?.shortDetail ||
+"";
+if(event.status?.type?.completed){
+status="FT";
+}
+return `
+<div class="match-card">
+<div class="match-top">
+<span>${formatDate(date)}</span>
+<span>${formatTime(date)}</span>
+</div>
+<div class="match-teams">
+<div class="team">
+<img src="${homeLogo}"
+onerror="this.src='https://via.placeholder.com/50'">
+<span>${homeName}</span>
+</div>
+<div>
+<div class="score">${score}</div>
+<div class="match-status">${status}</div>
+</div>
+<div class="team away">
+<span>${awayName}</span>
+<img src="${awayLogo}"
+onerror="this.src='https://via.placeholder.com/50'">
+</div>
+</div>
+</div>
+`;
+}
+/* =========================================================
+   LOAD MATCHES
+   ========================================================= */
+async function loadMatches(){
+const containers = [
+document.getElementById("homeMatches"),
+document.getElementById("allMatches")
+];
+try{
+const response =
+await fetch(`${API}/scoreboard?limit=100`);
+if(!response.ok)
+throw new Error("API error");
+const data =
+await response.json();
+const events =
+data.events || [];
+if(!events.length){
+containers.forEach(c=>{
+c.innerHTML =
+'<div class="loading">Матчи пока не найдены.</div>';
+});
+return;
+}
+const html =
+events.map(createMatch).join("");
+containers[0].innerHTML =
+events.slice(0,9)
+.map(createMatch)
+.join("");
+containers[1].innerHTML =
+html;
+}catch(error){
+containers.forEach(c=>{
+if(c){
+c.innerHTML = `
+<div class="error">
+Не удалось загрузить матчи.
+Проверь подключение к интернету и обнови страницу.
+</div>
+`;
+}
+});
+}
+}
+/* =========================================================
+   LOAD STANDINGS
+   ========================================================= */
+async function loadStandings(){
+const box =
+document.getElementById("standings");
+try{
+const response =
+await fetch(`${API}/standings`);
+if(!response.ok)
+throw new Error();
+const data =
+await response.json();
+let entries = [];
+if(data.children){
+data.children.forEach(group=>{
+if(group.standings?.entries){
+entries.push(...group.standings.entries);
+}
+});
+}
+if(!entries.length &&
+data.standings?.entries){
+entries =
+data.standings.entries;
+}
+if(!entries.length){
+box.innerHTML =
+'<div class="loading">Таблица пока недоступна.</div>';
+return;
+}
+let html = `
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Club</th>
+<th>P</th>
+<th>W</th>
+<th>D</th>
+<th>L</th>
+<th>GF</th>
+<th>GA</th>
+<th>GD</th>
+<th>PTS</th>
+</tr>
+</thead>
+<tbody>
+`;
+entries.forEach((entry,index)=>{
+const team =
+entry.team || {};
+const stats = {};
+(entry.stats || []).forEach(s=>{
+stats[s.name] = s.value;
+});
+const wins =
+stats.wins ?? "-";
+const draws =
+stats.ties ?? "-";
+const losses =
+stats.losses ?? "-";
+const played =
+stats.gamesPlayed ?? "-";
+const gf =
+stats.pointsFor ?? stats.goalsFor ?? "-";
+const ga =
+stats.pointsAgainst ?? stats.goalsAgainst ?? "-";
+const gd =
+stats.pointDifferential ?? stats.goalDifference ?? "-";
+const pts =
+stats.points ?? "-";
+let cls="";
+if(index<4) cls="top4";
+if(index>=17) cls="relegation";
+html += `
+<tr class="${cls}">
+<td class="position">${index+1}</td>
+<td>
+<div class="club-name">
+<img
+src="${teamLogo(team)}"
+onerror="this.src='https://via.placeholder.com/40'"
+>
+<span>
+${team.displayName || team.name || "Club"}
+</span>
+</div>
+</td>
+<td>${played}</td>
+<td>${wins}</td>
+<td>${draws}</td>
+<td>${losses}</td>
+<td>${gf}</td>
+<td>${ga}</td>
+<td>${gd}</td>
+<td><b>${pts}</b></td>
+</tr>
+`;
+});
+html += `
+</tbody>
+</table>
+`;
+box.innerHTML = html;
+}catch(error){
+box.innerHTML = `
+<div class="error">
+Не удалось загрузить таблицу.
+</div>
+`;
+}
+}
+/* =========================================================
+   CLUBS
+   ========================================================= */
+async function loadClubs(){
+const grid =
+document.getElementById("clubsGrid");
+try{
+const response =
+await fetch(`${API}/teams?limit=50`);
+if(!response.ok)
+throw new Error();
+const data =
+await response.json();
+const teams =
+data.sports?.[0]?.leagues?.[0]?.teams || [];
+if(!teams.length){
+loadFallbackClubs();
+return;
+}
+grid.innerHTML =
+teams.map(item=>{
+const team =
+item.team;
+return `
+<div class="club-card">
+<img
+src="${teamLogo(team)}"
+onerror="this.src='https://via.placeholder.com/80'"
+>
+<h3>
+${team.displayName}
+</h3>
+</div>
+`;
+}).join("");
+}catch(error){
+loadFallbackClubs();
+}
+}
+/* =========================================================
+   FALLBACK CLUBS
+   ========================================================= */
+function loadFallbackClubs(){
+const names = [
+"Alavés",
+"Athletic Club",
+"Atletico Madrid",
+"Barcelona",
+"Real Betis",
+"Celta",
+"Elche",
+"Espanyol",
+"Getafe",
+"Levante",
+"Málaga",
+"Osasuna",
+"Racing Santander",
+"Rayo Vallecano",
+"Real Madrid",
+"Real Sociedad",
+"Sevilla",
+"Valencia",
+"Villarreal",
+"Deportivo"
+];
+document.getElementById("clubsGrid").innerHTML =
+names.map(name=>`
+<div class="club-card">
+<img
+src="${clubFallbacks[name] || 'https://via.placeholder.com/80'}"
+onerror="this.src='https://via.placeholder.com/80'"
+>
+<h3>${name}</h3>
+</div>
+`).join("");
+}
+/* =========================================================
+   PLAYERS
+   ========================================================= */
+function displayPlayers(list){
+const grid =
+document.getElementById("playersGrid");
+if(!list.length){
+grid.innerHTML =
+'<div class="loading">Игрок не найден.</div>';
+return;
+}
+grid.innerHTML =
+list.map((player,index)=>`
+<div class="player-card"
+onclick="openPlayer(${index})">
+<img
+src="${player.photo}"
+alt="${player.name}"
+onerror="this.src='https://via.placeholder.com/500x650?text=Player'"
+>
+<div class="player-info">
+<div class="player-name">
+${player.name}
+</div>
+<div class="player-meta">
+${player.nationality} • ${player.position}
+</div>
+<div class="club-tag">
+<img
+src="${clubFallbacks[player.club] || 'https://via.placeholder.com/30'}"
+>
+<span>${player.club}</span>
+</div>
+</div>
+</div>
+`).join("");
+}
+/* =========================================================
+   PLAYER PROFILE
+   ========================================================= */
+function openPlayer(index){
+const player =
+players[index];
+if(!player) return;
+document.getElementById("profilePhoto").src =
+player.photo;
+document.getElementById("profileName").textContent =
+player.name;
+document.getElementById("profileNationality").textContent =
+player.nationality;
+document.getElementById("profilePosition").textContent =
+player.position;
+document.getElementById("profileClub").textContent =
+player.club;
+document.getElementById("profileClubLogo").src =
+clubFallbacks[player.club] ||
+"https://via.placeholder.com/40";
+document.getElementById("profileDescription").textContent =
+player.description;
+goTo("playerProfile");
+}
+/* =========================================================
+   SEARCH
+   ========================================================= */
+document
+.getElementById("playerSearch")
+.addEventListener("input",function(){
+const query =
+this.value.toLowerCase().trim();
+const filtered =
+players.filter(player=>
+player.name
+.toLowerCase()
+.includes(query)
+);
+displayPlayers(filtered);
+});
+/* =========================================================
+   INITIALIZATION
+   ========================================================= */
 displayPlayers(players);
+loadMatches();
+loadStandings();
+loadClubs();
 </script>
 </body>
 </html>
