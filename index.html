@@ -2,458 +2,490 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>BARQÉLIA — La Liga 2026/27</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>BARQÉLIA</title>
+
 <style>
-*{box-sizing:border-box}
-html{
-scroll-behavior:smooth
+
+*{
+    box-sizing:border-box;
 }
+
 body{
-margin:0;
-font-family:Inter,Arial,Helvetica,sans-serif;
-background:#f5f5f7;
-color:#151515
+    margin:0;
+    font-family:Arial,Helvetica,sans-serif;
+    background:#f4f4f6;
+    color:#171717;
 }
+
 header{
-position:sticky;
-top:0;
-z-index:100;
-background:#c8102e;
-color:white;
-box-shadow:0 4px 20px rgba(0,0,0,.18)
+    background:#cf1235;
+    color:white;
+    padding:18px;
+    position:sticky;
+    top:0;
+    z-index:100;
 }
-.nav{
-max-width:1250px;
-margin:auto;
-padding:15px 20px;
-display:flex;
-align-items:center;
-justify-content:space-between;
-gap:20px
+
+.header{
+    max-width:1100px;
+    margin:auto;
 }
+
 .logo{
-font-size:26px;
-font-weight:950;
-letter-spacing:-1.5px
+    font-size:30px;
+    font-weight:900;
+    margin-bottom:14px;
 }
-.logo span{
-color:#ffd8df
-}
+
 nav{
-display:flex;
-gap:5px;
-overflow-x:auto
+    display:flex;
+    gap:8px;
+    overflow-x:auto;
 }
+
 nav button{
-border:0;
-background:transparent;
-color:white;
-padding:9px 13px;
-border-radius:8px;
-font-weight:700;
-cursor:pointer;
-white-space:nowrap
+    border:0;
+    background:transparent;
+    color:white;
+    font-size:15px;
+    padding:9px 11px;
+    border-radius:8px;
+    white-space:nowrap;
 }
-nav button:hover{
-background:rgba(255,255,255,.15)
+
+nav button:active{
+    background:#ffffff33;
 }
+
 main{
-max-width:1250px;
-margin:auto;
-padding:20px
+    max-width:1100px;
+    margin:auto;
+    padding:18px;
 }
+
 .hero{
-background:
-linear-gradient(135deg,#790018,#d9163c);
-color:white;
-border-radius:26px;
-padding:60px 35px;
-margin-bottom:25px
+    background:linear-gradient(135deg,#8c0020,#df1640);
+    color:white;
+    border-radius:22px;
+    padding:42px 25px;
+    margin-bottom:20px;
 }
+
 .hero small{
-font-size:11px;
-font-weight:800;
-letter-spacing:3px
+    font-weight:bold;
+    letter-spacing:2px;
 }
+
 .hero h1{
-font-size:clamp(55px,9vw,95px);
-line-height:.85;
-margin:18px 0
+    font-size:65px;
+    margin:18px 0;
 }
+
 .hero p{
-max-width:680px;
-line-height:1.65;
-color:#ffe9ed
+    line-height:1.6;
 }
+
 .hero button{
-border:0;
-background:white;
-color:#c8102e;
-font-weight:800;
-padding:14px 19px;
-border-radius:9px;
-cursor:pointer
+    border:0;
+    background:white;
+    color:#cf1235;
+    padding:13px 17px;
+    border-radius:9px;
+    font-weight:bold;
 }
-section{
-margin-top:50px;
-scroll-margin-top:100px
-}
-h2{
-font-size:32px;
-margin:0 0 5px
-}
-.sub{
-color:#777;
-font-size:13px;
-margin-bottom:18px
-}
+
 .stats{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:12px
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:10px;
 }
+
 .stat{
-background:white;
-border:1px solid #e2e2e2;
-border-radius:16px;
-padding:20px
+    background:white;
+    border:1px solid #ddd;
+    border-radius:15px;
+    padding:18px;
 }
-.stat b{
-display:block;
-font-size:31px;
-color:#c8102e;
-margin-bottom:5px
+
+.stat strong{
+    display:block;
+    color:#cf1235;
+    font-size:30px;
+    margin-bottom:5px;
 }
+
+section{
+    margin-top:48px;
+    scroll-margin-top:120px;
+}
+
+h2{
+    font-size:34px;
+    margin:0 0 6px;
+}
+
+.subtitle{
+    color:#777;
+    margin-bottom:15px;
+}
+
 .search{
-width:100%;
-padding:15px;
-border:1px solid #ddd;
-border-radius:11px;
-font-size:14px;
-outline:none;
-margin-bottom:12px
+    width:100%;
+    padding:15px;
+    border:1px solid #ccc;
+    border-radius:10px;
+    font-size:16px;
+    background:white;
+    margin-bottom:14px;
 }
-.search:focus{
-border-color:#c8102e;
-box-shadow:0 0 0 3px rgba(200,16,46,.08)
-}
+
 .filters{
-display:flex;
-gap:8px;
-overflow-x:auto;
-margin-bottom:16px
+    display:flex;
+    gap:7px;
+    overflow-x:auto;
+    margin-bottom:15px;
 }
+
 .filter{
-border:1px solid #ddd;
-background:white;
-padding:9px 14px;
-border-radius:30px;
-font-weight:700;
-cursor:pointer;
-white-space:nowrap
+    border:1px solid #ddd;
+    background:white;
+    padding:9px 13px;
+    border-radius:25px;
+    white-space:nowrap;
+    font-weight:bold;
 }
+
 .filter.active{
-background:#c8102e;
-color:white;
-border-color:#c8102e
+    background:#cf1235;
+    color:white;
+    border-color:#cf1235;
 }
+
 .grid{
-display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:12px
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:12px;
 }
+
 .card{
-background:white;
-border:1px solid #e2e2e2;
-border-radius:16px;
-padding:18px
+    background:white;
+    border:1px solid #ddd;
+    border-radius:15px;
+    padding:16px;
 }
+
 .club{
-cursor:pointer;
-transition:.18s
+    display:flex;
+    align-items:center;
+    gap:12px;
 }
-.club:hover{
-transform:translateY(-4px);
-border-color:#c8102e;
-box-shadow:0 8px 25px rgba(0,0,0,.07)
+
+.logoImg{
+    width:55px;
+    height:55px;
+    object-fit:contain;
 }
-.club-head{
-display:flex;
-align-items:center;
-gap:14px
-}
-.club-logo{
-width:58px;
-height:58px;
-object-fit:contain;
-background:#fafafa;
-border-radius:12px;
-padding:6px
-}
+
 .club h3{
-font-size:14px;
-margin:0 0 4px
+    font-size:14px;
+    margin:0 0 5px;
 }
-.club p{
-font-size:11px;
-color:#777;
-margin:0
+
+.club small{
+    color:#777;
 }
+
 .players{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:12px
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:12px;
 }
+
 .player{
-display:flex;
-gap:14px;
-align-items:flex-start;
-transition:.15s
+    display:flex;
+    gap:12px;
 }
-.player:hover{
-border-color:#c8102e
+
+.playerPhoto{
+    width:70px;
+    height:70px;
+    border-radius:12px;
+    object-fit:cover;
+    background:#ffecef;
+    flex-shrink:0;
 }
-.player-photo{
-width:76px;
-height:76px;
-border-radius:14px;
-object-fit:cover;
-background:#f1f1f1;
-flex:none
-}
+
 .initials{
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:20px;
-font-weight:900;
-color:#c8102e;
-background:#fff0f2
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color:#cf1235;
+    font-weight:bold;
+    font-size:20px;
 }
+
 .player h3{
-font-size:14px;
-margin:0 0 4px
+    margin:0 0 4px;
+    font-size:14px;
 }
-.player-club{
-font-size:11px;
-color:#777
+
+.clubName{
+    color:#777;
+    font-size:11px;
 }
-.badge{
-display:inline-block;
-margin-top:8px;
-padding:5px 8px;
-border-radius:6px;
-font-size:9px;
-font-weight:800;
-background:#fff0f2;
-color:#c8102e
+
+.position{
+    display:inline-block;
+    margin-top:7px;
+    background:#fff0f2;
+    color:#cf1235;
+    padding:5px 7px;
+    border-radius:6px;
+    font-size:9px;
+    font-weight:bold;
 }
-.player-info{
-font-size:10px;
-color:#777;
-margin-top:7px
-}
+
 .matches{
-display:grid;
-grid-template-columns:repeat(2,1fr);
-gap:12px
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:12px;
 }
-.match-top{
-display:flex;
-justify-content:space-between;
-font-size:10px;
-font-weight:700;
-color:#888
+
+.matchTop{
+    display:flex;
+    justify-content:space-between;
+    color:#777;
+    font-size:10px;
 }
-.match-top .upcoming{
-color:#c8102e
-}
+
 .teams{
-display:grid;
-grid-template-columns:1fr auto 1fr;
-gap:12px;
-align-items:center;
-text-align:center;
-margin-top:18px
+    display:grid;
+    grid-template-columns:1fr auto 1fr;
+    align-items:center;
+    text-align:center;
+    gap:8px;
+    margin-top:18px;
 }
-.team-logo{
-width:50px;
-height:50px;
-object-fit:contain;
-display:block;
-margin:0 auto 7px
+
+.teamLogo{
+    width:48px;
+    height:48px;
+    object-fit:contain;
 }
-.team-name{
-font-size:11px;
-font-weight:800
+
+.team{
+    font-size:11px;
+    font-weight:bold;
 }
+
 .score{
-font-size:22px;
-font-weight:950
+    font-size:20px;
+    font-weight:900;
 }
-.scorers{
-margin-top:14px;
-border-top:1px solid #eee;
-padding-top:11px;
-font-size:11px;
-line-height:1.6
+
+.tableWrap{
+    overflow-x:auto;
+    background:white;
+    border:1px solid #ddd;
+    border-radius:15px;
 }
-.tablebox{
-background:white;
-border:1px solid #ddd;
-border-radius:16px;
-overflow:auto
-}
+
 table{
-width:100%;
-border-collapse:collapse;
-min-width:700px
+    border-collapse:collapse;
+    width:100%;
+    min-width:650px;
 }
+
 th,td{
-padding:13px 10px;
-border-bottom:1px solid #eee;
-text-align:center;
-font-size:12px
+    padding:12px 9px;
+    border-bottom:1px solid #eee;
+    text-align:center;
+    font-size:12px;
 }
+
 th{
-font-size:10px;
-color:#777
+    color:#777;
+    font-size:10px;
 }
-th:nth-child(2),
-td:nth-child(2){
-text-align:left
+
+.clubCell{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    text-align:left;
+    font-weight:bold;
 }
-.table-team{
-display:flex;
-align-items:center;
-gap:9px;
-font-weight:800
+
+.tableLogo{
+    width:27px;
+    height:27px;
+    object-fit:contain;
 }
-.table-logo{
-width:29px;
-height:29px;
-object-fit:contain
-}
+
 .points{
-font-weight:950;
-color:#c8102e
+    color:#cf1235;
+    font-weight:bold;
 }
+
 .empty{
-grid-column:1/-1;
-background:white;
-border:1px solid #ddd;
-border-radius:15px;
-padding:30px;
-text-align:center;
-color:#777
+    background:white;
+    border:1px solid #ddd;
+    border-radius:15px;
+    padding:25px;
+    text-align:center;
+    color:#777;
 }
+
 footer{
-margin-top:70px;
-padding:45px 20px;
-border-top:1px solid #ddd;
-text-align:center;
-font-size:11px;
-color:#888
+    margin-top:60px;
+    border-top:1px solid #ddd;
+    text-align:center;
+    padding:35px;
+    color:#888;
+    font-size:11px;
 }
-footer b{
-color:#c8102e
+
+@media(max-width:800px){
+
+    .grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .players{
+        grid-template-columns:1fr;
+    }
+
 }
-@media(max-width:900px){
-.grid{
-grid-template-columns:repeat(2,1fr)
+
+@media(max-width:600px){
+
+    main{
+        padding:12px;
+    }
+
+    .stats{
+        grid-template-columns:1fr;
+    }
+
+    .grid{
+        grid-template-columns:1fr;
+    }
+
+    .matches{
+        grid-template-columns:1fr;
+    }
+
+    .hero h1{
+        font-size:55px;
+    }
+
 }
-.players{
-grid-template-columns:repeat(2,1fr)
-}
-}
-@media(max-width:650px){
-.nav{
-display:block
-}
-nav{
-margin-top:10px
-}
-main{
-padding:12px
-}
-.hero{
-padding:45px 25px
-}
-.stats{
-grid-template-columns:1fr
-}
-.grid,
-.players,
-.matches{
-grid-template-columns:1fr
-}
-}
+
 </style>
 </head>
+
 <body>
+
 <header>
-<div class="nav">
+
+<div class="header">
+
 <div class="logo">
-BARQÉ<span>LIA</span>
+BARQÉLIA
 </div>
+
 <nav>
 
-Home
-Matches
-Table
-Clubs
-Players
+<button onclick="go('home')">Home</button>
+<button onclick="go('matches')">Matches</button>
+<button onclick="go('table')">Table</button>
+<button onclick="go('clubs')">Clubs</button>
+<button onclick="go('players')">Players</button>
 
 </nav>
+
 </div>
+
 </header>
+
+
 <main>
+
+
 <section id="home">
+
 <div class="hero">
 
-LALIGA EA SPORTS • 2026/27
+<small>LALIGA EA SPORTS • 2026/27</small>
 
 <h1>BARQÉLIA</h1>
+
 <p>
-The independent La Liga football hub.
-Explore clubs, players, fixtures and the league table
-in one clean football dashboard.
+Your La Liga football hub.
+Find players, explore clubs,
+check fixtures and follow the league table.
 </p>
+
 <button onclick="go('players')">
-Explore Players
+Find a player
 </button>
+
 </div>
+
+
 <div class="stats">
+
 <div class="stat">
-<b>20</b>
+<strong>20</strong>
 La Liga clubs
 </div>
+
 <div class="stat">
-<b>380</b>
+<strong>380</strong>
 League matches
 </div>
+
 <div class="stat">
-<b id="playerCount">0</b>
-Players in database
+<strong id="playerNumber">0</strong>
+Players
 </div>
+
 </div>
+
 </section>
+
+
+
 <section id="matches">
+
 <h2>Matches</h2>
-<div class="sub">
-La Liga 2026/27 fixtures
+
+<div class="subtitle">
+La Liga 2026/27
 </div>
-<div class="matches" id="matchesBox"></div>
+
+<div id="matchesList" class="matches"></div>
+
 </section>
+
+
+
 <section id="table">
+
 <h2>League Table</h2>
-<div class="sub">
+
+<div class="subtitle">
 2026/27 standings
 </div>
-<div class="tablebox">
+
+<div class="tableWrap">
+
 <table>
+
 <thead>
+
 <tr>
 <th>#</th>
 <th>Club</th>
@@ -466,520 +498,782 @@ La Liga 2026/27 fixtures
 <th>GD</th>
 <th>PTS</th>
 </tr>
+
 </thead>
-<tbody id="tableBody"></tbody>
+
+<tbody id="tableList"></tbody>
+
 </table>
+
 </div>
+
 </section>
+
+
+
 <section id="clubs">
+
 <h2>Clubs</h2>
-<div class="sub">
+
+<div class="subtitle">
 All 20 La Liga clubs
 </div>
 
 <input
-id=“clubSearch”
-class=“search”
-placeholder=“Search club…”
-oninput=“renderClubs()”
+id="clubSearch"
+class="search"
+type="search"
+placeholder="Search clubs..."
+>
 
-<div id="clubsBox" class="grid"></div>
+<div id="clubsList" class="grid"></div>
+
 </section>
+
+
+
 <section id="players">
+
 <h2>Players</h2>
-<div class="sub">
-Search by player name, club or nationality
+
+<div class="subtitle">
+Search for a player
 </div>
 
 <input
-id=“playerSearch”
-class=“search”
-placeholder=“Try: Lamine Yamal, Pedri, Mbappé…”
-oninput=“renderPlayers()”
+id="playerSearch"
+class="search"
+type="search"
+placeholder="Example: Lamine Yamal"
+>
 
 <div class="filters">
 
+<button class="filter active" data-pos="All">
 All
+</button>
+
+<button class="filter" data-pos="Goalkeeper">
 Goalkeepers
+</button>
+
+<button class="filter" data-pos="Defender">
 Defenders
+</button>
+
+<button class="filter" data-pos="Midfielder">
 Midfielders
+</button>
+
+<button class="filter" data-pos="Forward">
 Forwards
+</button>
+
 </div>
-<div id="playersBox" class="players"></div>
+
+<div id="playersList" class="players"></div>
+
 </section>
+
+
 </main>
+
+
 <footer>
 
 BARQÉLIA © 2026
 
-Created by musa23
+<br><br>
+
+Created by <b>musa23</b>
 
 </footer>
+
+
 <script>
-/* =========================================
-   CLUBS
-========================================= */
-const clubs=[
-{
-name:"Athletic Club",
-code:"ATH",
-logo:"https://a.espncdn.com/i/teamlogos/soccer/500/93.png"
-},
-{
-name:"Atlético de Madrid",
-code:"ATM",
-logo:"https://a.espncdn.com/i/teamlogos/soccer/500/1068.png"
-},
-{
-name:"CA Osasuna",
-code:"OSA",
-logo:"https://a.espncdn.com/i/teamlogos/soccer/500/97.png"
-},
-{
-name:"Celta",
-code:"CEL",
-logo:"https://a.espncdn.com/i/teamlogos/soccer/500/85.png"
-},
-{
-name:"Deportivo Alavés",
-code:"ALA",
-logo:"https://a.espncdn.com/i/teamlogos/soccer/500/96.png"
-},
-{
-name:"Elche CF",
-code:"ELC",
-logo:"https://a.espncdn.com/i/teamlogos/soccer/500/3751.png"
-},
-{
-name:"FC Barcelona",
-code:"BAR",
-logo:"https://a.espncdn.com/i/teamlogos/soccer/500/83.png"
-},
-{
-name:"Getafe CF",
-code:"GET",
-logo:"https://a.espncdn.com/i/teamlogos/soccer/500/2922.png"
-},
-{
-name:"Levante UD",
-code:"LEV",
-logo:"https://a.espncdn.com/i/teamlogos/soccer/500/1530.png"
-},
-{
-name:"Málaga CF",
-code:"MGA",
-logo:"https://a.espncdn.com/i/teamlogos/soccer/500/84.png"
-},
-{
-name:"R. Racing Club",
-code:"RAC",
-logo:"https://a.espncdn.com/i/teamlogos/soccer/500/88.png"
-},
-{
-name:"Rayo Vallecano",
-code:"RAY",
-logo:"https://a.espncdn.com/i/teamlogos/soccer/500/2678.png"
-},
-{
-name:"RC Deportivo",
-code:"RCD",
-logo:"https://a.espncdn.com/i/teamlogos/soccer/500/90.png"
-},
-{
-name:"RCD Espanyol",
-code:"ESP",
-logo:"https://a.espncdn.com/i/teamlogos/soccer/500/88.png"
-},
-{
-name:"Real Betis",
-code:"BET",
-logo:"https://a.espncdn.com/i/teamlogos/soccer/500/244.png"
-},
-{
-name:"Real Madrid",
-code:"RMA",
-logo:"https://a.espncdn.com/i/teamlogos/soccer/500/86.png"
-},
-{
-name:"Real Sociedad",
-code:"RSO",
-logo:"https://a.espncdn.com/i/teamlogos/soccer/500/89.png"
-},
-{
-name:"Sevilla FC",
-code:"SEV",
-logo:"https://a.espncdn.com/i/teamlogos/soccer/500/243.png"
-},
-{
-name:"Valencia CF",
-code:"VAL",
-logo:"https://a.espncdn.com/i/teamlogos/soccer/500/94.png"
-},
-{
-name:"Villarreal CF",
-code:"VIL",
-logo:"https://a.espncdn.com/i/teamlogos/soccer/500/102.png"
-}
+
+/* =========================
+CLUBS
+========================= */
+
+const clubs = [
+
+["Athletic Club","ATH","https://a.espncdn.com/i/teamlogos/soccer/500/93.png"],
+
+["Atlético de Madrid","ATM","https://a.espncdn.com/i/teamlogos/soccer/500/1068.png"],
+
+["CA Osasuna","OSA","https://a.espncdn.com/i/teamlogos/soccer/500/97.png"],
+
+["Celta","CEL","https://a.espncdn.com/i/teamlogos/soccer/500/85.png"],
+
+["Deportivo Alavés","ALA","https://a.espncdn.com/i/teamlogos/soccer/500/96.png"],
+
+["Elche CF","ELC","https://a.espncdn.com/i/teamlogos/soccer/500/3751.png"],
+
+["FC Barcelona","BAR","https://a.espncdn.com/i/teamlogos/soccer/500/83.png"],
+
+["Getafe CF","GET","https://a.espncdn.com/i/teamlogos/soccer/500/2922.png"],
+
+["Levante UD","LEV","https://a.espncdn.com/i/teamlogos/soccer/500/1530.png"],
+
+["Málaga CF","MGA","https://a.espncdn.com/i/teamlogos/soccer/500/84.png"],
+
+["R. Racing Club","RAC","https://a.espncdn.com/i/teamlogos/soccer/500/88.png"],
+
+["Rayo Vallecano","RAY","https://a.espncdn.com/i/teamlogos/soccer/500/2678.png"],
+
+["RC Deportivo","RCD","https://a.espncdn.com/i/teamlogos/soccer/500/90.png"],
+
+["RCD Espanyol de Barcelona","ESP","https://a.espncdn.com/i/teamlogos/soccer/500/88.png"],
+
+["Real Betis","BET","https://a.espncdn.com/i/teamlogos/soccer/500/244.png"],
+
+["Real Madrid","RMA","https://a.espncdn.com/i/teamlogos/soccer/500/86.png"],
+
+["Real Sociedad","RSO","https://a.espncdn.com/i/teamlogos/soccer/500/89.png"],
+
+["Sevilla FC","SEV","https://a.espncdn.com/i/teamlogos/soccer/500/243.png"],
+
+["Valencia CF","VAL","https://a.espncdn.com/i/teamlogos/soccer/500/94.png"],
+
+["Villarreal CF","VIL","https://a.espncdn.com/i/teamlogos/soccer/500/102.png"]
+
 ];
-/* =========================================
-   PLAYERS
-========================================= */
-const players=[
-/* FC BARCELONA */
+
+
+/* =========================
+PLAYERS
+========================= */
+
+const players = [
+
 ["Lamine Yamal","FC Barcelona","Forward","Spain","https://img.a.transfermarkt.technology/portrait/big/937958-1714057251.jpg"],
-["Raphinha","FC Barcelona","Forward","Brazil","https://img.a.transfermarkt.technology/portrait/big/411295-1686217907.jpg"],
-["Ferran Torres","FC Barcelona","Forward","Spain","https://img.a.transfermarkt.technology/portrait/big/398184-1714057200.jpg"],
-["Roony Bardghji","FC Barcelona","Forward","Sweden",""],
-["Anthony Gordon","FC Barcelona","Forward","Scotland",""],
-["Karim Adeyemi","FC Barcelona","Forward","Germany",""],
-["Dani Olmo","FC Barcelona","Midfielder","Spain","https://img.a.transfermarkt.technology/portrait/big/293385-1714057180.jpg"],
+
+["Raphinha","FC Barcelona","Forward","Brazil","https://img.a.transfermarkt.technology/portrait/big/411295-1714057900.jpg"],
+
+["Ferran Torres","FC Barcelona","Forward","Spain",""],
+
+["Dani Olmo","FC Barcelona","Midfielder","Spain",""],
+
 ["Pedri","FC Barcelona","Midfielder","Spain","https://img.a.transfermarkt.technology/portrait/big/683840-1714057144.jpg"],
-["Gavi","FC Barcelona","Midfielder","Spain","https://img.a.transfermarkt.technology/portrait/big/800246-1714057220.jpg"],
-["Frenkie de Jong","FC Barcelona","Midfielder","Netherlands","https://img.a.transfermarkt.technology/portrait/big/326330-1686220042.jpg"],
+
+["Gavi","FC Barcelona","Midfielder","Spain",""],
+
+["Frenkie de Jong","FC Barcelona","Midfielder","Netherlands",""],
+
 ["Fermín López","FC Barcelona","Midfielder","Spain",""],
+
 ["Marc Casadó","FC Barcelona","Midfielder","Spain",""],
+
 ["Pau Cubarsí","FC Barcelona","Defender","Spain",""],
-["Ronald Araújo","FC Barcelona","Defender","Uruguay","https://img.a.transfermarkt.technology/portrait/big/480267-1714057054.jpg"],
-["Jules Koundé","FC Barcelona","Defender","France","https://img.a.transfermarkt.technology/portrait/big/411975-1714057071.jpg"],
+
+["Ronald Araújo","FC Barcelona","Defender","Uruguay",""],
+
+["Jules Koundé","FC Barcelona","Defender","France",""],
+
 ["Alejandro Balde","FC Barcelona","Defender","Spain",""],
-["Andreas Christensen","FC Barcelona","Defender","Denmark",""],
+
 ["Eric García","FC Barcelona","Defender","Spain",""],
+
 ["Joan García","FC Barcelona","Goalkeeper","Spain",""],
+
 ["Wojciech Szczęsny","FC Barcelona","Goalkeeper","Poland",""],
-/* REAL MADRID */
-["Kylian Mbappé","Real Madrid","Forward","France","https://img.a.transfermarkt.technology/portrait/big/342229-1714057463.jpg"],
-["Vinícius Júnior","Real Madrid","Forward","Brazil","https://img.a.transfermarkt.technology/portrait/big/371998-1714057500.jpg"],
-["Rodrygo","Real Madrid","Forward","Brazil","https://img.a.transfermarkt.technology/portrait/big/412363-1714057518.jpg"],
-["Endrick","Real Madrid","Forward","Brazil",""],
-["Gonzalo García","Real Madrid","Forward","Spain",""],
-["Jude Bellingham","Real Madrid","Midfielder","England","https://img.a.transfermarkt.technology/portrait/big/581678-1714057551.jpg"],
+
+
+["Kylian Mbappé","Real Madrid","Forward","France",""],
+
+["Vinícius Júnior","Real Madrid","Forward","Brazil",""],
+
+["Rodrygo","Real Madrid","Forward","Brazil",""],
+
+["Jude Bellingham","Real Madrid","Midfielder","England",""],
+
 ["Federico Valverde","Real Madrid","Midfielder","Uruguay",""],
+
 ["Eduardo Camavinga","Real Madrid","Midfielder","France",""],
+
 ["Aurélien Tchouaméni","Real Madrid","Midfielder","France",""],
+
 ["Arda Güler","Real Madrid","Midfielder","Türkiye",""],
+
 ["Antonio Rüdiger","Real Madrid","Defender","Germany",""],
+
 ["Éder Militão","Real Madrid","Defender","Brazil",""],
-["David Alaba","Real Madrid","Defender","Austria",""],
-["Ferland Mendy","Real Madrid","Defender","France",""],
+
 ["Trent Alexander-Arnold","Real Madrid","Defender","England",""],
+
 ["Thibaut Courtois","Real Madrid","Goalkeeper","Belgium",""],
-/* ATLÉTICO */
-["Julián Alvarez","Atlético de Madrid","Forward","Argentina","https://img.a.transfermarkt.technology/portrait/big/576024-1714057615.jpg"],
-["Antoine Griezmann","Atlético de Madrid","Forward","France","https://img.a.transfermarkt.technology/portrait/big/125781-1714057643.jpg"],
+
+
+["Julián Alvarez","Atlético de Madrid","Forward","Argentina",""],
+
+["Antoine Griezmann","Atlético de Madrid","Forward","France",""],
+
 ["Alexander Sørloth","Atlético de Madrid","Forward","Norway",""],
-["Giuliano Simeone","Atlético de Madrid","Forward","Argentina",""],
+
 ["Koke","Atlético de Madrid","Midfielder","Spain",""],
+
 ["Marcos Llorente","Atlético de Madrid","Midfielder","Spain",""],
+
 ["Rodrigo De Paul","Atlético de Madrid","Midfielder","Argentina",""],
+
 ["José María Giménez","Atlético de Madrid","Defender","Uruguay",""],
+
 ["Robin Le Normand","Atlético de Madrid","Defender","Spain",""],
-["Nahuel Molina","Atlético de Madrid","Defender","Argentina",""],
+
 ["Jan Oblak","Atlético de Madrid","Goalkeeper","Slovenia",""],
-/* ATHLETIC */
-["Nico Williams","Athletic Club","Forward","Spain","https://img.a.transfermarkt.technology/portrait/big/709187-1714057720.jpg"],
-["Iñaki Williams","Athletic Club","Forward","Ghana","https://img.a.transfermarkt.technology/portrait/big/195664-1714057742.jpg"],
+
+
+["Nico Williams","Athletic Club","Forward","Spain",""],
+
+["Iñaki Williams","Athletic Club","Forward","Ghana",""],
+
 ["Oihan Sancet","Athletic Club","Midfielder","Spain",""],
-["Mikel Vesga","Athletic Club","Midfielder","Spain",""],
+
 ["Dani Vivian","Athletic Club","Defender","Spain",""],
+
 ["Unai Simón","Athletic Club","Goalkeeper","Spain",""],
-/* BETIS */
-["Antony","Real Betis","Forward","Brazil",""],
-["Cédric Bakambu","Real Betis","Forward","DR Congo",""],
-["Isco","Real Betis","Midfielder","Spain","https://img.a.transfermarkt.technology/portrait/big/85288-1714057770.jpg"],
+
+
+["Isco","Real Betis","Midfielder","Spain",""],
+
 ["Giovani Lo Celso","Real Betis","Midfielder","Argentina",""],
-/* REAL SOCIEDAD */
-["Takefusa Kubo","Real Sociedad","Forward","Japan","https://img.a.transfermarkt.technology/portrait/big/405171-1714057800.jpg"],
-["Mikel Oyarzabal","Real Sociedad","Forward","Spain","https://img.a.transfermarkt.technology/portrait/big/351478-1714057822.jpg"],
+
+["Antony","Real Betis","Forward","Brazil",""],
+
+
+["Takefusa Kubo","Real Sociedad","Forward","Japan",""],
+
+["Mikel Oyarzabal","Real Sociedad","Forward","Spain",""],
+
 ["Martín Zubimendi","Real Sociedad","Midfielder","Spain",""],
-/* VALENCIA */
-["Hugo Duro","Valencia CF","Forward","Spain",""],
-["Javi Guerra","Valencia CF","Midfielder","Spain",""],
-["Pepelu","Valencia CF","Midfielder","Spain",""],
-/* VILLARREAL */
-["Gerard Moreno","Villarreal CF","Forward","Spain",""],
-["Ayoze Pérez","Villarreal CF","Forward","Spain",""],
-["Dani Parejo","Villarreal CF","Midfielder","Spain",""],
-/* CELTA */
+
+
 ["Iago Aspas","Celta","Forward","Spain",""],
+
 ["Borja Iglesias","Celta","Forward","Spain",""],
-/* OSASUNA */
+
+
 ["Ante Budimir","CA Osasuna","Forward","Croatia",""],
+
 ["Aimar Oroz","CA Osasuna","Midfielder","Spain",""],
-/* RAYO */
-["Álvaro García","Rayo Vallecano","Forward","Spain",""],
-["Isi Palazón","Rayo Vallecano","Forward","Spain",""],
-/* GETAFE */
-["Borja Mayoral","Getafe CF","Forward","Spain",""],
-["Mauro Arambarri","Getafe CF","Midfielder","Uruguay",""],
-/* ESPANYOL */
-["Javi Puado","RCD Espanyol","Forward","Spain",""],
-["Pol Lozano","RCD Espanyol","Midfielder","Spain",""],
-/* ALAVÉS */
-["Kike García","Deportivo Alavés","Forward","Spain",""],
-["Antonio Blanco","Deportivo Alavés","Midfielder","Spain",""],
-/* LEVANTE */
-["José Luis Morales","Levante UD","Forward","Spain",""],
-["Pablo Martínez","Levante UD","Midfielder","Spain",""],
-/* SEVILLA */
+
+
+["Hugo Duro","Valencia CF","Forward","Spain",""],
+
+["Javi Guerra","Valencia CF","Midfielder","Spain",""],
+
+
+["Gerard Moreno","Villarreal CF","Forward","Spain",""],
+
+["Ayoze Pérez","Villarreal CF","Forward","Spain",""],
+
+["Dani Parejo","Villarreal CF","Midfielder","Spain",""],
+
+
 ["Dodi Lukébakio","Sevilla FC","Forward","Belgium",""],
+
 ["Saúl Ñíguez","Sevilla FC","Midfielder","Spain",""],
-["Alexis Sánchez","Sevilla FC","Forward","Chile",""],
-/* DEPORTIVO */
+
+
+["Javi Puado","RCD Espanyol de Barcelona","Forward","Spain",""],
+
+["Pol Lozano","RCD Espanyol de Barcelona","Midfielder","Spain",""],
+
+
+["Álvaro García","Rayo Vallecano","Forward","Spain",""],
+
+["Isi Palazón","Rayo Vallecano","Forward","Spain",""],
+
+
+["Borja Mayoral","Getafe CF","Forward","Spain",""],
+
+["Mauro Arambarri","Getafe CF","Midfielder","Uruguay",""],
+
+
+["Kike García","Deportivo Alavés","Forward","Spain",""],
+
+["Antonio Blanco","Deportivo Alavés","Midfielder","Spain",""],
+
+
+["José Luis Morales","Levante UD","Forward","Spain",""],
+
+["Pablo Martínez","Levante UD","Midfielder","Spain",""],
+
+
 ["Yeremay Hernández","RC Deportivo","Forward","Spain",""],
-/* MÁLAGA */
-["Dioni","Málaga CF","Forward","Spain",""],
+
 ["David Larrubia","Málaga CF","Midfielder","Spain",""],
-/* RACING */
-["Andrés Martín","R. Racing Club","Forward","Spain",""],
-["Aritz Aldasoro","R. Racing Club","Midfielder","Spain",""]
+
+["Andrés Martín","R. Racing Club","Forward","Spain",""]
+
 ];
-/* =========================================
-   FIXTURES
-========================================= */
-const matches=[
-["15 Aug 2026","Deportivo Alavés","Getafe CF","— : —"],
-["15 Aug 2026","Sevilla FC","Rayo Vallecano","— : —"],
-["16 Aug 2026","R. Racing Club","Villarreal CF","— : —"],
-["16 Aug 2026","RCD Espanyol","Levante UD","— : —"],
-["16 Aug 2026","Celta","CA Osasuna","— : —"],
-["17 Aug 2026","RC Deportivo","Elche CF","— : —"],
-["19 Aug 2026","Atlético de Madrid","Málaga CF","— : —"],
-["25 Aug 2026","Valencia CF","Real Betis","— : —"],
-["26 Aug 2026","Real Madrid","Real Sociedad","— : —"],
-["27 Aug 2026","FC Barcelona","Athletic Club","— : —"]
+
+
+/* =========================
+MATCHES
+========================= */
+
+const matches = [
+
+["15 Aug 2026","Deportivo Alavés","Getafe CF"],
+
+["15 Aug 2026","Sevilla FC","Rayo Vallecano"],
+
+["16 Aug 2026","R. Racing Club","Villarreal CF"],
+
+["16 Aug 2026","RCD Espanyol de Barcelona","Levante UD"],
+
+["16 Aug 2026","Celta","CA Osasuna"],
+
+["17 Aug 2026","RC Deportivo","Elche CF"],
+
+["19 Aug 2026","Atlético de Madrid","Málaga CF"],
+
+["25 Aug 2026","Valencia CF","Real Betis"],
+
+["26 Aug 2026","Real Madrid","Real Sociedad"],
+
+["27 Aug 2026","FC Barcelona","Athletic Club"]
+
 ];
-/* =========================================
-   HELPERS
-========================================= */
+
+
+/* =========================
+FUNCTIONS
+========================= */
+
 function go(id){
+
 document
 .getElementById(id)
-.scrollIntoView({behavior:"smooth"});
+.scrollIntoView({
+behavior:"smooth"
+});
+
 }
-function initials(name){
-return name
-.split(" ")
-.map(x=>x[0])
-.join("")
-.substring(0,2)
-.toUpperCase();
-}
-/* =========================================
-   CLUBS
-========================================= */
-function renderClubs(){
-const query=
+
+
+/* CLUBS */
+
+function showClubs(){
+
+let search =
 document
 .getElementById("clubSearch")
 .value
 .toLowerCase();
-const result=
-clubs.filter(c=>
-c.name.toLowerCase().includes(query)
-);
-const box=
-document.getElementById("clubsBox");
-if(!result.length){
-box.innerHTML=
-`<div class="empty">No clubs found.</div>`;
-return;
-}
-box.innerHTML=
-result.map(c=>`
+
+let result =
+clubs.filter(function(club){
+
+return club[0]
+.toLowerCase()
+.includes(search);
+
+});
+
+
+let html="";
+
+result.forEach(function(club){
+
+html += `
+
 <div class="card club">
-<div class="club-head">
+
 <img
-class="club-logo"
-src="${c.logo}"
-alt="${c.name}"
-onerror="this.style.display='none'"
+class="logoImg"
+src="${club[2]}"
+alt="${club[0]}"
 >
+
 <div>
-<h3>${c.name}</h3>
-<p>${c.code} • LALIGA</p>
+
+<h3>${club[0]}</h3>
+
+<small>${club[1]} • La Liga</small>
+
 </div>
+
 </div>
+
+`;
+
+});
+
+
+if(result.length===0){
+
+html=`
+<div class="empty">
+No club found.
 </div>
-`).join("");
+`;
+
 }
-/* =========================================
-   PLAYERS
-========================================= */
-let selectedPosition="All";
-function setPosition(position,button){
-selectedPosition=position;
+
+
 document
-.querySelectorAll(".filter")
-.forEach(x=>
-x.classList.remove("active")
-);
-button.classList.add("active");
-renderPlayers();
+.getElementById("clubsList")
+.innerHTML=html;
+
 }
-function renderPlayers(){
-const query=
+
+
+/* PLAYERS */
+
+let selectedPosition="All";
+
+
+function showPlayers(){
+
+let search =
 document
 .getElementById("playerSearch")
 .value
-.toLowerCase()
-.trim();
-const result=
-players.filter(p=>{
-const text=
-`${p[0]} ${p[1]} ${p[2]} ${p[3]}`
 .toLowerCase();
-return text.includes(query)
+
+let result =
+players.filter(function(player){
+
+let text =
+player[0]+" "+
+player[1]+" "+
+player[2]+" "+
+player[3];
+
+return text
+.toLowerCase()
+.includes(search)
+
 &&
+
 (
 selectedPosition==="All"
 ||
-p[2]===selectedPosition
+player[2]===selectedPosition
 );
+
 });
-const box=
-document.getElementById("playersBox");
-if(!result.length){
-box.innerHTML=
-`<div class="empty">
-No player found.<br>
-Try another name.
-</div>`;
-return;
-}
-box.innerHTML=
-result.map(p=>{
-const photo=p[4];
-let image;
-if(photo){
+
+
+let html="";
+
+
+result.forEach(function(player){
+
+let image="";
+
+
+if(player[4]){
+
 image=`
+
 <img
-class="player-photo"
-src="${photo}"
-alt="${p[0]}"
-onerror="this.outerHTML='<div class=&quot;player-photo initials&quot;>${initials(p[0])}</div>'"
+class="playerPhoto"
+src="${player[4]}"
+alt="${player[0]}"
 >
+
 `;
+
 }else{
+
+let initials =
+player[0]
+.split(" ")
+.map(function(word){
+return word[0];
+})
+.join("")
+.substring(0,2)
+.toUpperCase();
+
 image=`
-<div class="player-photo initials">
-${initials(p[0])}
+
+<div class="playerPhoto initials">
+${initials}
 </div>
+
 `;
+
 }
-return `
+
+
+html += `
+
 <div class="card player">
+
 ${image}
+
 <div>
-<h3>${p[0]}</h3>
-<div class="player-club">
-${p[1]}
+
+<h3>${player[0]}</h3>
+
+<div class="clubName">
+${player[1]}
 </div>
-<span class="badge">
-${p[2]}
+
+<span class="position">
+${player[2]}
 </span>
-<div class="player-info">
-${p[3]}
+
+<div class="clubName">
+${player[3]}
 </div>
+
 </div>
+
 </div>
+
 `;
-}).join("");
+
+});
+
+
+if(result.length===0){
+
+html=`
+
+<div class="empty">
+
+No player found.
+
+<br><br>
+
+Try another name.
+
+</div>
+
+`;
+
+}
+
+
 document
-.getElementById("playerCount")
-.textContent=players.length;
+.getElementById("playersList")
+.innerHTML=html;
+
 }
-/* =========================================
-   TABLE
-========================================= */
-function renderTable(){
-const box=
-document.getElementById("tableBody");
-box.innerHTML=
-clubs.map((club,index)=>`
+
+
+/* TABLE */
+
+function showTable(){
+
+let html="";
+
+clubs.forEach(function(club,index){
+
+html += `
+
 <tr>
+
 <td>${index+1}</td>
+
 <td>
-<div class="table-team">
+
+<div class="clubCell">
+
 <img
-class="table-logo"
-src="${club.logo}"
-onerror="this.style.display='none'"
+class="tableLogo"
+src="${club[2]}"
 >
-${club.name}
+
+${club[0]}
+
 </div>
+
 </td>
+
 <td>0</td>
+
 <td>0</td>
+
 <td>0</td>
+
 <td>0</td>
+
 <td>0</td>
+
 <td>0</td>
+
 <td>0</td>
-<td class="points">
-0
-</td>
+
+<td class="points">0</td>
+
 </tr>
-`).join("");
-}
-/* =========================================
-   MATCHES
-========================================= */
-function getClub(name){
-return clubs.find(c=>c.name===name);
-}
-function renderMatches(){
-const box=
-document.getElementById("matchesBox");
-box.innerHTML=
-matches.map(m=>{
-const home=getClub(m[1]);
-const away=getClub(m[2]);
-return `
-<div class="card match">
-<div class="match-top">
-<span>${m[0]}</span>
-<span class="upcoming">
-UPCOMING
-</span>
-</div>
-<div class="teams">
-<div>
-<img
-class="team-logo"
-src="${home?.logo||""}"
-alt="${m[1]}"
-onerror="this.style.display='none'"
->
-<div class="team-name">
-${m[1]}
-</div>
-</div>
-<div class="score">
-${m[3]}
-</div>
-<div>
-<img
-class="team-logo"
-src="${away?.logo||""}"
-alt="${m[2]}"
-onerror="this.style.display='none'"
->
-<div class="team-name">
-${m[2]}
-</div>
-</div>
-</div>
-</div>
+
 `;
-}).join("");
+
+});
+
+
+document
+.getElementById("tableList")
+.innerHTML=html;
+
 }
-/* =========================================
-   START WEBSITE
-========================================= */
-renderClubs();
-renderPlayers();
-renderTable();
-renderMatches();
+
+
+/* MATCHES */
+
+function findClub(name){
+
+return clubs.find(function(club){
+
+return club[0]===name;
+
+});
+
+}
+
+
+function showMatches(){
+
+let html="";
+
+
+matches.forEach(function(match){
+
+let home=findClub(match[1]);
+
+let away=findClub(match[2]);
+
+
+html += `
+
+<div class="card">
+
+<div class="matchTop">
+
+<span>${match[0]}</span>
+
+<span>UPCOMING</span>
+
+</div>
+
+
+<div class="teams">
+
+<div>
+
+<img
+class="teamLogo"
+src="${home ? home[2] : ''}"
+>
+
+<div class="team">
+${match[1]}
+</div>
+
+</div>
+
+
+<div class="score">
+— : —
+</div>
+
+
+<div>
+
+<img
+class="teamLogo"
+src="${away ? away[2] : ''}"
+>
+
+<div class="team">
+${match[2]}
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+`;
+
+});
+
+
+document
+.getElementById("matchesList")
+.innerHTML=html;
+
+}
+
+
+/* =========================
+EVENTS
+========================= */
+
+document
+.getElementById("clubSearch")
+.addEventListener(
+"input",
+showClubs
+);
+
+
+document
+.getElementById("playerSearch")
+.addEventListener(
+"input",
+showPlayers
+);
+
+
+document
+.querySelectorAll(".filter")
+.forEach(function(button){
+
+button.addEventListener(
+"click",
+function(){
+
+selectedPosition =
+button.dataset.pos;
+
+
+document
+.querySelectorAll(".filter")
+.forEach(function(b){
+
+b.classList.remove("active");
+
+});
+
+
+button.classList.add("active");
+
+showPlayers();
+
+}
+);
+
+});
+
+
+/* =========================
+START
+========================= */
+
+showClubs();
+
+showPlayers();
+
+showTable();
+
+showMatches();
+
+document
+.getElementById("playerNumber")
+.innerText =
+players.length;
+
 </script>
+
 </body>
 </html>
